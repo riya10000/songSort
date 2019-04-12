@@ -111,7 +111,7 @@ public class Song {
         int feedbackInt = 0;
 
         for (int i = 0; i < people.size(); i++) {
-            if (people.get(i).getFeedback()[index] != "") {
+            if (!people.get(i).getFeedback()[index].equals("")) {
                 feedbackInt += 1;
             }
         }
@@ -133,7 +133,10 @@ public class Song {
         int[][] tempMatrix = new int[3][4];
         
         for(int i = 0; i < people.size(); i++) {
-            if (people.get(i).getHobby() == Hobby.READ && people.get(i).getFeedback()[index] != "") {
+            if (people.get(i).getHobby() == HobbyEnum.READ && people.get(i).getFeedback()[index].equals("yes")) {
+                tempMatrix[0][0] += 1;
+            }
+            if (people.get(i).getHobby() == HobbyEnum.ART && people.get(i).getFeedback()[index].equals("yes")) {
                 tempMatrix[0][0] += 1;
             }
         }
@@ -153,7 +156,7 @@ public class Song {
         int[][] tempMatrix = new int[3][4];
         
         for(int i = 0; i < people.size(); i++) {
-            if (people.get(i).getHobby() == Hobby.READ && people.get(i).getFeedback()[index + 1] != "") {
+            if (people.get(i).getHobby() == HobbyEnum.READ && people.get(i).getFeedback()[index + 1] != "") {
                 tempMatrix[0][0] += 1;
             }
         }
