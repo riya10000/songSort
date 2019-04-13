@@ -41,7 +41,6 @@ public class Song {
         String artist,
         int year,
         String genre,
-        int totalFeedback,
         ArrayList<People> people,
         int index) {
 
@@ -145,7 +144,7 @@ public class Song {
      * @param index
      *            index of song
      */
-    public int calculateFeedback(ArrayList<People> people, int index) {
+    private int calculateFeedback(ArrayList<People> people, int index) {
         int feedbackInt = 0;
 
         for (int i = 0; i < people.size(); i++) {
@@ -228,61 +227,49 @@ public class Song {
         int[][] tempMatrix = new int[3][4];
 
         for (int i = 0; i < people.size(); i++) {
-            if (people.get(i).getHobby() == HobbyEnum.READ && people.get(i)
-                .getFeedback()[index + 1].equals("yes")) {
-                tempMatrix[0][0] += 1;
-            }
-            if (people.get(i).getHobby() == HobbyEnum.ART && people.get(i)
-                .getFeedback()[index + 1].equals("yes")) {
-                tempMatrix[0][1] += 1;
-            }
-            if (people.get(i).getHobby() == HobbyEnum.SPORTS && people.get(i)
-                .getFeedback()[index + 1].equals("yes")) {
-                tempMatrix[0][2] += 1;
-            }
-            if (people.get(i).getHobby() == HobbyEnum.MUSIC && people.get(i)
-                .getFeedback()[index + 1].equals("yes")) {
-                tempMatrix[0][3] += 1;
-            }
-            if (people.get(i).getMajor() == MajorEnum.COMPSCI && people.get(i)
-                .getFeedback()[index + 1].equals("yes")) {
-                tempMatrix[1][0] += 1;
-            }
-            if (people.get(i).getMajor() == MajorEnum.OTHERENG && people.get(i)
-                .getFeedback()[index + 1].equals("yes")) {
-                tempMatrix[1][1] += 1;
-            }
-            if (people.get(i).getMajor() == MajorEnum.MATHCMDA && people.get(i)
-                .getFeedback()[index + 1].equals("yes")) {
-                tempMatrix[1][2] += 1;
-            }
-            if (people.get(i).getMajor() == MajorEnum.OTHER && people.get(i)
-                .getFeedback()[index + 1].equals("yes")) {
-                tempMatrix[1][3] += 1;
-            }
-            if (people.get(i).getRegion() == RegionEnum.NE_US && people.get(i)
-                .getFeedback()[index + 1].equals("yes")) {
-                tempMatrix[2][0] += 1;
-            }
-            if (people.get(i).getRegion() == RegionEnum.SE_US && people.get(i)
-                .getFeedback()[index + 1].equals("yes")) {
-                tempMatrix[2][1] += 1;
-            }
-            if (people.get(i).getRegion() == RegionEnum.OTHER_US && people.get(
-                i).getFeedback()[index + 1].equals("yes")) {
-                tempMatrix[2][2] += 1;
-            }
-            if (people.get(i).getRegion() == RegionEnum.OUTSIDE_US && people
-                .get(i).getFeedback()[index].equals("yes")) {
-                tempMatrix[2][3] += 1;
+            if (people.get(i).getFeedback()[index + 1].equals("yes")) {
+                if (people.get(i).getHobby() == HobbyEnum.READ) {
+                    tempMatrix[0][0] += 1;
+                }
+                if (people.get(i).getHobby() == HobbyEnum.ART) {
+                    tempMatrix[0][1] += 1;
+                }
+                if (people.get(i).getHobby() == HobbyEnum.SPORTS) {
+                    tempMatrix[0][2] += 1;
+                }
+                if (people.get(i).getHobby() == HobbyEnum.MUSIC) {
+                    tempMatrix[0][3] += 1;
+                }
+                if (people.get(i).getMajor() == MajorEnum.COMPSCI) {
+                    tempMatrix[1][0] += 1;
+                }
+                if (people.get(i).getMajor() == MajorEnum.OTHERENG) {
+                    tempMatrix[1][1] += 1;
+                }
+                if (people.get(i).getMajor() == MajorEnum.MATHCMDA) {
+                    tempMatrix[1][2] += 1;
+                }
+                if (people.get(i).getMajor() == MajorEnum.OTHER) {
+                    tempMatrix[1][3] += 1;
+                }
+                if (people.get(i).getRegion() == RegionEnum.NE_US) {
+                    tempMatrix[2][0] += 1;
+                }
+                if (people.get(i).getRegion() == RegionEnum.SE_US) {
+                    tempMatrix[2][1] += 1;
+                }
+                if (people.get(i).getRegion() == RegionEnum.OTHER_US) {
+                    tempMatrix[2][2] += 1;
+                }
+                if (people.get(i).getRegion() == RegionEnum.OUTSIDE_US) {
+                    tempMatrix[2][3] += 1;
+                }
             }
         }
 
         return tempMatrix;
     }
 
-
-    // public int compareTo(Object)
 
     /**
      * Compares this song to other song based on artist
