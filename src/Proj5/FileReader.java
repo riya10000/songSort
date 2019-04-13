@@ -10,6 +10,8 @@
 package Proj5;
 
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Scanner;
 import spacecolonies.ArrayQueue;
@@ -24,7 +26,7 @@ import spacecolonies.Person;
  */
 public class FileReader<E> {
     private LList<E> songs;
-    private ArrayQueue<People> peopleQueue;
+    private ArrayList<People> peopleQueue;
     private SongSorter songSort;
 
 
@@ -39,11 +41,24 @@ public class FileReader<E> {
     }
 
 
-    public LList<Songs> readMusicFile(String fileName){
-        Scanner scan = new Scanner(new File(fileName);
+    public LList<Song> readMusicFile(String fileName)
+        throws FileNotFoundException {
+        Scanner scan = new Scanner(new File(fileName));
+
+        LList<Song> songs = new LList<Song>();
+        int songIndex = 0;
+        while (scan.hasNextLine()) {
+            String stored = scan.nextLine();
+            String[] splitter = stored.split(",");
+            int year = Integer.parseInt(splitter[2]);
+
+            Song extracted = new Song(splitter[0], splitter[1], year,
+                splitter[3], peopleQueue, songIndex);
+            songIndex++;
+        }
         
-        
-        
+        return songs;
+
     }
 
 

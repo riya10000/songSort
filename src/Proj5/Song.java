@@ -43,7 +43,6 @@ public class Song {
         String artist,
         int year,
         String genre,
-        int totalFeedback,
         ArrayList<People> people,
         int index) {
 
