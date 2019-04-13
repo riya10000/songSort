@@ -1,5 +1,6 @@
 package Proj5;
 
+import java.util.ArrayList;
 import CS2114.Button;
 import CS2114.Window;
 import CS2114.WindowSide;
@@ -10,7 +11,6 @@ public class GUIMusicWindow {
     private Button sortBySongTitle;
     private Button sortByReleaseYear;
     private Button sortByGenre;
-    private Button sortByNext;
     private Button representHobby;
     private Button representMajor;
     private Button representRegion;
@@ -19,7 +19,7 @@ public class GUIMusicWindow {
     private Button next;
 
 
-    public GUIMusicWindow(LList[] songs, ArrayQueue<People> people) {
+    public GUIMusicWindow(LList[] songs, ArrayList<People> people) {
 
     }
 
@@ -30,7 +30,6 @@ public class GUIMusicWindow {
         Button sortBySongTitle = new Button("Sort by Song Title");
         Button sortByReleaseYear = new Button("Sort by Release Date");
         Button sortByGenre = new Button("Sort by Genre");
-        Button sortByNext = new Button("Sort by Next");
         Button representHobby = new Button("Hobby");
         Button representMajor = new Button("Major");
         Button representRegion = new Button("Region");
@@ -38,11 +37,21 @@ public class GUIMusicWindow {
         Button previous = new Button("previous");
         Button next = new Button("next");
 
+        sortByArtistName.onClick(this, "ClickedSortByArtistName");
+        sortBySongTitle.onClick(this, "ClickedSortBySongTitle");
+        sortByReleaseYear.onClick(this, "ClickedSortByReleaseYear");
+        sortByGenre.onClick(this, "ClickedSortByGenre");
+        representHobby.onClick(this, "ClickedRepresentHobby");
+        representMajor.onClick(this, "ClickedRepresentMajor");
+        representRegion.onClick(this, "ClickedRepresentRegion");
+        quit.onClick(this, "ClickedQuit");
+        previous.onClick(this, "ClickedPrevious");
+        next.onClick(this, "ClickedNext");
+
         window.addButton(sortByArtistName, WindowSide.NORTH);
         window.addButton(sortBySongTitle, WindowSide.NORTH);
         window.addButton(sortByReleaseYear, WindowSide.NORTH);
         window.addButton(sortByGenre, WindowSide.NORTH);
-        window.addButton(sortByNext, WindowSide.NORTH);
         window.addButton(quit, WindowSide.NORTH);
 
         window.addButton(previous, WindowSide.SOUTH);
@@ -95,6 +104,8 @@ public class GUIMusicWindow {
 
 
     public void clickedQuit(Button quit) {
+
+        System.exit(0);
 
     }
 
