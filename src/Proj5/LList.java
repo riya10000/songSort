@@ -409,7 +409,7 @@ public class LList<T> {
          * Creates a new DLListIterator
          */
         public LListIterator() {
-            next = head.next();
+            next = head;
         }
 
 
@@ -420,7 +420,7 @@ public class LList<T> {
          */
         @Override
         public boolean hasNext() {
-            return next.getData() != null;
+            return next != null;
         }
 
 
