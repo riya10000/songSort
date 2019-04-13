@@ -7,6 +7,6 @@ package Proj5;
  * @author proba
  *
  */
-public enum Major {
+public enum MajorEnum {
     COMPSCI, OTHERENG, MATHCMDA, OTHER
 }

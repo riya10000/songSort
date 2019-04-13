@@ -9,9 +9,9 @@ package Proj5;
  */
 public class People {
 
-    private Hobby hobby;
-    private Major major;
-    private Region region;
+    private HobbyEnum hobby;
+    private MajorEnum major;
+    private RegionEnum region;
     private String[] feedback;
 
 
@@ -28,9 +28,9 @@ public class People {
      *            string array of feedback
      */
     public People(
-        Hobby hobbyInput,
-        Major majorInput,
-        Region regionInput,
+        HobbyEnum hobbyInput,
+        MajorEnum majorInput,
+        RegionEnum regionInput,
         String[] feedbackInput) {
 
         this.hobby = hobbyInput;
@@ -46,7 +46,7 @@ public class People {
      * 
      * @return hobby
      */
-    public Hobby getHobby() {
+    public HobbyEnum getHobby() {
         return hobby;
     }
 
@@ -56,7 +56,7 @@ public class People {
      * 
      * @return major
      */
-    public Major getMajor() {
+    public MajorEnum getMajor() {
         return major;
     }
 
@@ -66,7 +66,7 @@ public class People {
      * 
      * @return region
      */
-    public Region getRegion() {
+    public RegionEnum getRegion() {
         return region;
     }
 
