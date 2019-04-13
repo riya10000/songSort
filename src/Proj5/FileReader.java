@@ -33,13 +33,13 @@ public class FileReader<E> {
      */
     public FileReader(String applicantFile, String songFile) {
         peopleQueue = this.readSurveyFile(applicantFile);
-        songs = this.readMusicFile(songFile);
+        songSort = this.readMusicFile(songFile);
         songSort = new SongSorter(peopleQueue, songs);
         new GUIMusicWindow(songs, peopleQueue);
     }
 
 
-    public LList<E> readMusicFile(String fileName)
+    public LList<Song> readMusicFile(String fileName)
         throws FileNotFoundException {
         Scanner scan = new Scanner(new File(fileName));
 
