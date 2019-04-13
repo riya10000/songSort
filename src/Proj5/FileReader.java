@@ -24,7 +24,7 @@ import java.util.Scanner;
  */
 public class FileReader<E> {
     private LList<E> songs;
-    private ArrayList<People> peopleList;
+    private ArrayList<People> peopleQueue;
     private SongSorter songSort;
 
 
@@ -32,7 +32,7 @@ public class FileReader<E> {
      * 
      */
     public FileReader(String applicantFile, String songFile) {
-// peopleQueue = this.readSurveyFile(applicantFile);
+        // peopleQueue = this.readSurveyFile(applicantFile);
 // songSort = this.readMusicFile(songFile);
 // songSort = new SongSorter(peopleQueue, songs);
 // new GUIMusicWindow(songSorter);
@@ -42,7 +42,20 @@ public class FileReader<E> {
     public LList<Song> readMusicFile(String fileName)
         throws FileNotFoundException {
         Scanner scan = new Scanner(new File(fileName));
-        return null;
+
+        LList<Song> songs = new LList<Song>();
+        int songIndex = 0;
+        while (scan.hasNextLine()) {
+            String stored = scan.nextLine();
+            String[] splitter = stored.split(",");
+            int year = Integer.parseInt(splitter[2]);
+
+            Song extracted = new Song(splitter[0], splitter[1], year,
+                splitter[3], peopleQueue, songIndex);
+            songIndex++;
+        }
+
+        return songs;
 
     }
 
