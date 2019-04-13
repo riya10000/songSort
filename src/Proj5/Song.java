@@ -18,8 +18,6 @@ public class Song {
     private int[][] likes;
     private int totalFeedback;
     private int songIndex;
-    // public subject; ???
-    // public String[] feedback; ???
 
 
     /**
@@ -99,6 +97,46 @@ public class Song {
 
 
     /**
+     * gets headOf
+     * 
+     * @return heardOf
+     */
+    public int[][] getHeardOf() {
+        return heardOf;
+    }
+
+
+    /**
+     * gets likes
+     * 
+     * @return likes
+     */
+    public int[][] getLikes() {
+        return likes;
+    }
+
+
+    /**
+     * gets feedback
+     * 
+     * @return totalFeedback
+     */
+    public int getFeedback() {
+        return totalFeedback;
+    }
+
+
+    /**
+     * gets index of song
+     * 
+     * @return song index
+     */
+    public int getSongIndex() {
+        return songIndex;
+    }
+
+
+    /**
      * calculates the total feedback for the people
      * 
      * @param people
@@ -126,19 +164,53 @@ public class Song {
      *            ArrayList of people
      * @param index
      *            index of song
-     * @return array of values of people that have heard of song based on hobbies
+     * @return array of values of people that have heard of song based on
+     *         hobbies
      */
     private int[][] calculateHeardOf(ArrayList<People> people, int index) {
         int[][] tempMatrix = new int[3][4];
-        
-        for(int i = 0; i < people.size(); i++) {
-            if (people.get(i).getHobby() == HobbyEnum.READ && people.get(i).getFeedback()[index].equals("yes")) {
-                tempMatrix[0][0] += 1;
-            }
-            if (people.get(i).getHobby() == HobbyEnum.ART && people.get(i).getFeedback()[index].equals("yes")) {
-                tempMatrix[0][0] += 1;
+
+        for (int i = 0; i < people.size(); i++) {
+            if (people.get(i).getFeedback()[index].equals("yes")) {
+                if (people.get(i).getHobby() == HobbyEnum.READ) {
+                    tempMatrix[0][0] += 1;
+                }
+                if (people.get(i).getHobby() == HobbyEnum.ART) {
+                    tempMatrix[0][1] += 1;
+                }
+                if (people.get(i).getHobby() == HobbyEnum.SPORTS) {
+                    tempMatrix[0][2] += 1;
+                }
+                if (people.get(i).getHobby() == HobbyEnum.MUSIC) {
+                    tempMatrix[0][3] += 1;
+                }
+                if (people.get(i).getMajor() == MajorEnum.COMPSCI) {
+                    tempMatrix[1][0] += 1;
+                }
+                if (people.get(i).getMajor() == MajorEnum.OTHERENG) {
+                    tempMatrix[1][1] += 1;
+                }
+                if (people.get(i).getMajor() == MajorEnum.MATHCMDA) {
+                    tempMatrix[1][2] += 1;
+                }
+                if (people.get(i).getMajor() == MajorEnum.OTHER) {
+                    tempMatrix[1][3] += 1;
+                }
+                if (people.get(i).getRegion() == RegionEnum.NE_US) {
+                    tempMatrix[2][0] += 1;
+                }
+                if (people.get(i).getRegion() == RegionEnum.SE_US) {
+                    tempMatrix[2][1] += 1;
+                }
+                if (people.get(i).getRegion() == RegionEnum.OTHER_US) {
+                    tempMatrix[2][2] += 1;
+                }
+                if (people.get(i).getRegion() == RegionEnum.OUTSIDE_US) {
+                    tempMatrix[2][3] += 1;
+                }
             }
         }
+        return tempMatrix;
     }
 
 
@@ -153,12 +225,59 @@ public class Song {
      */
     private int[][] calculateLikes(ArrayList<People> people, int index) {
         int[][] tempMatrix = new int[3][4];
-        
-        for(int i = 0; i < people.size(); i++) {
-            if (people.get(i).getHobby() == HobbyEnum.READ && people.get(i).getFeedback()[index + 1] != "") {
+
+        for (int i = 0; i < people.size(); i++) {
+            if (people.get(i).getHobby() == HobbyEnum.READ && people.get(i)
+                .getFeedback()[index + 1].equals("yes")) {
                 tempMatrix[0][0] += 1;
             }
+            if (people.get(i).getHobby() == HobbyEnum.ART && people.get(i)
+                .getFeedback()[index + 1].equals("yes")) {
+                tempMatrix[0][1] += 1;
+            }
+            if (people.get(i).getHobby() == HobbyEnum.SPORTS && people.get(i)
+                .getFeedback()[index + 1].equals("yes")) {
+                tempMatrix[0][2] += 1;
+            }
+            if (people.get(i).getHobby() == HobbyEnum.MUSIC && people.get(i)
+                .getFeedback()[index + 1].equals("yes")) {
+                tempMatrix[0][3] += 1;
+            }
+            if (people.get(i).getMajor() == MajorEnum.COMPSCI && people.get(i)
+                .getFeedback()[index + 1].equals("yes")) {
+                tempMatrix[1][0] += 1;
+            }
+            if (people.get(i).getMajor() == MajorEnum.OTHERENG && people.get(i)
+                .getFeedback()[index + 1].equals("yes")) {
+                tempMatrix[1][1] += 1;
+            }
+            if (people.get(i).getMajor() == MajorEnum.MATHCMDA && people.get(i)
+                .getFeedback()[index + 1].equals("yes")) {
+                tempMatrix[1][2] += 1;
+            }
+            if (people.get(i).getMajor() == MajorEnum.OTHER && people.get(i)
+                .getFeedback()[index + 1].equals("yes")) {
+                tempMatrix[1][3] += 1;
+            }
+            if (people.get(i).getRegion() == RegionEnum.NE_US && people.get(i)
+                .getFeedback()[index + 1].equals("yes")) {
+                tempMatrix[2][0] += 1;
+            }
+            if (people.get(i).getRegion() == RegionEnum.SE_US && people.get(i)
+                .getFeedback()[index + 1].equals("yes")) {
+                tempMatrix[2][1] += 1;
+            }
+            if (people.get(i).getRegion() == RegionEnum.OTHER_US && people.get(
+                i).getFeedback()[index + 1].equals("yes")) {
+                tempMatrix[2][2] += 1;
+            }
+            if (people.get(i).getRegion() == RegionEnum.OUTSIDE_US && people
+                .get(i).getFeedback()[index].equals("yes")) {
+                tempMatrix[2][3] += 1;
+            }
         }
+
+        return tempMatrix;
     }
 
 
@@ -223,5 +342,20 @@ public class Song {
      */
     public int compareGenre(Song song) {
         return this.getGenre().compareTo(song.getGenre());
+    }
+
+
+    /**
+     * toString method
+     * 
+     * @return string of song
+     *         "Title by Artist, Year, Genre"
+     */
+    public String toString() {
+        StringBuilder string = new StringBuilder();
+        string.append(this.getTitle() + " by " + this.getArtist());
+        string.append(", " + this.getYear() + ", " + this.getGenre());
+
+        return string.toString();
     }
 }
