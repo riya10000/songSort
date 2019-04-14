@@ -1,4 +1,4 @@
-package Proj5;
+package prj5;
 
 import java.util.ArrayList;
 import CS2114.Button;

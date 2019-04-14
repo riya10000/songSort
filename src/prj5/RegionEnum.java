@@ -1,7 +1,7 @@
 /**
  * 
  */
-package Proj5;
+package prj5;
 
 /**
  * @author Kara Probasco (karap17)

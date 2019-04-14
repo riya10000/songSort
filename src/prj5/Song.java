@@ -1,7 +1,7 @@
 /**
  * 
  */
-package Proj5;
+package prj5;
 
 import java.util.ArrayList;
 

@@ -1,4 +1,4 @@
-package Proj5;
+package prj5;
 /**
  * changes from first UML: iterator has no remove(), singly linked list
  */

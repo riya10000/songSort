@@ -7,7 +7,7 @@
  * accept the actions of those who do.
  * -- Riya Dani (riyadn99)
  */
-package Proj5;
+package prj5;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -22,7 +22,7 @@ import java.util.Scanner;
  * @version 04/12/2019
  * @param <E>
  */
-public class FileReader<E> {
+public class FileReader {
     private LList<Song> songs;
     private ArrayList<People> peopleQueue;
     private SongSorter<Song> songSort;

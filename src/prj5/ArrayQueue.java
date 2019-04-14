@@ -7,7 +7,7 @@
  * accept the actions of those who do.
  * -- Riya Dani (riyadn99)
  */
-package Proj5;
+package prj5;
 
 import queue.EmptyQueueException;
 import queue.QueueInterface;

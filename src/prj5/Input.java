@@ -7,7 +7,7 @@
  * accept the actions of those who do.
  * -- Riya Dani (riyadn99)
  */
-package Proj5;
+package prj5;
 
 import java.io.FileNotFoundException;
 import bsh.ParseException;
@@ -18,12 +18,12 @@ import bsh.ParseException;
  * @author Riya Dani riyadn99
  * @version 04/13/2019
  */
-public class ProjectRunner {
+public class Input {
 
     /**
      * 
      */
-    public ProjectRunner() {
+    public Input() {
         // TODO Auto-generated constructor stub
     }
 
