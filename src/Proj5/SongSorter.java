@@ -21,14 +21,17 @@ public class SongSorter<T> {
 
     private LList<T> songList;
     private Node<T> head;
+    private int comparatorMethod;
 
 
     /**
      * 
      */
     @SuppressWarnings("unchecked")
-    public SongSorter(LList<Song> songs) {
+    public SongSorter(LList<Song> songs, int compareMethod) {
+        this.songList = (LList<T>)songs;
         this.head = (Node<T>)songList.get(0);
+        this.comparatorMethod = compareMethod;
 
     }
 
@@ -58,22 +61,36 @@ public class SongSorter<T> {
         Node<T> previousNode = null;
 
         while ((currentNode != null)) {
-            if (((Song)item).compareArtist(currentNode).data() > 0) {
-                previousNode = currentNode;
-                currentNode = currentNode.next();
-            }
-
-            else if (((Song)item).compareDate(currentNode).data() > 0) {
-                previousNode = currentNode;
-                currentNode = currentNode.next();
-            }
-            else if (((Song)item).compareTitle(currentNode).data() > 0) {
-                previousNode = currentNode;
-                currentNode = currentNode.next();
-            }
-            else if (((Song)item).compareGenre(currentNode).data() > 0) {
-                previousNode = currentNode;
-                currentNode = currentNode.next();
+            switch (comparatorMethod) {
+                case 1:
+                    if (((Song)item).compareArtist((Song)currentNode
+                        .data()) > 0) {
+                        previousNode = currentNode;
+                        currentNode = currentNode.next();
+                    }
+                    break;
+                case 2:
+                    if (((Song)item).compareDate((Song)currentNode
+                        .data()) > 0) {
+                        previousNode = currentNode;
+                        currentNode = currentNode.next();
+                    }
+                    break;
+                case 3:
+                    if (((Song)item).compareTitle((Song)currentNode
+                        .data()) > 0) {
+                        previousNode = currentNode;
+                        currentNode = currentNode.next();
+                    }
+                case 4:
+                    if (((Song)item).compareGenre((Song)currentNode
+                        .data()) > 0) {
+                        previousNode = currentNode;
+                        currentNode = currentNode.next();
+                    }
+                    break;
+                default:
+                    break;
             }
         }
         if (previousNode != null) {

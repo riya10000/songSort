@@ -23,18 +23,19 @@ import java.util.Scanner;
  * @param <E>
  */
 public class FileReader<E> {
-    private LList<E> songs;
+    private LList<Song> songs;
     private ArrayList<People> peopleQueue;
-    private SongSorter songSort;
+    private SongSorter<Song> songSort;
 
 
     /**
+     * @throws FileNotFoundException 
      * 
      */
-    public FileReader(String applicantFile, String songFile) {
-        peopleQueue = this.readSurveyFile(applicantFile);
-        songSort = this.readMusicFile(songFile);
-        songSort = new SongSorter(peopleQueue, songs);
+    public FileReader(String applicantFile, String songFile) throws FileNotFoundException {
+        this.peopleQueue = readSurveyFile(applicantFile);
+        this.songs = readMusicFile(songFile);
+        this.songSort = new SongSorter<>(songs, 1);
         new GUIMusicWindow(songs, peopleQueue);
     }
 

@@ -19,7 +19,7 @@ public class GUIMusicWindow {
     private Button next;
 
 
-    public GUIMusicWindow(LList[] songs, ArrayList<People> people) {
+    public GUIMusicWindow(LList<Song> songs, ArrayList<People> people) {
 
     }
 
