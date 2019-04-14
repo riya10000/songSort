@@ -393,6 +393,7 @@ public class LList<T> {
         return false;
     }
 
+
     /**
      * Iterator method creates Iterator object
      *
@@ -402,8 +403,10 @@ public class LList<T> {
         return new LListIterator<T>();
     }
 
+
     private class LListIterator<A> implements Iterator<T> {
         private Node<T> next;
+
 
         /**
          * Creates a new DLListIterator
