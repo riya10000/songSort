@@ -38,6 +38,9 @@ public class FileReader {
         throws FileNotFoundException {
         this.peopleList = readSurveyFile(applicantFile, songFile);
         this.songs = readMusicFile(songFile);
+        this.songSort = new SongSorter<>(songs, 4);
+        songs = songSort.getSongList();
+        printer();
         this.songSort = new SongSorter<>(songs, 3);
         songs = songSort.getSongList();
         printer();
