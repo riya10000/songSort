@@ -187,7 +187,7 @@ public class Song {
      * @param index
      *            index of song
      */
-    private int[][] calculateFeedback(ArrayList<People> people, int index) {
+     int[][] calculateFeedback(ArrayList<People> people, int index) {
         int[][] tempMatrix = new int[3][4];
 
         for (int i = 0; i < people.size(); i++) {

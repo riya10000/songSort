@@ -39,7 +39,7 @@ public class FileReader {
         this.peopleList = readSurveyFile(applicantFile, songFile);
         this.songs = readMusicFile(songFile);
         this.songSort = new SongSorter<>(songs, 3);
-        this.songs = songSort.insertionSort();
+        songs = songSort.getSongList();
         printer();
         new GUIMusicWindow(songs, peopleList);
     }
@@ -215,7 +215,7 @@ public class FileReader {
             System.out.println("reading" + currentSong.likesPercent()[0][0]
                 + " art" + currentSong.likesPercent()[0][1] + " sports"
                 + currentSong.likesPercent()[0][2] + " music" + currentSong.likesPercent()[0][3]);
-           // System.out.println();
+            System.out.println();
         }
     }
 

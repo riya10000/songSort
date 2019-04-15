@@ -41,6 +41,16 @@ public class LList<T> implements Iterable<T> {
 
 
     /**
+     * returns head
+     * 
+     * @return head of list
+     */
+    public Node<T> getHead() {
+        return head;
+    }
+
+
+    /**
      * Adds the object to the position in the list
      *
      * @precondition obj cannot be null
@@ -407,7 +417,7 @@ public class LList<T> implements Iterable<T> {
     }
 
 
-    private class LListIterator<A> implements Iterator<T> {
+    private class LListIterator<P> implements Iterator<T> {
         private Node<T> next;
         private Node<T> previous;
         private Node<T> previous2;
@@ -460,6 +470,7 @@ public class LList<T> implements Iterable<T> {
             }
         }
 
+
         /**
          * removes next element from iterator
          */
@@ -468,11 +479,11 @@ public class LList<T> implements Iterable<T> {
             if (previous == null || !nextCalled) {
                 throw new IllegalStateException();
             }
-            if (previous2 == null){
+            if (previous2 == null) {
                 head = next;
             }
             else {
-                previous2.setNext(next); 
+                previous2.setNext(next);
                 previous = previous2;
             }
             nextCalled = false;
@@ -485,12 +496,12 @@ public class LList<T> implements Iterable<T> {
      * 
      * @author proba
      *
-     * @param <T>
+     * @param <A>
      *            generic
      */
-    private class Node<T> {
-        private Node<T> next;
-        private T data;
+    public static class Node<A> {
+        private Node<A> next;
+        private A data;
 
 
         /**
@@ -499,7 +510,7 @@ public class LList<T> implements Iterable<T> {
          * @param d
          *            the data to put inside the node
          */
-        public Node(T d) {
+        public Node(A d) {
             data = d;
         }
 
@@ -510,7 +521,7 @@ public class LList<T> implements Iterable<T> {
          * @param n
          *            the node after this one
          */
-        public void setNext(Node<T> n) {
+        public void setNext(Node<A> n) {
             next = n;
         }
 
@@ -520,7 +531,7 @@ public class LList<T> implements Iterable<T> {
          *
          * @return the next node
          */
-        public Node<T> next() {
+        public Node<A> next() {
             return next;
         }
 
@@ -530,7 +541,7 @@ public class LList<T> implements Iterable<T> {
          *
          * @return the data in the node
          */
-        public T getData() {
+        public A getData() {
             return data;
         }
     }
