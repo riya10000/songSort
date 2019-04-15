@@ -163,7 +163,7 @@ public class Song {
      * 
      * @return int matrix
      */
-     public int[][] likesPercent() {
+    public int[][] likesPercent() {
         int[][] tempMatrix = new int[3][4];
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 4; j++) {
@@ -187,7 +187,7 @@ public class Song {
      * @param index
      *            index of song
      */
-     public int[][] calculateFeedback(ArrayList<People> people, int index) {
+    public int[][] calculateFeedback(ArrayList<People> people, int index) {
         int[][] tempMatrix = new int[3][4];
 
         for (int i = 0; i < people.size(); i++) {

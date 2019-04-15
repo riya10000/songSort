@@ -22,26 +22,35 @@ public class SongSorter<T> {
     private LList<T> songList;
     private Node<Song> head;
     private int comparatorMethod;
+    Node<Song> previousNode;
 
 
     /**
+     * Constructor for song sorting class
      * 
+     * @param songs
+     *            linked list of songs to sort
+     * @param compareMethod
+     *            int representing compare method to use
      */
     @SuppressWarnings("unchecked")
     public SongSorter(LList<Song> songs, int compareMethod) {
         this.songList = (LList<T>)songs;
         this.head = (Node<Song>)songList.getHead();
         this.comparatorMethod = compareMethod;
+        this.previousNode = null;
 
     }
 
 
+    /**
+     * insertion sort
+     */
     public void insertionSort() {
         if (songList.size() > 1) {
             assert head != null;
         }
         Node<Song> unsortedPart = head.next();
-        assert unsortedPart != null;
 
         head.setNext(null);
         while (unsortedPart != null) {
@@ -52,49 +61,24 @@ public class SongSorter<T> {
     }
 
 
+    /**
+     * insert in order
+     * 
+     * @param nodeToInsert
+     *            node to insert
+     */
     @SuppressWarnings("unchecked")
     private void insertInOrder(Node<Song> nodeToInsert) {
-        @SuppressWarnings("unchecked")
-        T item = (T)nodeToInsert.getData();
-        @SuppressWarnings("unchecked")
+        Song item = nodeToInsert.getData();
         Node<Song> currentNode = (Node<Song>)songList.getHead();
-        Node<Song> previousNode = null;
+        previousNode = null;
 
-        while ((currentNode != null)) {
-            switch (comparatorMethod) {
-                case 1:
-                    if (((Song)item).compareArtist((Song)currentNode
-                        .getData()) > 0) {
-                        previousNode = currentNode;
-                        currentNode = currentNode.next();
-                    }
-                    break;
-                case 2:
-                    if (((Song)item).compareDate((Song)currentNode
-                        .getData()) > 0) {
-                        previousNode = currentNode;
-                        currentNode = currentNode.next();
-                    }
-                    break;
-                case 3:
-                    if (((Song)item).compareTitle((Song)currentNode
-                        .getData()) > 0) {
-                        previousNode = currentNode;
-                        currentNode = currentNode.next();
-                    }
-                case 4:
-                    if (((Song)item).compareGenre((Song)currentNode
-                        .getData()) > 0) {
-                        previousNode = currentNode;
-                        currentNode = currentNode.next();
-                    }
-                    break;
-                default:
-                    break;
-            }
+        while ((currentNode != null) && compare(currentNode, item)) {
+            previousNode = currentNode;
+            currentNode = currentNode.next();
         }
         if (previousNode != null) {
-            (previousNode).setNext(nodeToInsert);
+            previousNode.setNext(nodeToInsert);
             nodeToInsert.setNext(currentNode);
         }
         else {
@@ -105,6 +89,48 @@ public class SongSorter<T> {
     }
 
 
+    /**
+     * compares values to sort
+     * 
+     * @param currentNode
+     *            current place
+     * @param item
+     *            item to compare
+     * @return true if there is still room to sort, false otherwise
+     */
+    private boolean compare(Node<Song> currentNode, Song item) {
+        switch (comparatorMethod) {
+            case 1:
+                if (item.compareArtist(currentNode.getData()) > 0) {
+                    return true;
+                }
+                return false;
+            case 2:
+                if (item.compareDate(currentNode.getData()) > 0) {
+                    return true;
+                }
+                return false;
+            case 3:
+                if (item.compareTitle(currentNode.getData()) > 0) {
+                    return true;
+                }
+                return false;
+            case 4:
+                if (item.compareGenre(currentNode.getData()) > 0) {
+                    return true;
+                }
+                return false;
+            default:
+                return false;
+        }
+    }
+
+
+    /**
+     * gets songList
+     * 
+     * @return songList
+     */
     public LList<T> getSongList() {
         return songList;
 
