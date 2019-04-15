@@ -17,10 +17,14 @@ public class GUIMusicWindow {
     private Button quit;
     private Button previous;
     private Button next;
+    
+    private Glyph test;
+    
+    private SongSorter sorter;
 
 
-    public GUIMusicWindow(LList<Song> songs, ArrayList<People> people) {
-
+    public GUIMusicWindow(SongSorter sorter) {
+        this.sorter = sorter;
     }
 
 
@@ -59,6 +63,12 @@ public class GUIMusicWindow {
         window.addButton(representMajor, WindowSide.SOUTH);
         window.addButton(representRegion, WindowSide.SOUTH);
         window.addButton(next, WindowSide.SOUTH);
+        
+        
+        double[] heardOf = {0.5, 0.30, 0.4, 0.7};
+        double[] likes = {0.7, 0.4, 0.3, 0.5};
+        double[][] matrix = {heardOf, likes};
+        test = new Glyph();
 
     }
 
