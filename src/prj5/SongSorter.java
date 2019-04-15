@@ -9,6 +9,8 @@
  */
 package prj5;
 
+import prj5.LList.Node;
+
 /**
  * Add the class description here.
  *
@@ -18,6 +20,7 @@ package prj5;
 public class SongSorter<T> {
 
     private LList<T> songList;
+    private Node<Song> head;
     private int comparatorMethod;
 
 
@@ -27,91 +30,61 @@ public class SongSorter<T> {
     @SuppressWarnings("unchecked")
     public SongSorter(LList<Song> songs, int compareMethod) {
         this.songList = (LList<T>)songs;
+        this.head = (Node<Song>)songList.getHead();
         this.comparatorMethod = compareMethod;
 
     }
 
 
-    public LList<T> insertionSort() {
-        LList<T> newList = new LList<>();
-        assert songList.get(0) != null;
-        newList.add(songList.remove(0));
-        
-        while (!songList.isEmpty()) {
-            int size = newList.size();
-            T song = songList.remove(0);
-            int i = 0;
-            for(T compared : newList) {
-                switch (comparatorMethod) {
-                    case 1:
-                        if (((Song)song).compareArtist((Song)compared) > 0) {
-                            newList.add(i, song);
-                        }
-                        break;
-                    case 2:
-                        if (((Song)song).compareDate((Song)compared) > 0) {
-                            newList.add(i, song);
-                        }
-                        break;
-                    case 3:
-                        if (((Song)song).compareTitle((Song)compared) > 0) {
-                            newList.add(i, song);
-                        }
-                        break;
-                    case 4:
-                        if (((Song)song).compareGenre((Song)compared) > 0) {
-                            newList.add(i, song);
-                        }
-                        break;
-                    default:
-                        break;
-                }
-            }
-            
-            i++;
-            if(i == size) {
-                newList.add(song);
-                break;
-            }
+    public void insertionSort() {
+        if (songList.size() > 1) {
+            assert head != null;
         }
-        songList = newList;
-        return newList;
+        Node<Song> unsortedPart = head.next();
+        assert unsortedPart != null;
+
+        head.setNext(null);
+        while (unsortedPart != null) {
+            Node<Song> nodeToInsert = unsortedPart;
+            unsortedPart = unsortedPart.next();
+            insertInOrder(nodeToInsert);
+        }
     }
 
-    /*
+
     @SuppressWarnings("unchecked")
-    private void insertInOrder(T compared) {
+    private void insertInOrder(Node<Song> nodeToInsert) {
         @SuppressWarnings("unchecked")
-        T item = (T)nodeToInsert.data();
+        T item = (T)nodeToInsert.getData();
         @SuppressWarnings("unchecked")
-        Node<T> currentNode = (Node<T>)songList.get(0);
-        Node<T> previousNode = null;
+        Node<Song> currentNode = (Node<Song>)songList.get(0);
+        Node<Song> previousNode = null;
 
         while ((currentNode != null)) {
             switch (comparatorMethod) {
                 case 1:
                     if (((Song)item).compareArtist((Song)currentNode
-                        .data()) > 0) {
+                        .getData()) > 0) {
                         previousNode = currentNode;
                         currentNode = currentNode.next();
                     }
                     break;
                 case 2:
                     if (((Song)item).compareDate((Song)currentNode
-                        .data()) > 0) {
+                        .getData()) > 0) {
                         previousNode = currentNode;
                         currentNode = currentNode.next();
                     }
                     break;
                 case 3:
                     if (((Song)item).compareTitle((Song)currentNode
-                        .data()) > 0) {
+                        .getData()) > 0) {
                         previousNode = currentNode;
                         currentNode = currentNode.next();
                     }
                 case 4:
                     if (((Song)item).compareGenre((Song)currentNode
-                        .data()) > 0) {
+                        .getData()) > 0) {
                         previousNode = currentNode;
                         currentNode = currentNode.next();
                     }
@@ -130,7 +103,7 @@ public class SongSorter<T> {
 
         }
     }
-    */
+
 
     public LList<T> getSongList() {
         return songList;

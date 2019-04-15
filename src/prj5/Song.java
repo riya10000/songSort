@@ -163,7 +163,7 @@ public class Song {
      * 
      * @return int matrix
      */
-     int[][] likesPercent() {
+     public int[][] likesPercent() {
         int[][] tempMatrix = new int[3][4];
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 4; j++) {
@@ -187,7 +187,7 @@ public class Song {
      * @param index
      *            index of song
      */
-    private int[][] calculateFeedback(ArrayList<People> people, int index) {
+     public int[][] calculateFeedback(ArrayList<People> people, int index) {
         int[][] tempMatrix = new int[3][4];
 
         for (int i = 0; i < people.size(); i++) {
@@ -358,8 +358,7 @@ public class Song {
      *         if this is after other song, positive if this is before other
      */
     public int compareArtist(Song song) {
-        return this.getArtist().toLowerCase().compareTo(song.getArtist()
-            .toLowerCase());
+        return this.getArtist().compareToIgnoreCase(song.getArtist());
     }
 
 
@@ -372,15 +371,7 @@ public class Song {
      *         1 if this is greater than other song
      */
     public int compareDate(Song song) {
-        if (this.getYear() > song.getYear()) {
-            return 1;
-        }
-        else if (this.getYear() == song.getYear()) {
-            return 0;
-        }
-        else {
-            return -1;
-        }
+        return this.year - song.year;
     }
 
 
