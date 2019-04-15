@@ -57,7 +57,7 @@ public class SongSorter<T> {
         @SuppressWarnings("unchecked")
         T item = (T)nodeToInsert.getData();
         @SuppressWarnings("unchecked")
-        Node<Song> currentNode = (Node<Song>)songList.get(0);
+        Node<Song> currentNode = (Node<Song>)songList.getHead();
         Node<Song> previousNode = null;
 
         while ((currentNode != null)) {
