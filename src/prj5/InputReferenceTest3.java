@@ -2,7 +2,7 @@ package prj5;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
-
+import bsh.ParseException;
 import student.testingsupport.annotations.Hint;
 
 /** Test text output for Music Visualization Project
@@ -27,10 +27,12 @@ public class InputReferenceTest3 extends student.TestCase {
      * 1 song.
      * Gathers the output from StdOut and compares it to
      * the expect output as stored in Output2TitleGenreHobby.txt
+     * @throws FileNotFoundException 
+     * @throws ParseException 
      * 
      */
     @Hint("main working properly with MusicSurveyDataTest2, SongListTest2")
-    public void testMain2() {
+    public void testMain2() throws ParseException, FileNotFoundException {
         
         Input.main(new String[] { "MusicSurveyDataTest2.csv",
             "SongListTest2.csv" });
@@ -67,11 +69,13 @@ public class InputReferenceTest3 extends student.TestCase {
      * 5 songs.
      * Gathers the output from StdOut and compares it to
      * the expect output as stored in Output1TitleGenreHobby.txt
+     * @throws FileNotFoundException 
+     * @throws ParseException 
      * 
      */
     @Hint("The main method is not working properly with input files " +
           "MusicSurveyDataTest1.csv and SongListTest1.csv")
-    public void testMain1() {
+    public void testMain1() throws ParseException, FileNotFoundException {
 
         // Notice need to pass in an array of the parameters
         Input.main(new String[] { "MusicSurveyDataTest1.csv",
@@ -105,11 +109,13 @@ public class InputReferenceTest3 extends student.TestCase {
      * Test the program with the actual class survey data
      * Gathers the output from StdOut and compares it to
      * the expect output as stored in OutputTitleGenreHobby.txt
+     * @throws FileNotFoundException 
+     * @throws ParseException 
      * 
      */
     @Hint("The main method is not working properly with input files " +
             "MusicSurveyDataNoGenreRepeats.csv and SongLisNoGenreRepeats.csv")
-    public void testMain3() {
+    public void testMain3() throws ParseException, FileNotFoundException {
 
         Input.main(new String[] { "MusicSurveyDataNoGenreRepeats.csv", 
                 "SongListNoGenreRepeats.csv" });

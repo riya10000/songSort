@@ -1,4 +1,4 @@
-package Proj5;
+package prj5;
 /**
  * changes from first UML: iterator has no remove(), singly linked list
  */
@@ -12,7 +12,7 @@ import java.util.NoSuchElementException;
  * @param <T>
  *            generic type for linked listed
  */
-public class LList<T> {
+public class LList<T> implements Iterable<T> {
 
     private Node<T> head;
 
@@ -37,6 +37,16 @@ public class LList<T> {
      */
     public int size() {
         return size;
+    }
+
+
+    /**
+     * returns head
+     * 
+     * @return head of list
+     */
+    public Node<T> getHead() {
+        return head;
     }
 
 
@@ -185,8 +195,8 @@ public class LList<T> {
      * @throws IndexOutOfBoundsException
      *             if there is not an element at the index
      */
-    public boolean remove(int index) {
-        // // if the index is invalid
+    public T remove(int index) {
+        T item = null;
         if (index < 0 || head == null) {
             throw new IndexOutOfBoundsException("Index is out of bounds");
         }
@@ -197,23 +207,26 @@ public class LList<T> {
 
             // account for 1 size
             if ((index == 0)) {
+                item = head.getData();
                 head = head.next;
                 size--;
-                return true;
+                return item;
             }
 
             // account for 2+ size
             while (current.next != null) {
                 if ((currentIndex + 1) == index) {
                     if (currentIndex + 1 == this.size() - 1) {
+                        item = this.get(index);
                         current.setNext(null);
                     }
                     else {
+                        item = this.get(index);
                         Node<T> newNext = current.next.next;
                         current.setNext(newNext);
                     }
                     size--;
-                    return true;
+                    return item;
                 }
                 current = current.next;
                 currentIndex++;
@@ -404,8 +417,11 @@ public class LList<T> {
     }
 
 
-    private class LListIterator<A> implements Iterator<T> {
+    private class LListIterator<P> implements Iterator<T> {
         private Node<T> next;
+        private Node<T> previous;
+        private Node<T> previous2;
+        private boolean nextCalled;
 
 
         /**
@@ -413,6 +429,9 @@ public class LList<T> {
          */
         public LListIterator() {
             next = head;
+            previous = null;
+            previous2 = null;
+            nextCalled = false;
         }
 
 
@@ -439,7 +458,10 @@ public class LList<T> {
         public T next() {
             if (hasNext()) {
                 Node tempNode = next;
+                previous2 = previous;
+                previous = next;
                 next = next.next();
+                nextCalled = true;
                 return (T)tempNode.getData();
             }
             else {
@@ -447,12 +469,39 @@ public class LList<T> {
                     "There are no more elements in the list");
             }
         }
+
+
+        /**
+         * removes next element from iterator
+         */
+        @Override
+        public void remove() {
+            if (previous == null || !nextCalled) {
+                throw new IllegalStateException();
+            }
+            if (previous2 == null) {
+                head = next;
+            }
+            else {
+                previous2.setNext(next);
+                previous = previous2;
+            }
+            nextCalled = false;
+        }
     }
 
 
-    private static class Node<T> {
-        private Node<T> next;
-        private T data;
+    /**
+     * private node class for linked list
+     * 
+     * @author proba
+     *
+     * @param <A>
+     *            generic
+     */
+    public static class Node<A> {
+        private Node<A> next;
+        private A data;
 
 
         /**
@@ -461,7 +510,7 @@ public class LList<T> {
          * @param d
          *            the data to put inside the node
          */
-        public Node(T d) {
+        public Node(A d) {
             data = d;
         }
 
@@ -472,7 +521,7 @@ public class LList<T> {
          * @param n
          *            the node after this one
          */
-        public void setNext(Node<T> n) {
+        public void setNext(Node<A> n) {
             next = n;
         }
 
@@ -482,7 +531,7 @@ public class LList<T> {
          *
          * @return the next node
          */
-        public Node<T> next() {
+        public Node<A> next() {
             return next;
         }
 
@@ -492,7 +541,7 @@ public class LList<T> {
          *
          * @return the data in the node
          */
-        public T getData() {
+        public A getData() {
             return data;
         }
     }

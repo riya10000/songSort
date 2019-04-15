@@ -7,9 +7,9 @@
  * accept the actions of those who do.
  * -- Riya Dani (riyadn99)
  */
-package Proj5;
+package prj5;
 
-import bag.Node;
+import prj5.LList.Node;
 
 /**
  * Add the class description here.
@@ -20,7 +20,7 @@ import bag.Node;
 public class SongSorter<T> {
 
     private LList<T> songList;
-    private Node<T> head;
+    private Node<Song> head;
     private int comparatorMethod;
 
 
@@ -30,7 +30,7 @@ public class SongSorter<T> {
     @SuppressWarnings("unchecked")
     public SongSorter(LList<Song> songs, int compareMethod) {
         this.songList = (LList<T>)songs;
-        this.head = (Node<T>)songList.get(0);
+        this.head = (Node<Song>)songList.getHead();
         this.comparatorMethod = compareMethod;
 
     }
@@ -40,12 +40,12 @@ public class SongSorter<T> {
         if (songList.size() > 1) {
             assert head != null;
         }
-        Node<T> unsortedPart = head.next();
+        Node<Song> unsortedPart = head.next();
         assert unsortedPart != null;
 
         head.setNext(null);
         while (unsortedPart != null) {
-            Node<T> nodeToInsert = unsortedPart;
+            Node<Song> nodeToInsert = unsortedPart;
             unsortedPart = unsortedPart.next();
             insertInOrder(nodeToInsert);
         }
@@ -53,38 +53,38 @@ public class SongSorter<T> {
 
 
     @SuppressWarnings("unchecked")
-    private void insertInOrder(Node<T> nodeToInsert) {
+    private void insertInOrder(Node<Song> nodeToInsert) {
         @SuppressWarnings("unchecked")
-        T item = (T)nodeToInsert.data();
+        T item = (T)nodeToInsert.getData();
         @SuppressWarnings("unchecked")
-        Node<T> currentNode = (Node<T>)songList.get(0);
-        Node<T> previousNode = null;
+        Node<Song> currentNode = (Node<Song>)songList.get(0);
+        Node<Song> previousNode = null;
 
         while ((currentNode != null)) {
             switch (comparatorMethod) {
                 case 1:
                     if (((Song)item).compareArtist((Song)currentNode
-                        .data()) > 0) {
+                        .getData()) > 0) {
                         previousNode = currentNode;
                         currentNode = currentNode.next();
                     }
                     break;
                 case 2:
                     if (((Song)item).compareDate((Song)currentNode
-                        .data()) > 0) {
+                        .getData()) > 0) {
                         previousNode = currentNode;
                         currentNode = currentNode.next();
                     }
                     break;
                 case 3:
                     if (((Song)item).compareTitle((Song)currentNode
-                        .data()) > 0) {
+                        .getData()) > 0) {
                         previousNode = currentNode;
                         currentNode = currentNode.next();
                     }
                 case 4:
                     if (((Song)item).compareGenre((Song)currentNode
-                        .data()) > 0) {
+                        .getData()) > 0) {
                         previousNode = currentNode;
                         currentNode = currentNode.next();
                     }

@@ -1,7 +1,7 @@
 /**
  * 
  */
-package Proj5;
+package prj5;
 
 import java.util.Arrays;
 import java.util.Iterator;
@@ -224,33 +224,28 @@ public class LListTest extends student.TestCase {
         }
         assertTrue(exception instanceof IndexOutOfBoundsException);
 
-        list2.remove(0);
-        assertEquals(false, list2.contains("cake"));
+        assertEquals("cake", list2.remove(0));
         assertEquals(4, list2.size());
         assertEquals("pie", list2.get(0));
 
-        list2.remove(3);
-        assertEquals(false, list2.contains("hello"));
+        assertEquals("hello", list2.remove(3));
         assertEquals(3, list2.size());
         assertEquals("pizza", list2.get(2));
 
-        list2.remove(1);
-        assertEquals(false, list2.contains("cookie"));
+        assertEquals("cookie", list2.remove(1));
         assertEquals(2, list2.size());
         assertEquals("pizza", list2.get(1));
 
-        list2.remove(1);
-        assertEquals(false, list2.contains("pizza"));
+        
+        assertEquals("pizza", list2.remove(1));
         assertEquals(1, list2.size());
         assertEquals("pie", list2.get(0));
 
-        list2.remove(0);
-        assertEquals(false, list2.contains("pie"));
+        assertEquals("pie", list2.remove(0));
         assertEquals(0, list2.size());
         assertTrue(list2.isEmpty());
 
-        list5.remove(99);
-        assertEquals(false, list5.contains("sport99"));
+        assertEquals("sport99", list5.remove(99));
         assertEquals(99, list5.size());
         assertEquals("sport98", list5.get(98));
 
@@ -457,7 +452,8 @@ public class LListTest extends student.TestCase {
         assertFalse(Arrays.equals(list3.toArray(), list6.toArray()));
 
     }
-    
+
+
     /**
      * tests iterator()
      */
@@ -468,23 +464,44 @@ public class LListTest extends student.TestCase {
         list1.add("D");
         Iterator iter = list1.iterator();
 
+        Exception exception = null;
+        try {
+            iter.remove();
+        }
+        catch (IllegalStateException e) {
+            exception = e;
+        }
+        assertTrue(exception instanceof IllegalStateException);
+
         assertEquals(true, iter.hasNext());
         assertEquals("A", iter.next());
+        iter.remove();
         assertEquals("B", iter.next());
+        iter.remove();
         assertEquals("C", iter.next());
+        iter.remove();
         assertEquals("D", iter.next());
+        iter.remove();
 
         assertEquals(false, iter.hasNext());
-        
-        Exception exception = null;
-        
+
+        exception = null;
+        try {
+            iter.remove();
+        }
+        catch (IllegalStateException e) {
+            exception = e;
+        }
+        assertTrue(exception instanceof IllegalStateException);
+
+        exception = null;
         try {
             iter.next();
         }
-        catch(Exception e) {
+        catch (Exception e) {
             exception = e;
         }
-        
+
         assertTrue(exception instanceof NoSuchElementException);
     }
 }

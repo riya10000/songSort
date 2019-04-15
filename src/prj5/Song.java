@@ -1,7 +1,7 @@
 /**
  * 
  */
-package Proj5;
+package prj5;
 
 import java.util.ArrayList;
 
@@ -16,7 +16,7 @@ public class Song {
     private String genre;
     private int[][] heardOf;
     private int[][] likes;
-    private int totalFeedback;
+    private int[][] totalFeedback;
     private int songIndex;
 
 
@@ -121,7 +121,7 @@ public class Song {
      * 
      * @return totalFeedback
      */
-    public int getFeedback() {
+    public int[][] getFeedback() {
         return totalFeedback;
     }
 
@@ -137,6 +137,49 @@ public class Song {
 
 
     /**
+     * returns matrix of percentage of heard
+     * 
+     * @return matrix of heard
+     */
+    public int[][] heardPercent() {
+        int[][] tempMatrix = new int[3][4];
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 4; j++) {
+                if (totalFeedback[i][j] == 0) {
+                    tempMatrix[i][j] = 0;
+                }
+                else {
+                    tempMatrix[i][j] = heardOf[i][j] * 100
+                        / totalFeedback[i][j];
+                }
+            }
+        }
+        return tempMatrix;
+    }
+
+
+    /**
+     * returns a matrix of the percentage of likes
+     * 
+     * @return int matrix
+     */
+     public int[][] likesPercent() {
+        int[][] tempMatrix = new int[3][4];
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 4; j++) {
+                if (totalFeedback[i][j] == 0) {
+                    tempMatrix[i][j] = 0;
+                }
+                else {
+                    tempMatrix[i][j] = likes[i][j] * 100 / totalFeedback[i][j];
+                }
+            }
+        }
+        return tempMatrix;
+    }
+
+
+    /**
      * calculates the total feedback for the people
      * 
      * @param people
@@ -144,16 +187,50 @@ public class Song {
      * @param index
      *            index of song
      */
-    private int calculateFeedback(ArrayList<People> people, int index) {
-        int feedbackInt = 0;
+     public int[][] calculateFeedback(ArrayList<People> people, int index) {
+        int[][] tempMatrix = new int[3][4];
 
         for (int i = 0; i < people.size(); i++) {
             if (!people.get(i).getFeedback()[index].equals("")) {
-                feedbackInt += 1;
+                if (people.get(i).getHobby() == HobbyEnum.READ) {
+                    tempMatrix[0][0] += 1;
+                }
+                if (people.get(i).getHobby() == HobbyEnum.ART) {
+                    tempMatrix[0][1] += 1;
+                }
+                if (people.get(i).getHobby() == HobbyEnum.SPORTS) {
+                    tempMatrix[0][2] += 1;
+                }
+                if (people.get(i).getHobby() == HobbyEnum.MUSIC) {
+                    tempMatrix[0][3] += 1;
+                }
+                if (people.get(i).getMajor() == MajorEnum.COMPSCI) {
+                    tempMatrix[1][0] += 1;
+                }
+                if (people.get(i).getMajor() == MajorEnum.OTHERENG) {
+                    tempMatrix[1][1] += 1;
+                }
+                if (people.get(i).getMajor() == MajorEnum.MATHCMDA) {
+                    tempMatrix[1][2] += 1;
+                }
+                if (people.get(i).getMajor() == MajorEnum.OTHER) {
+                    tempMatrix[1][3] += 1;
+                }
+                if (people.get(i).getRegion() == RegionEnum.NE_US) {
+                    tempMatrix[2][0] += 1;
+                }
+                if (people.get(i).getRegion() == RegionEnum.SE_US) {
+                    tempMatrix[2][1] += 1;
+                }
+                if (people.get(i).getRegion() == RegionEnum.OTHER_US) {
+                    tempMatrix[2][2] += 1;
+                }
+                if (people.get(i).getRegion() == RegionEnum.OUTSIDE_US) {
+                    tempMatrix[2][3] += 1;
+                }
             }
         }
-
-        return feedbackInt;
+        return tempMatrix;
     }
 
 
@@ -171,7 +248,7 @@ public class Song {
         int[][] tempMatrix = new int[3][4];
 
         for (int i = 0; i < people.size(); i++) {
-            if (people.get(i).getFeedback()[index].equals("yes")) {
+            if (people.get(i).getFeedback()[index].equals("Yes")) {
                 if (people.get(i).getHobby() == HobbyEnum.READ) {
                     tempMatrix[0][0] += 1;
                 }
@@ -227,7 +304,7 @@ public class Song {
         int[][] tempMatrix = new int[3][4];
 
         for (int i = 0; i < people.size(); i++) {
-            if (people.get(i).getFeedback()[index + 1].equals("yes")) {
+            if (people.get(i).getFeedback()[index + 1].equals("Yes")) {
                 if (people.get(i).getHobby() == HobbyEnum.READ) {
                     tempMatrix[0][0] += 1;
                 }
@@ -281,8 +358,7 @@ public class Song {
      *         if this is after other song, positive if this is before other
      */
     public int compareArtist(Song song) {
-        return this.getArtist().toLowerCase().compareTo(song.getArtist()
-            .toLowerCase());
+        return this.getArtist().compareToIgnoreCase(song.getArtist());
     }
 
 
@@ -295,15 +371,7 @@ public class Song {
      *         1 if this is greater than other song
      */
     public int compareDate(Song song) {
-        if (this.getYear() > song.getYear()) {
-            return 1;
-        }
-        else if (this.getYear() == song.getYear()) {
-            return 0;
-        }
-        else {
-            return -1;
-        }
+        return this.year - song.year;
     }
 
 

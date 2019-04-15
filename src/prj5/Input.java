@@ -7,7 +7,7 @@
  * accept the actions of those who do.
  * -- Riya Dani (riyadn99)
  */
-package Proj5;
+package prj5;
 
 import java.io.FileNotFoundException;
 import bsh.ParseException;
@@ -18,16 +18,26 @@ import bsh.ParseException;
  * @author Riya Dani riyadn99
  * @version 04/13/2019
  */
-public class ProjectRunner {
+public class Input {
 
     /**
-     * 
+     * constructor for input
      */
-    public ProjectRunner() {
-        // TODO Auto-generated constructor stub
+    public Input() {
+        // left blank purposefully
     }
 
 
+    /**
+     * Main method to initialize program and send files to file reader
+     * 
+     * @param args
+     *            file names as strings
+     * @throws ParseException
+     *             if files are not parsed correctly
+     * @throws FileNotFoundException
+     *             if files are not found
+     */
     public static void main(String[] args)
         throws ParseException,
         FileNotFoundException {
