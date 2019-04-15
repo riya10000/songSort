@@ -371,6 +371,7 @@ public class LListTest extends student.TestCase {
     /**
      * Tests the equals method on an empty list
      */
+    @SuppressWarnings("unlikely-arg-type")
     public void testEquals() {
         assertEquals(list3, list3);
         assertEquals(list3, list4);
@@ -462,7 +463,7 @@ public class LListTest extends student.TestCase {
         list1.add("B");
         list1.add("C");
         list1.add("D");
-        Iterator iter = list1.iterator();
+        Iterator<String> iter = list1.iterator();
 
         Exception exception = null;
         try {

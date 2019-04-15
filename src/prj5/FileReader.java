@@ -12,7 +12,6 @@ package prj5;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.Scanner;
 
 /**
@@ -39,9 +38,11 @@ public class FileReader {
         this.peopleList = readSurveyFile(applicantFile, songFile);
         this.songs = readMusicFile(songFile);
         this.songSort = new SongSorter<>(songs, 4);
+        songSort.insertionSort();
         songs = songSort.getSongList();
         printer();
         this.songSort = new SongSorter<>(songs, 3);
+        songSort.insertionSort();
         songs = songSort.getSongList();
         printer();
         new GUIMusicWindow(songs, peopleList);
@@ -103,7 +104,6 @@ public class FileReader {
             String[] resp = new String[songFileLength(songFile) * 2];
 
             int count = 0;
-            boolean make = false;
             MajorEnum majoring = null;
             RegionEnum reg = null;
             HobbyEnum hobby = null;
@@ -122,7 +122,6 @@ public class FileReader {
                     majoring = MajorEnum.OTHER;
                     break;
                 default:
-                    make = true;
                     break;
             }
             switch (blockSplit[3]) {
@@ -139,7 +138,6 @@ public class FileReader {
                     reg = RegionEnum.OUTSIDE_US;
                     break;
                 default:
-                    make = true;
                     break;
             }
 
@@ -157,7 +155,6 @@ public class FileReader {
                     hobby = HobbyEnum.ART;
                     break;
                 default:
-                    make = true;
                     break;
             }
 
@@ -213,11 +210,13 @@ public class FileReader {
             System.out.println("heard");
             System.out.println("reading" + currentSong.heardPercent()[0][0]
                 + " art" + currentSong.heardPercent()[0][1] + " sports"
-                + currentSong.heardPercent()[0][2] + " music" + currentSong.heardPercent()[0][3]);
+                + currentSong.heardPercent()[0][2] + " music" + currentSong
+                    .heardPercent()[0][3]);
             System.out.println("likes");
             System.out.println("reading" + currentSong.likesPercent()[0][0]
                 + " art" + currentSong.likesPercent()[0][1] + " sports"
-                + currentSong.likesPercent()[0][2] + " music" + currentSong.likesPercent()[0][3]);
+                + currentSong.likesPercent()[0][2] + " music" + currentSong
+                    .likesPercent()[0][3]);
             System.out.println();
         }
     }

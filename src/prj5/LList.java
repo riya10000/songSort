@@ -64,30 +64,23 @@ public class LList<T> implements Iterable<T> {
      *             if obj is null
      */
     public void add(int index, T obj) {
-        // check if the object is null
         if (obj == null) {
             throw new IllegalArgumentException("Object is null");
         }
-
-        // check if the index is out of bounds
         if ((index < 0) || (index > size())) {
             throw new IndexOutOfBoundsException("Index is out of bounds");
         }
 
         Node<T> current = head;
 
-        // empty stack case
         if (isEmpty()) {
             head = new Node<T>(obj);
         }
-        // adding to head case
         if (index == 0) {
             Node<T> newNode = new Node<T>(obj);
             newNode.setNext(head);
             head = newNode;
         }
-
-        // all other cases
         else {
             int currentIndex = 0;
             while (current != null) {
@@ -116,19 +109,15 @@ public class LList<T> implements Iterable<T> {
      *             if obj is null
      */
     public void add(T obj) {
-        // check if the object is null
         if (obj == null) {
             throw new IllegalArgumentException("Object is null");
         }
 
         Node<T> current = head;
-
-        // empty stack case
         if (isEmpty()) {
             head = new Node<T>(obj);
         }
 
-        // other cases
         else {
             while (current.next != null) {
                 current = current.next;
@@ -159,14 +148,11 @@ public class LList<T> implements Iterable<T> {
     public boolean remove(T obj) {
         Node<T> current = head;
 
-        // account for matching head
         if ((null != head) && (obj.equals(current.data))) {
             head = head.next;
             size--;
             return true;
         }
-
-        // account for 2+ size
         while (size() >= 2 && (current.next != null)) {
             if ((obj.equals(current.next.data))) {
                 if (current.next.next != null) {
@@ -259,10 +245,8 @@ public class LList<T> implements Iterable<T> {
             current = current.next;
         }
 
-        // check if the data was null...
         if (data == null) {
-            // ... if so throw an exception
-            throw new IndexOutOfBoundsException("Index exceeds the size.");
+            throw new IndexOutOfBoundsException();
         }
         return data;
     }
@@ -292,7 +276,6 @@ public class LList<T> implements Iterable<T> {
      * Removes all of the elements from the list
      */
     public void clear() {
-        // make sure we don't call clear on an empty list
         if (head != null) {
             head.setNext(null);
             head = null;
@@ -453,11 +436,10 @@ public class LList<T> implements Iterable<T> {
          * @throws NoSuchElementException
          *             if there are no nodes left in the list
          */
-        @SuppressWarnings("unchecked")
         @Override
         public T next() {
             if (hasNext()) {
-                Node tempNode = next;
+                Node<T> tempNode = next;
                 previous2 = previous;
                 previous = next;
                 next = next.next();
