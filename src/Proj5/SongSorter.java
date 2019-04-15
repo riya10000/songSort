@@ -26,7 +26,6 @@ public class SongSorter<T> {
     /**
      * 
      */
-    @SuppressWarnings("unchecked")
     public SongSorter(LList<Song> songs) {
         this.head = (Node<T>)songList.get(0);
 
@@ -57,24 +56,10 @@ public class SongSorter<T> {
         Node<T> currentNode = (Node<T>)songList.get(0);
         Node<T> previousNode = null;
 
-        while ((currentNode != null)) {
-            if (((Song)item).compareArtist(currentNode).data() > 0) {
-                previousNode = currentNode;
-                currentNode = currentNode.next();
-            }
-
-            else if (((Song)item).compareDate(currentNode).data() > 0) {
-                previousNode = currentNode;
-                currentNode = currentNode.next();
-            }
-            else if (((Song)item).compareTitle(currentNode).data() > 0) {
-                previousNode = currentNode;
-                currentNode = currentNode.next();
-            }
-            else if (((Song)item).compareGenre(currentNode).data() > 0) {
-                previousNode = currentNode;
-                currentNode = currentNode.next();
-            }
+        while ((currentNode != null) && (item.compareTo(currentNode
+            .data()) > 0)) {
+            previousNode = currentNode;
+            currentNode = currentNode.next();
         }
         if (previousNode != null) {
             (previousNode).setNext(nodeToInsert);
