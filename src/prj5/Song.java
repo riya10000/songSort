@@ -16,7 +16,8 @@ public class Song {
     private String genre;
     private int[][] heardOf;
     private int[][] likes;
-    private int[][] totalFeedback;
+    private int[][] heardFeedback;
+    private int[][] likeFeedback;
     private int songIndex;
 
 
@@ -52,7 +53,8 @@ public class Song {
 
         this.heardOf = calculateHeardOf(people, index);
         this.likes = calculateLikes(people, index);
-        this.totalFeedback = calculateFeedback(people, index);
+        this.heardFeedback = calculateHFeedback(people, index);
+        this.likeFeedback = calculateLFeedback(people, index);
     }
 
 
@@ -117,14 +119,22 @@ public class Song {
 
 
     /**
-     * gets feedback
+     * gets heard feedback
      * 
-     * @return totalFeedback
+     * @return heardFeedback
      */
-    public int[][] getFeedback() {
-        return totalFeedback;
+    public int[][] getHFeedback() {
+        return heardFeedback;
     }
 
+    /**
+     * gets like feedback
+     * 
+     * @return likeFeedback
+     */
+    public int[][] getLFeedback() {
+        return likeFeedback;
+    }
 
     /**
      * gets index of song
@@ -145,12 +155,12 @@ public class Song {
         int[][] tempMatrix = new int[3][4];
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 4; j++) {
-                if (totalFeedback[i][j] == 0) {
+                if (heardFeedback[i][j] == 0) {
                     tempMatrix[i][j] = 0;
                 }
                 else {
                     tempMatrix[i][j] = heardOf[i][j] * 100
-                        / totalFeedback[i][j];
+                        / heardFeedback[i][j];
                 }
             }
         }
@@ -167,11 +177,11 @@ public class Song {
         int[][] tempMatrix = new int[3][4];
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 4; j++) {
-                if (totalFeedback[i][j] == 0) {
+                if (likeFeedback[i][j] == 0) {
                     tempMatrix[i][j] = 0;
                 }
                 else {
-                    tempMatrix[i][j] = likes[i][j] * 100 / totalFeedback[i][j];
+                    tempMatrix[i][j] = likes[i][j] * 100 / likeFeedback[i][j];
                 }
             }
         }
@@ -187,11 +197,65 @@ public class Song {
      * @param index
      *            index of song
      */
-    public int[][] calculateFeedback(ArrayList<People> people, int index) {
+    public int[][] calculateHFeedback(ArrayList<People> people, int index) {
         int[][] tempMatrix = new int[3][4];
 
         for (int i = 0; i < people.size(); i++) {
             if (!people.get(i).getFeedback()[index].equals("")) {
+                if (people.get(i).getHobby() == HobbyEnum.READ) {
+                    tempMatrix[0][0] += 1;
+                }
+                if (people.get(i).getHobby() == HobbyEnum.ART) {
+                    tempMatrix[0][1] += 1;
+                }
+                if (people.get(i).getHobby() == HobbyEnum.SPORTS) {
+                    tempMatrix[0][2] += 1;
+                }
+                if (people.get(i).getHobby() == HobbyEnum.MUSIC) {
+                    tempMatrix[0][3] += 1;
+                }
+                if (people.get(i).getMajor() == MajorEnum.COMPSCI) {
+                    tempMatrix[1][0] += 1;
+                }
+                if (people.get(i).getMajor() == MajorEnum.OTHERENG) {
+                    tempMatrix[1][1] += 1;
+                }
+                if (people.get(i).getMajor() == MajorEnum.MATHCMDA) {
+                    tempMatrix[1][2] += 1;
+                }
+                if (people.get(i).getMajor() == MajorEnum.OTHER) {
+                    tempMatrix[1][3] += 1;
+                }
+                if (people.get(i).getRegion() == RegionEnum.NE_US) {
+                    tempMatrix[2][0] += 1;
+                }
+                if (people.get(i).getRegion() == RegionEnum.SE_US) {
+                    tempMatrix[2][1] += 1;
+                }
+                if (people.get(i).getRegion() == RegionEnum.OTHER_US) {
+                    tempMatrix[2][2] += 1;
+                }
+                if (people.get(i).getRegion() == RegionEnum.OUTSIDE_US) {
+                    tempMatrix[2][3] += 1;
+                }
+            }
+        }
+        return tempMatrix;
+    }
+    
+    /**
+     * calculates the total feedback for the people
+     * 
+     * @param people
+     *            person ArrayList
+     * @param index
+     *            index of song
+     */
+    public int[][] calculateLFeedback(ArrayList<People> people, int index) {
+        int[][] tempMatrix = new int[3][4];
+
+        for (int i = 0; i < people.size(); i++) {
+            if (!people.get(i).getFeedback()[index + 1].equals("")) {
                 if (people.get(i).getHobby() == HobbyEnum.READ) {
                     tempMatrix[0][0] += 1;
                 }

@@ -163,6 +163,13 @@ public class SongTest extends student.TestCase {
      * tests getFeedback()
      */
     public void testgetFeedback() {
+        ArrayList<People> ar = new ArrayList<>();
+        ar.add(person1);
+        ar.add(person2);
+        ar.add(person3);
+        ar.add(person4);
+        Song song5 = new Song("No More Dream", "BTS", 2013, "Hip-Hop", ar,
+            3);
         int[][] matrix1 = new int[3][4];
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 4; j++) {
@@ -172,7 +179,8 @@ public class SongTest extends student.TestCase {
 
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 4; j++) {
-                assertEquals(matrix1[i][j], song.getFeedback()[i][j]);
+                assertEquals(matrix1[i][j], song5.getLFeedback()[i][j]);
+                assertEquals(matrix1[i][j], song5.getHFeedback()[i][j]);
             }
         }
     }
