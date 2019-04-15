@@ -9,8 +9,6 @@
  */
 package prj5;
 
-import java.util.Iterator;
-
 /**
  * Add the class description here.
  *
@@ -20,7 +18,6 @@ import java.util.Iterator;
 public class SongSorter<T> {
 
     private LList<T> songList;
-    private Iterator<T> iter;
     private int comparatorMethod;
 
 
@@ -30,72 +27,110 @@ public class SongSorter<T> {
     @SuppressWarnings("unchecked")
     public SongSorter(LList<Song> songs, int compareMethod) {
         this.songList = (LList<T>)songs;
-        iter = songList.iterator();
         this.comparatorMethod = compareMethod;
 
     }
 
 
-    public void insertionSort() {
-        T song;
-        assert iter.hasNext();
-        song = iter.next();
-        assert iter.hasNext();
-
-        songList.clear();
-
-        songList.add(song);
-        iter.remove();
+    public LList<T> insertionSort() {
+        LList<T> newList = new LList<>();
+        assert songList.get(0) != null;
+        newList.add(songList.remove(0));
         
-        while (iter.hasNext()) {
-            Iterator<T> newIter = songList.iterator();
-            song = iter.next();
-            while(newIter.hasNext()) {
-                insertInOrder(song, newIter);
+        while (!songList.isEmpty()) {
+            int size = newList.size();
+            T song = songList.remove(0);
+            int i = 0;
+            for(T compared : newList) {
+                switch (comparatorMethod) {
+                    case 1:
+                        if (((Song)song).compareArtist((Song)compared) > 0) {
+                            newList.add(i, song);
+                        }
+                        break;
+                    case 2:
+                        if (((Song)song).compareDate((Song)compared) > 0) {
+                            newList.add(i, song);
+                        }
+                        break;
+                    case 3:
+                        if (((Song)song).compareTitle((Song)compared) > 0) {
+                            newList.add(i, song);
+                        }
+                        break;
+                    case 4:
+                        if (((Song)song).compareGenre((Song)compared) > 0) {
+                            newList.add(i, song);
+                        }
+                        break;
+                    default:
+                        break;
+                }
+            }
+            
+            i++;
+            if(i == size) {
+                newList.add(song);
+                break;
             }
         }
+        songList = newList;
+        return newList;
     }
 
-
+    /*
     @SuppressWarnings("unchecked")
-    private void insertInOrder(T song, Iterator<T> newIter) {
-        T songCheck = newIter.next();
+    private void insertInOrder(T compared) {
+        @SuppressWarnings("unchecked")
+        T item = (T)nodeToInsert.data();
+        @SuppressWarnings("unchecked")
+        Node<T> currentNode = (Node<T>)songList.get(0);
+        Node<T> previousNode = null;
 
-        /*
-        switch (comparatorMethod) {
-            case 1:
-                if (((Song)songCheck).compareArtist((Song) song) > 0) {
-                    newIter.previous();
+        while ((currentNode != null)) {
+            switch (comparatorMethod) {
+                case 1:
+                    if (((Song)item).compareArtist((Song)currentNode
+                        .data()) > 0) {
+                        previousNode = currentNode;
+                        currentNode = currentNode.next();
+                    }
                     break;
-                }
-                break;
-            case 2:
-                if (((Song)item).compareDate((Song)currentNode
-                    .data()) > 0) {
-                    previousNode = currentNode;
-                    currentNode = currentNode.next();
-                }
-                break;
-            case 3:
-                if (((Song)item).compareTitle((Song)currentNode
-                    .data()) > 0) {
-                    previousNode = currentNode;
-                    currentNode = currentNode.next();
-                }
-            case 4:
-                if (((Song)item).compareGenre((Song)currentNode
-                    .data()) > 0) {
-                    previousNode = currentNode;
-                    currentNode = currentNode.next();
-                }
-                break;
-            default:
-                break;
+                case 2:
+                    if (((Song)item).compareDate((Song)currentNode
+                        .data()) > 0) {
+                        previousNode = currentNode;
+                        currentNode = currentNode.next();
+                    }
+                    break;
+                case 3:
+                    if (((Song)item).compareTitle((Song)currentNode
+                        .data()) > 0) {
+                        previousNode = currentNode;
+                        currentNode = currentNode.next();
+                    }
+                case 4:
+                    if (((Song)item).compareGenre((Song)currentNode
+                        .data()) > 0) {
+                        previousNode = currentNode;
+                        currentNode = currentNode.next();
+                    }
+                    break;
+                default:
+                    break;
+            }
         }
-        newIter.add(song);
-        */
-    }
+        if (previousNode != null) {
+            (previousNode).setNext(nodeToInsert);
+            nodeToInsert.setNext(currentNode);
+        }
+        else {
+            nodeToInsert.setNext(head);
+            head = nodeToInsert;
 
+        }
+    }
+    */
 
     public LList<T> getSongList() {
         return songList;

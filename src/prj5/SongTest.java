@@ -31,26 +31,26 @@ public class SongTest extends student.TestCase {
      */
     public void setUp() {
         stringAr = new String[8];
-        stringAr[0] = "yes";
-        stringAr[1] = "yes";
-        stringAr[2] = "yes";
-        stringAr[3] = "yes";
-        stringAr[4] = "yes";
-        stringAr[5] = "yes";
-        stringAr[6] = "yes";
-        stringAr[7] = "yes";
+        stringAr[0] = "Yes";
+        stringAr[1] = "Yes";
+        stringAr[2] = "Yes";
+        stringAr[3] = "Yes";
+        stringAr[4] = "Yes";
+        stringAr[5] = "Yes";
+        stringAr[6] = "Yes";
+        stringAr[7] = "Yes";
         person1 = new People(HobbyEnum.ART, MajorEnum.COMPSCI,
             RegionEnum.OTHER_US, stringAr);
 
         stringAr2 = new String[8];
-        stringAr2[0] = "yes";
-        stringAr2[1] = "yes";
-        stringAr2[2] = "yes";
-        stringAr2[3] = "yes";
-        stringAr2[4] = "yes";
-        stringAr2[5] = "yes";
-        stringAr2[6] = "yes";
-        stringAr2[7] = "yes";
+        stringAr2[0] = "Yes";
+        stringAr2[1] = "Yes";
+        stringAr2[2] = "Yes";
+        stringAr2[3] = "Yes";
+        stringAr2[4] = "Yes";
+        stringAr2[5] = "Yes";
+        stringAr2[6] = "Yes";
+        stringAr2[7] = "Yes";
         person2 = new People(HobbyEnum.READ, MajorEnum.OTHERENG,
             RegionEnum.SE_US, stringAr2);
         person3 = new People(HobbyEnum.MUSIC, MajorEnum.OTHER, RegionEnum.NE_US,
@@ -158,10 +158,21 @@ public class SongTest extends student.TestCase {
 
 
     /**
-     * tests getFeedback()s
+     * tests getFeedback()
      */
     public void testgetFeedback() {
-        assertEquals(4, song.getFeedback());
+        int[][] matrix1 = new int[3][4];
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 4; j++) {
+                matrix1[i][j] = 1;
+            }
+        }
+
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 4; j++) {
+                assertEquals(matrix1[i][j], song.getFeedback()[i][j]);
+            }
+        }
     }
 
 
@@ -219,5 +230,41 @@ public class SongTest extends student.TestCase {
         assertTrue(song4.compareDate(song) == -1);
         assertTrue(song2.compareDate(song3) == 0);
     }
+    
+    
+    /**
+     * tests heardPercent
+     */
+    public void testheardPercent() {
+        int[][] matrix1 = new int[3][4];
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 4; j++) {
+                matrix1[i][j] = 100;
+            }
+        }
 
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 4; j++) {
+                assertEquals(matrix1[i][j], song.heardPercent()[i][j]);
+            }
+        }
+    }
+    
+    /**
+     * tests likes percent
+     */
+    public void testlikesPercent() {
+        int[][] matrix1 = new int[3][4];
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 4; j++) {
+                matrix1[i][j] = 100;
+            }
+        }
+
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 4; j++) {
+                assertEquals(matrix1[i][j], song.likesPercent()[i][j]);
+            }
+        }
+    }
 }

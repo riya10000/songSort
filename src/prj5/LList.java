@@ -12,7 +12,7 @@ import java.util.NoSuchElementException;
  * @param <T>
  *            generic type for linked listed
  */
-public class LList<T> {
+public class LList<T> implements Iterable<T> {
 
     private Node<T> head;
 
@@ -185,8 +185,8 @@ public class LList<T> {
      * @throws IndexOutOfBoundsException
      *             if there is not an element at the index
      */
-    public boolean remove(int index) {
-        // // if the index is invalid
+    public T remove(int index) {
+        T item = null;
         if (index < 0 || head == null) {
             throw new IndexOutOfBoundsException("Index is out of bounds");
         }
@@ -197,23 +197,26 @@ public class LList<T> {
 
             // account for 1 size
             if ((index == 0)) {
+                item = head.getData();
                 head = head.next;
                 size--;
-                return true;
+                return item;
             }
 
             // account for 2+ size
             while (current.next != null) {
                 if ((currentIndex + 1) == index) {
                     if (currentIndex + 1 == this.size() - 1) {
+                        item = this.get(index);
                         current.setNext(null);
                     }
                     else {
+                        item = this.get(index);
                         Node<T> newNext = current.next.next;
                         current.setNext(newNext);
                     }
                     size--;
-                    return true;
+                    return item;
                 }
                 current = current.next;
                 currentIndex++;

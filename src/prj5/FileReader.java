@@ -23,7 +23,7 @@ import java.util.Scanner;
  */
 public class FileReader {
     private LList<Song> songs;
-    private ArrayList<People> peopleQueue;
+    private ArrayList<People> peopleList;
     private SongSorter<Song> songSort;
 
 
@@ -36,10 +36,12 @@ public class FileReader {
      */
     public FileReader(String applicantFile, String songFile)
         throws FileNotFoundException {
-        this.peopleQueue = readSurveyFile(applicantFile, songFile);
+        this.peopleList = readSurveyFile(applicantFile, songFile);
         this.songs = readMusicFile(songFile);
-        this.songSort = new SongSorter<>(songs, 1);
-        new GUIMusicWindow(songs, peopleQueue);
+        this.songSort = new SongSorter<>(songs, 3);
+        this.songs = songSort.insertionSort();
+        printer();
+        new GUIMusicWindow(songs, peopleList);
     }
 
 
@@ -65,7 +67,7 @@ public class FileReader {
             int year = Integer.parseInt(splitter[2]);
 
             Song extracted = new Song(splitter[0], splitter[1], year,
-                splitter[3], peopleQueue, songIndex);
+                splitter[3], peopleList, songIndex);
             songs.add(extracted);
             songIndex++;
         }
@@ -192,6 +194,29 @@ public class FileReader {
 
         scan.close();
         return songNum;
+    }
+
+
+    private void printer() {
+        for (int i = 0; i < songs.size(); i++) {
+            Song currentSong = songs.get(i);
+            System.out.println("song title " + currentSong.getTitle()
+                .toString());
+            System.out.println("song artist " + currentSong.getArtist()
+                .toString());
+            System.out.println("song genre " + currentSong.getGenre()
+                .toString());
+            System.out.println("song year " + currentSong.getYear());
+            System.out.println("heard");
+            System.out.println("reading" + currentSong.heardPercent()[0][0]
+                + " art" + currentSong.heardPercent()[0][1] + " sports"
+                + currentSong.heardPercent()[0][2] + " music" + currentSong.heardPercent()[0][3]);
+            System.out.println("likes");
+            System.out.println("reading" + currentSong.likesPercent()[0][0]
+                + " art" + currentSong.likesPercent()[0][1] + " sports"
+                + currentSong.likesPercent()[0][2] + " music" + currentSong.likesPercent()[0][3]);
+           // System.out.println();
+        }
     }
 
 }
