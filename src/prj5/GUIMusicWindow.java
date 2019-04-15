@@ -21,6 +21,32 @@ public class GUIMusicWindow {
     private Glyph test;
     
     private SongSorter sorter;
+    
+    
+    
+    
+    
+    
+    private ArrayList<People> peopleArList;
+    private People person1;
+    private People person2;
+    private People person3;
+    private People person4;
+    private People person5;
+    private People person6;
+    private People person7;
+    private People person8;
+    private String[] stringAr;
+    private String[] stringAr2;
+    private String[] stringAr3;
+    private Song song;
+    private Song song2;
+    private Song song3;
+    private Song song4;
+    
+    
+    
+    
 
 
     public GUIMusicWindow(SongSorter sorter) {
@@ -65,10 +91,55 @@ public class GUIMusicWindow {
         window.addButton(next, WindowSide.SOUTH);
         
         
-        double[] heardOf = {0.5, 0.30, 0.4, 0.7};
-        double[] likes = {0.7, 0.4, 0.3, 0.5};
-        double[][] matrix = {heardOf, likes};
-        test = new Glyph();
+        
+        
+        
+        
+        
+        stringAr = new String[2];
+        stringAr[0] = "Yes";
+        stringAr[1] = "Yes";
+        
+        
+
+        stringAr2 = new String[2];
+        stringAr2[0] = "Yes";
+        stringAr2[1] = "no";
+        
+        
+        person1 = new People(HobbyEnum.ART, MajorEnum.COMPSCI,
+            RegionEnum.NE_US, stringAr);
+        person2 = new People(HobbyEnum.ART, MajorEnum.COMPSCI,
+            RegionEnum.NE_US, stringAr2);
+        person3 = new People(HobbyEnum.SPORTS, MajorEnum.OTHER, RegionEnum.OTHER_US,
+            stringAr);
+        person4 = new People(HobbyEnum.SPORTS, MajorEnum.MATHCMDA,
+            RegionEnum.OTHER_US, stringAr);
+        person5 = new People(HobbyEnum.READ, MajorEnum.MATHCMDA,
+            RegionEnum.OUTSIDE_US, stringAr2);
+        person6 = new People(HobbyEnum.READ, MajorEnum.OTHER,
+            RegionEnum.OUTSIDE_US, stringAr);
+        person7 = new People(HobbyEnum.MUSIC, MajorEnum.OTHERENG,
+            RegionEnum.SE_US, stringAr);
+        person8 = new People(HobbyEnum.MUSIC, MajorEnum.OTHERENG,
+            RegionEnum.SE_US, stringAr2);
+
+        peopleArList = new ArrayList<>();
+        peopleArList.add(person1);
+        peopleArList.add(person2);
+        peopleArList.add(person3);
+        peopleArList.add(person4);
+        peopleArList.add(person5);
+        peopleArList.add(person6);
+        peopleArList.add(person7);
+        peopleArList.add(person8);
+
+        song = new Song("Boy With Luv", "BTS", 2019, "Pop", peopleArList, 0);
+        
+        
+        
+        test = new Glyph(song, 1, 0);
+        test.render(window);
 
     }
 

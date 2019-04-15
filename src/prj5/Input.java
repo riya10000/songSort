@@ -41,15 +41,16 @@ public class Input {
     public static void main(String[] args)
         throws ParseException,
         FileNotFoundException {
-        if (args.length == 2) {
-            @SuppressWarnings("unused")
-            FileReader files = new FileReader(args[0], args[1]);
-        }
-        else {
-            @SuppressWarnings("unused")
-            FileReader FileReader2 = new FileReader("MusicSurveyData2018.txt",
-                "SongList.txt");
-        }
+//        if (args.length == 2) {
+//            @SuppressWarnings("unused")
+//            FileReader files = new FileReader(args[0], args[1]);
+//        }
+//        else {
+//            @SuppressWarnings("unused")
+//            FileReader FileReader2 = new FileReader("MusicSurveyData2018.txt",
+//                "SongList.txt");
+//        }
+        GUIMusicWindow window = new GUIMusicWindow();
 
     }
 }

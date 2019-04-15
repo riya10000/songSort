@@ -1,4 +1,4 @@
-package Proj5;
+package prj5;
 
 import java.awt.Color;
 import CS2114.Shape;
@@ -104,97 +104,50 @@ public class Glyph {
         
     }
     
-//    private void calculate() {
-//        middle = new Shape(width*3/4 + width*(num%3), height, width/20, height, Color.BLACK );
-//        
-//        heard1 = new Shape(width*3/4 + width*(num%3) - song.getHeardOf()[sortBy][0]*width/2,
-//                            height*(num/3) + height, 
-//                            song.getHeardOf()[sortBy][0]*width/2, 
-//                            height/4, 
-//                            one);
-//        heard2 = new Shape(width*3/4 + width*(num%3) - song.getHeardOf()[sortBy][1]*width/2,
-//                            height*(num/3) + height + height/4, 
-//                            song.getHeardOf()[sortBy][1]*width/2, 
-//                            height/4, 
-//                            two);
-//        heard3 = new Shape(width*3/4 + width*(num%3) - song.getHeardOf()[sortBy][2]*width/2,
-//                            height*(num/3) + height + height/2, 
-//                            song.getHeardOf()[sortBy][2]*width/2, 
-//                            height/4, 
-//                            three);
-//        heard4 = new Shape(width*3/4 + width*(num%3) - song.getHeardOf()[sortBy][3]*width/2, 
-//                            height*(num/3) + height + height*3/4, 
-//                            song.getHeardOf()[sortBy][3]*width/2, 
-//                            height/4, 
-//                            four);
-//        
-//        likes1 = new Shape(width*3/4 + width*(num%3) + width/20,
-//                            height*(num/3) + height, 
-//                            song.getLikes()[sortBy][0]*width/2, 
-//                            height/4, 
-//                            one);
-//        likes2 = new Shape(width*3/4 + width*(num%3) + width/20,
-//                            height*(num/3) + height + height/4, 
-//                            song.getLikes()[sortBy][1]*width/2, 
-//                            height/4, 
-//                            two);
-//        likes3 = new Shape(width*3/4 + width*(num%3) + width/20, 
-//                            height*(num/3) + height + height/2, 
-//                            song.getLikes()[sortBy][2]*width/2, 
-//                            height/4, 
-//                            three);
-//        likes4 = new Shape(width*3/4 + width*(num%3) + width/20,
-//                            height*(num/3) + height + height*3/4, 
-//                            song.getLikes()[sortBy][3]*width/2, 
-//                            height/4, 
-//                            four);
-//        
-//        //songText = new TextShape();
-//    }
     
     
     private void calculate() {
         middle = new Shape(width*3/4 + width*(num%3), height, width/20, height, Color.BLACK );
         
-        heard1 = new Shape(width*3/4 + width*(num%3) - song.getHeardOf()[sortBy][0]*width/2,
+        heard1 = new Shape(width*3/4 + width*(num%3) - song.heardPercent()[sortBy][0]*width/200,
                             height*(num/3) + height, 
-                            song.getsortBy][0]*width/2, 
+                            song.heardPercent()[sortBy][0]*width/200, 
                             height/4, 
                             one);
-        heard2 = new Shape(width*3/4 + width*(num%3) - song.getHeardOf()[sortBy][1]*width/2,
+        heard2 = new Shape(width*3/4 + width*(num%3) - song.heardPercent()[sortBy][1]*width/200,
                             height*(num/3) + height + height/4, 
-                            song.getHeardOf()[sortBy][1]*width/2, 
+                            song.heardPercent()[sortBy][1]*width/200, 
                             height/4, 
                             two);
-        heard3 = new Shape(width*3/4 + width*(num%3) - song.getHeardOf()[sortBy][2]*width/2,
+        heard3 = new Shape(width*3/4 + width*(num%3) - song.heardPercent()[sortBy][2]*width/200,
                             height*(num/3) + height + height/2, 
-                            song.getHeardOf()[sortBy][2]*width/2, 
+                            song.heardPercent()[sortBy][2]*width/200, 
                             height/4, 
                             three);
-        heard4 = new Shape(width*3/4 + width*(num%3) - song.getHeardOf()[sortBy][3]*width/2, 
+        heard4 = new Shape(width*3/4 + width*(num%3) - song.heardPercent()[sortBy][3]*width/200, 
                             height*(num/3) + height + height*3/4, 
-                            song.getHeardOf()[sortBy][3]*width/2, 
+                            song.heardPercent()[sortBy][3]*width/200, 
                             height/4, 
                             four);
         
         likes1 = new Shape(width*3/4 + width*(num%3) + width/20,
                             height*(num/3) + height, 
-                            song.getLikes()[sortBy][0]*width/2, 
+                            song.likesPercent()[sortBy][0]*width/200, 
                             height/4, 
                             one);
         likes2 = new Shape(width*3/4 + width*(num%3) + width/20,
                             height*(num/3) + height + height/4, 
-                            song.getLikes()[sortBy][1]*width/2, 
+                            song.likesPercent()[sortBy][1]*width/200, 
                             height/4, 
                             two);
         likes3 = new Shape(width*3/4 + width*(num%3) + width/20, 
                             height*(num/3) + height + height/2, 
-                            song.getLikes()[sortBy][2]*width/2, 
+                            song.likesPercent()[sortBy][2]*width/200, 
                             height/4, 
                             three);
         likes4 = new Shape(width*3/4 + width*(num%3) + width/20,
                             height*(num/3) + height + height*3/4, 
-                            song.getLikes()[sortBy][3]*width/2, 
+                            song.likesPercent()[sortBy][3]*width/200, 
                             height/4, 
                             four);
         
@@ -216,6 +169,8 @@ public class Glyph {
     }
     
     private void add(Window window) {
+        window.addShape(middle);
+        window.addShape(songText);
         window.addShape(heard1);
         window.addShape(heard2);
         window.addShape(heard3);
@@ -224,8 +179,7 @@ public class Glyph {
         window.addShape(likes2);
         window.addShape(likes3);
         window.addShape(likes4);
-        window.addShape(middle);
-        window.addShape(songText);
+       
     }
     
     public void render(Window window) {
@@ -233,6 +187,7 @@ public class Glyph {
         height = window.getGraphPanelHeight()/5;
         remove(window);
         calculate();
+        add(window);
         
         
         

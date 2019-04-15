@@ -44,7 +44,7 @@ public class FileReader {
         this.songSort = new SongSorter<>(songs, 3);
         songs = songSort.getSongList();
         printer();
-        new GUIMusicWindow(songs, peopleList);
+        //new GUIMusicWindow(songs, peopleList);
     }
 
 
