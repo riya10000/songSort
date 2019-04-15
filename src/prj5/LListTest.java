@@ -79,8 +79,7 @@ public class LListTest extends student.TestCase {
         assertEquals(101, list5.size());
         assertEquals("pie", list5.get(100));
     }
-
-
+    
     /**
      * tests add() method with given index
      */
@@ -467,17 +466,38 @@ public class LListTest extends student.TestCase {
         list1.add("C");
         list1.add("D");
         Iterator iter = list1.iterator();
-
+        
+        Exception exception = null;
+        try {
+            iter.remove();
+        }
+        catch (IllegalStateException e) {
+            exception = e;
+        }
+        assertTrue(exception instanceof IllegalStateException);
+        
         assertEquals(true, iter.hasNext());
         assertEquals("A", iter.next());
+        iter.remove();
         assertEquals("B", iter.next());
+        iter.remove();
         assertEquals("C", iter.next());
+        iter.remove();
         assertEquals("D", iter.next());
+        iter.remove();
 
         assertEquals(false, iter.hasNext());
         
-        Exception exception = null;
+        exception = null;
+        try {
+            iter.remove();
+        }
+        catch (IllegalStateException e) {
+            exception = e;
+        }
+        assertTrue(exception instanceof IllegalStateException);
         
+        exception = null;
         try {
             iter.next();
         }

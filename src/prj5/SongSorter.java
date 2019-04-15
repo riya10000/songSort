@@ -9,7 +9,7 @@
  */
 package prj5;
 
-import bag.Node;
+import java.util.Iterator;
 
 /**
  * Add the class description here.
@@ -20,7 +20,7 @@ import bag.Node;
 public class SongSorter<T> {
 
     private LList<T> songList;
-    private Node<T> head;
+    private Iterator<T> iter;
     private int comparatorMethod;
 
 
@@ -30,78 +30,70 @@ public class SongSorter<T> {
     @SuppressWarnings("unchecked")
     public SongSorter(LList<Song> songs, int compareMethod) {
         this.songList = (LList<T>)songs;
-        this.head = (Node<T>)songList.get(0);
+        iter = songList.iterator();
         this.comparatorMethod = compareMethod;
 
     }
 
 
     public void insertionSort() {
-        if (songList.size() > 1) {
-            assert head != null;
-        }
-        Node<T> unsortedPart = head.next();
-        assert unsortedPart != null;
+        T song;
+        assert iter.hasNext();
+        song = iter.next();
+        assert iter.hasNext();
 
-        head.setNext(null);
-        while (unsortedPart != null) {
-            Node<T> nodeToInsert = unsortedPart;
-            unsortedPart = unsortedPart.next();
-            insertInOrder(nodeToInsert);
+        songList.clear();
+
+        songList.add(song);
+        iter.remove();
+        
+        while (iter.hasNext()) {
+            Iterator<T> newIter = songList.iterator();
+            song = iter.next();
+            while(newIter.hasNext()) {
+                insertInOrder(song, newIter);
+            }
         }
     }
 
 
     @SuppressWarnings("unchecked")
-    private void insertInOrder(Node<T> nodeToInsert) {
-        @SuppressWarnings("unchecked")
-        T item = (T)nodeToInsert.data();
-        @SuppressWarnings("unchecked")
-        Node<T> currentNode = (Node<T>)songList.get(0);
-        Node<T> previousNode = null;
+    private void insertInOrder(T song, Iterator<T> newIter) {
+        T songCheck = newIter.next();
 
-        while ((currentNode != null)) {
-            switch (comparatorMethod) {
-                case 1:
-                    if (((Song)item).compareArtist((Song)currentNode
-                        .data()) > 0) {
-                        previousNode = currentNode;
-                        currentNode = currentNode.next();
-                    }
+        /*
+        switch (comparatorMethod) {
+            case 1:
+                if (((Song)songCheck).compareArtist((Song) song) > 0) {
+                    newIter.previous();
                     break;
-                case 2:
-                    if (((Song)item).compareDate((Song)currentNode
-                        .data()) > 0) {
-                        previousNode = currentNode;
-                        currentNode = currentNode.next();
-                    }
-                    break;
-                case 3:
-                    if (((Song)item).compareTitle((Song)currentNode
-                        .data()) > 0) {
-                        previousNode = currentNode;
-                        currentNode = currentNode.next();
-                    }
-                case 4:
-                    if (((Song)item).compareGenre((Song)currentNode
-                        .data()) > 0) {
-                        previousNode = currentNode;
-                        currentNode = currentNode.next();
-                    }
-                    break;
-                default:
-                    break;
-            }
+                }
+                break;
+            case 2:
+                if (((Song)item).compareDate((Song)currentNode
+                    .data()) > 0) {
+                    previousNode = currentNode;
+                    currentNode = currentNode.next();
+                }
+                break;
+            case 3:
+                if (((Song)item).compareTitle((Song)currentNode
+                    .data()) > 0) {
+                    previousNode = currentNode;
+                    currentNode = currentNode.next();
+                }
+            case 4:
+                if (((Song)item).compareGenre((Song)currentNode
+                    .data()) > 0) {
+                    previousNode = currentNode;
+                    currentNode = currentNode.next();
+                }
+                break;
+            default:
+                break;
         }
-        if (previousNode != null) {
-            (previousNode).setNext(nodeToInsert);
-            nodeToInsert.setNext(currentNode);
-        }
-        else {
-            nodeToInsert.setNext(head);
-            head = nodeToInsert;
-
-        }
+        newIter.add(song);
+        */
     }
 
 

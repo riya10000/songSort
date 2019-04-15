@@ -406,6 +406,9 @@ public class LList<T> {
 
     private class LListIterator<A> implements Iterator<T> {
         private Node<T> next;
+        private Node<T> previous;
+        private Node<T> previous2;
+        private boolean nextCalled;
 
 
         /**
@@ -413,6 +416,9 @@ public class LList<T> {
          */
         public LListIterator() {
             next = head;
+            previous = null;
+            previous2 = null;
+            nextCalled = false;
         }
 
 
@@ -439,7 +445,10 @@ public class LList<T> {
         public T next() {
             if (hasNext()) {
                 Node tempNode = next;
+                previous2 = previous;
+                previous = next;
                 next = next.next();
+                nextCalled = true;
                 return (T)tempNode.getData();
             }
             else {
@@ -447,10 +456,36 @@ public class LList<T> {
                     "There are no more elements in the list");
             }
         }
+
+        /**
+         * removes next element from iterator
+         */
+        @Override
+        public void remove() {
+            if (previous == null || !nextCalled) {
+                throw new IllegalStateException();
+            }
+            if (previous2 == null){
+                head = next;
+            }
+            else {
+                previous2.setNext(next); 
+                previous = previous2;
+            }
+            nextCalled = false;
+        }
     }
 
 
-    private static class Node<T> {
+    /**
+     * private node class for linked list
+     * 
+     * @author proba
+     *
+     * @param <T>
+     *            generic
+     */
+    private class Node<T> {
         private Node<T> next;
         private T data;
 

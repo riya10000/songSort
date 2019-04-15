@@ -21,13 +21,23 @@ import bsh.ParseException;
 public class Input {
 
     /**
-     * 
+     * constructor for input
      */
     public Input() {
-        // TODO Auto-generated constructor stub
+        // left blank purposefully
     }
 
 
+    /**
+     * Main method to initialize program and send files to file reader
+     * 
+     * @param args
+     *            file names as strings
+     * @throws ParseException
+     *             if files are not parsed correctly
+     * @throws FileNotFoundException
+     *             if files are not found
+     */
     public static void main(String[] args)
         throws ParseException,
         FileNotFoundException {

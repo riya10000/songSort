@@ -20,7 +20,6 @@ import java.util.Scanner;
  *
  * @author Riya Dani riyadn99
  * @version 04/12/2019
- * @param <E>
  */
 public class FileReader {
     private LList<Song> songs;
@@ -29,49 +28,74 @@ public class FileReader {
 
 
     /**
-     * @throws FileNotFoundException 
+     * Constructor for file reader class
+     * 
+     * @throws FileNotFoundException
+     *             if files are not found
      * 
      */
-    public FileReader(String applicantFile, String songFile) throws FileNotFoundException {
-        this.peopleQueue = readSurveyFile(applicantFile);
+    public FileReader(String applicantFile, String songFile)
+        throws FileNotFoundException {
+        this.peopleQueue = readSurveyFile(applicantFile, songFile);
         this.songs = readMusicFile(songFile);
         this.songSort = new SongSorter<>(songs, 1);
         new GUIMusicWindow(songs, peopleQueue);
     }
 
 
+    /**
+     * Reads in song file
+     * 
+     * @param fileName
+     *            song file
+     * @return linked list of songs
+     * @throws FileNotFoundException
+     *             if file is not found
+     */
     public LList<Song> readMusicFile(String fileName)
         throws FileNotFoundException {
         Scanner scan = new Scanner(new File(fileName));
 
         LList<Song> songs = new LList<Song>();
         int songIndex = 0;
+        scan.nextLine();
         while (scan.hasNextLine()) {
             String stored = scan.nextLine();
-            String[] splitter = stored.split(",");
+            String[] splitter = stored.split(", *", -1);
             int year = Integer.parseInt(splitter[2]);
 
             Song extracted = new Song(splitter[0], splitter[1], year,
                 splitter[3], peopleQueue, songIndex);
+            songs.add(extracted);
             songIndex++;
         }
 
+        scan.close();
         return songs;
 
     }
 
 
-    public ArrayList<People> readSurveyFile(String names)
+    /**
+     * reads in survey results
+     * 
+     * @param names
+     *            file name
+     * @return ArrayList of people object
+     * @throws FileNotFoundException
+     *             if file is not found
+     */
+    public ArrayList<People> readSurveyFile(String names, String songFile)
         throws FileNotFoundException {
 
         Scanner scan = new Scanner(new File(names));
         ArrayList<People> people = new ArrayList<People>();
-
+        scan.nextLine();
         while (scan.hasNextLine()) {
             String line = scan.nextLine();
 
             String[] blockSplit = line.split(", *", -1);
-            String[] resp = null;
+            String[] resp = new String[songFileLength(songFile) * 2];
 
             int count = 0;
             boolean make = false;
@@ -132,14 +156,11 @@ public class FileReader {
                     break;
             }
 
-            for (int i = 0; i < blockSplit.length; i++) {
-                if (blockSplit[i].equals("yes") || blockSplit[i].equals("no")) {
-                    resp[count] = blockSplit[i];
-                    count++;
-
-                }
-
+            for (int i = 5; i < blockSplit.length; i++) {
+                resp[count] = blockSplit[i];
+                count++;
             }
+
             People p = new People(hobby, majoring, reg, resp);
             people.add(p);
 
@@ -148,6 +169,29 @@ public class FileReader {
 
         return people;
 
+    }
+
+
+    /**
+     * calculates how many songs are in file
+     * 
+     * @param fileName
+     *            name of song file
+     * @return number of song
+     * @throws FileNotFoundException
+     *             if file not found
+     */
+    private int songFileLength(String fileName) throws FileNotFoundException {
+        Scanner scan = new Scanner(new File(fileName));
+        int songNum = 0;
+        scan.nextLine();
+        while (scan.hasNextLine()) {
+            scan.nextLine();
+            songNum++;
+        }
+
+        scan.close();
+        return songNum;
     }
 
 }
