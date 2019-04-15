@@ -134,7 +134,7 @@ public class SongTest extends student.TestCase {
                 assertEquals(matrix1[i][j], song.getHeardOf()[i][j]);
             }
         }
-
+        
     }
 
 
@@ -154,6 +154,8 @@ public class SongTest extends student.TestCase {
                 assertEquals(matrix1[i][j], song.getLikes()[i][j]);
             }
         }
+        
+        
     }
 
 
@@ -226,8 +228,8 @@ public class SongTest extends student.TestCase {
      * test compareDate()
      */
     public void testCompareDate() {
-        assertTrue(song.compareDate(song2) == 1);
-        assertTrue(song4.compareDate(song) == -1);
+        assertTrue(song.compareDate(song2) > 0);
+        assertTrue(song4.compareDate(song) < 0);
         assertTrue(song2.compareDate(song3) == 0);
     }
     
@@ -248,6 +250,23 @@ public class SongTest extends student.TestCase {
                 assertEquals(matrix1[i][j], song.heardPercent()[i][j]);
             }
         }
+        
+        ArrayList<People> ar = new ArrayList<>();
+        ar.add(person5);
+        Song song5 = new Song("No More Dream", "BTS", 2013, "Hip-Hop", ar,
+            3);
+        int[][] matrix2 = new int[3][4];
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 4; j++) {
+                matrix2[i][j] = 0;
+            }
+        }
+
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 4; j++) {
+                assertEquals(matrix2[i][j], song5.heardPercent()[i][j]);
+            }
+        }
     }
     
     /**
@@ -264,6 +283,23 @@ public class SongTest extends student.TestCase {
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 4; j++) {
                 assertEquals(matrix1[i][j], song.likesPercent()[i][j]);
+            }
+        }
+        
+        ArrayList<People> ar = new ArrayList<>();
+        ar.add(person5);
+        Song song5 = new Song("No More Dream", "BTS", 2013, "Hip-Hop", ar,
+            3);
+        int[][] matrix2 = new int[3][4];
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 4; j++) {
+                matrix2[i][j] = 0;
+            }
+        }
+
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 4; j++) {
+                assertEquals(matrix2[i][j], song5.likesPercent()[i][j]);
             }
         }
     }
