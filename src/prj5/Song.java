@@ -227,10 +227,7 @@ public class Song {
                 }
                 if (people.get(i).getHobby() == HobbyEnum.MUSIC) {
                     tempMatrix[0][3] += 1;
-<<<<<<< Updated upstream
-=======
-                    // System.out.println("music+ heardfeed" + index);
->>>>>>> Stashed changes
+
                 }
                 if (people.get(i).getMajor() == MajorEnum.COMPSCI) {
                     tempMatrix[1][0] += 1;
@@ -288,10 +285,6 @@ public class Song {
                 }
                 if (people.get(i).getHobby() == HobbyEnum.MUSIC) {
                     tempMatrix[0][3] += 1;
-<<<<<<< Updated upstream
-=======
-                    // System.out.println("music+ likesfeed" + index);
->>>>>>> Stashed changes
                 }
                 if (people.get(i).getMajor() == MajorEnum.COMPSCI) {
                     tempMatrix[1][0] += 1;
@@ -349,10 +342,6 @@ public class Song {
                 }
                 if (people.get(i).getHobby() == HobbyEnum.MUSIC) {
                     tempMatrix[0][3] += 1;
-<<<<<<< Updated upstream
-=======
-                    // System.out.println("music+ heard" + index);
->>>>>>> Stashed changes
                 }
                 if (people.get(i).getMajor() == MajorEnum.COMPSCI) {
                     tempMatrix[1][0] += 1;
@@ -409,10 +398,6 @@ public class Song {
                 }
                 if (people.get(i).getHobby() == HobbyEnum.MUSIC) {
                     tempMatrix[0][3] += 1;
-<<<<<<< Updated upstream
-=======
-                    // System.out.println("music+ likes" + index);
->>>>>>> Stashed changes
                 }
                 if (people.get(i).getMajor() == MajorEnum.COMPSCI) {
                     tempMatrix[1][0] += 1;
