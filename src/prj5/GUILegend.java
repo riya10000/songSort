@@ -1,3 +1,13 @@
+/*
+ * Virginia Tech Honor Code Pledge:
+ *
+ * As a Hokie, I will conduct myself with honor
+ * and integrity at all times.
+ * I will not lie, cheat, or steal, nor will I
+ * accept the actions of those who do.
+ * -- Riya Dani (riyadn99), Kara Probasco (karap17), Alisa Khuu (alisak22),
+ * Marcus Tran (Tmarcus)
+ */
 package prj5;
 
 import java.awt.Color;
@@ -41,40 +51,42 @@ public class GUILegend {
         height = window.getGraphPanelHeight() / 3;
         windowWidth = window.getGraphPanelWidth();
         windowHeight = window.getGraphPanelHeight();
-        
+
         this.num = num;
 
-        legend = new TextShape(windowWidth - width*3/4, height, "");
+        legend = new TextShape(windowWidth - width * 3 / 4, height, "");
         legend.setBackgroundColor(Color.WHITE);
-        permSong = new TextShape(windowWidth - width*3/5, height + height/6, "Song Title");
+        permSong = new TextShape(windowWidth - width * 3 / 5, height + height
+            / 6, "Song Title");
         permSong.setBackgroundColor(Color.WHITE);
-        bar = new Shape(windowWidth - width*2/5,
-                        height + height/3, 
-                        width/20, height/2, 
-                        Color.BLACK );
-        permHeard = new TextShape(windowWidth - width*3/4, height+ height/2, "Heard");
-        permLikes = new TextShape(windowWidth - width/4 - width/20, height+ height/2, "Likes");
-        
+        bar = new Shape(windowWidth - width * 2 / 5, height + height / 3, width
+            / 20, height / 2, Color.BLACK);
+        permHeard = new TextShape(windowWidth - width * 3 / 4, height + height
+            / 2, "Heard");
+        permLikes = new TextShape(windowWidth - width / 4 - width / 20, height
+            + height / 2, "Likes");
+
         permHeard.setBackgroundColor(Color.WHITE);
         permLikes.setBackgroundColor(Color.WHITE);
-    
-        word1 = new TextShape(windowWidth - width*3/4, height*2,"", one);
-        word2 = new TextShape(windowWidth - width*3/4, height*2 + height/9,"", two);
-        word3 = new TextShape(windowWidth - width*3/4, height*2+ height*2/9,"", three);
-        word4 = new TextShape(windowWidth - width*3/4, height*2 + height*3/9,"", four);
-        
-        
+
+        word1 = new TextShape(windowWidth - width * 3 / 4, height * 2, "", one);
+        word2 = new TextShape(windowWidth - width * 3 / 4, height * 2 + height
+            / 9, "", two);
+        word3 = new TextShape(windowWidth - width * 3 / 4, height * 2 + height
+            * 2 / 9, "", three);
+        word4 = new TextShape(windowWidth - width * 3 / 4, height * 2 + height
+            * 3 / 9, "", four);
+
         word1.setBackgroundColor(Color.WHITE);
         word2.setBackgroundColor(Color.WHITE);
         word3.setBackgroundColor(Color.WHITE);
         word4.setBackgroundColor(Color.WHITE);
-        
+
         window.addShape(permSong);
         window.addShape(bar);
         window.addShape(permHeard);
         window.addShape(permLikes);
-        
-        
+
     }
 
 
@@ -106,7 +118,8 @@ public class GUILegend {
             word4.setText("Outside Us");
         }
     }
-    
+
+
     private void remove(Window window) {
         window.removeShape(legend);
         window.removeShape(word1);
@@ -114,7 +127,8 @@ public class GUILegend {
         window.removeShape(word3);
         window.removeShape(word4);
     }
-    
+
+
     private void add(Window window) {
         window.addShape(legend);
         window.addShape(word1);
@@ -122,7 +136,8 @@ public class GUILegend {
         window.addShape(word3);
         window.addShape(word4);
     }
-    
+
+
     public void render(Window window) {
         remove(window);
         setText();

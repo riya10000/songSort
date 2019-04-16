@@ -5,7 +5,8 @@
  * and integrity at all times.
  * I will not lie, cheat, or steal, nor will I
  * accept the actions of those who do.
- * -- Riya Dani (riyadn99)
+ * -- Riya Dani (riyadn99), Kara Probasco (karap17), Alisa Khuu (alisak22),
+ * Marcus Tran (Tmarcus)
  */
 package prj5;
 
@@ -40,6 +41,7 @@ public class Input {
      * @throws FileNotFoundException
      *             if files are not found
      */
+<<<<<<< Updated upstream
     public static void main(String[] args)
 <<<<<<< HEAD
         throws FileNotFoundException, ParseException {
@@ -64,6 +66,18 @@ public class Input {
 //            FileReader FileReader2 = new FileReader("MusicSurveyData2018.txt",
 //                "SongList.txt");
 //       }
+=======
+    public static void main(String[] args) throws FileNotFoundException {
+// if (args.length == 2) {
+// @SuppressWarnings("unused")
+// FileReader files = new FileReader(args[0], args[1]);
+// }
+// else {
+// @SuppressWarnings("unused")
+// FileReader FileReader2 = new FileReader("MusicSurveyData2018.txt",
+// "SongList.txt");
+// }
+>>>>>>> Stashed changes
         GUIMusicWindow window = new GUIMusicWindow();
 >>>>>>> 97168940d35575cf470622ff9c4b7ccaa46d724b
 

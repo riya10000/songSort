@@ -5,7 +5,8 @@
  * and integrity at all times.
  * I will not lie, cheat, or steal, nor will I
  * accept the actions of those who do.
- * -- Riya Dani (riyadn99)
+ * -- Riya Dani (riyadn99), Kara Probasco (karap17), Alisa Khuu (alisak22),
+ * Marcus Tran (Tmarcus)
  */
 package prj5;
 
@@ -128,6 +129,11 @@ public class SongSorterTest extends student.TestCase {
         sort.insertionSort(3);
 
         assertEquals(songs, sort.getSongList());
+
+        LList<Song> song5 = new LList<Song>();
+
+        SongSorter<String> sort3 = new SongSorter<String>(song5);
+        sort3.insertionSort(1);
 
     }
 
