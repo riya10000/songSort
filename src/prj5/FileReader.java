@@ -171,7 +171,6 @@ public class FileReader {
                     People p = new People(hobby, majoring, reg, resp);
                     people.add(p);
                 }
-
             }
         }
         scan.close();

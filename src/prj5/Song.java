@@ -49,12 +49,12 @@ public class Song {
         this.artist = artist;
         this.year = year;
         this.genre = genre;
-        this.songIndex = index;
+        this.songIndex = 2 * index;
 
-        this.heardOf = calculateHeardOf(people, index);
-        this.likes = calculateLikes(people, index);
-        this.heardFeedback = calculateHFeedback(people, index);
-        this.likeFeedback = calculateLFeedback(people, index);
+        this.heardOf = calculateHeardOf(people, songIndex);
+        this.likes = calculateLikes(people, songIndex);
+        this.heardFeedback = calculateHFeedback(people, songIndex);
+        this.likeFeedback = calculateLFeedback(people, songIndex);
     }
 
 
@@ -203,7 +203,8 @@ public class Song {
         int[][] tempMatrix = new int[3][4];
 
         for (int i = 0; i < people.size(); i++) {
-            if (people.get(i).getFeedback()[index].equals("Yes") || people.get(i).getFeedback()[index].equals("No")) {
+            if (people.get(i).getFeedback()[index].equals("Yes") || people.get(
+                i).getFeedback()[index].equals("No")) {
                 if (people.get(i).getHobby() == HobbyEnum.READ) {
                     tempMatrix[0][0] += 1;
                 }
@@ -215,6 +216,7 @@ public class Song {
                 }
                 if (people.get(i).getHobby() == HobbyEnum.MUSIC) {
                     tempMatrix[0][3] += 1;
+                    //System.out.println("music+ heardfeed" + index);
                 }
                 if (people.get(i).getMajor() == MajorEnum.COMPSCI) {
                     tempMatrix[1][0] += 1;
@@ -253,13 +255,14 @@ public class Song {
      *            person ArrayList
      * @param index
      *            index of song
-     *  @return int[][] of feedback          
+     * @return int[][] of feedback
      */
     public int[][] calculateLFeedback(ArrayList<People> people, int index) {
         int[][] tempMatrix = new int[3][4];
 
         for (int i = 0; i < people.size(); i++) {
-            if (people.get(i).getFeedback()[index + 1].equals("Yes") || people.get(i).getFeedback()[index + 1].equals("No")) {
+            if (people.get(i).getFeedback()[index + 1].equals("Yes") || people
+                .get(i).getFeedback()[index + 1].equals("No")) {
                 if (people.get(i).getHobby() == HobbyEnum.READ) {
                     tempMatrix[0][0] += 1;
                 }
@@ -270,7 +273,8 @@ public class Song {
                     tempMatrix[0][2] += 1;
                 }
                 if (people.get(i).getHobby() == HobbyEnum.MUSIC) {
-                    tempMatrix[0][3] += 1;
+                    tempMatrix[0][3] += 1; 
+                    //System.out.println("music+ likesfeed" + index);
                 }
                 if (people.get(i).getMajor() == MajorEnum.COMPSCI) {
                     tempMatrix[1][0] += 1;
@@ -328,6 +332,7 @@ public class Song {
                 }
                 if (people.get(i).getHobby() == HobbyEnum.MUSIC) {
                     tempMatrix[0][3] += 1;
+                    //System.out.println("music+ heard" + index);
                 }
                 if (people.get(i).getMajor() == MajorEnum.COMPSCI) {
                     tempMatrix[1][0] += 1;
@@ -384,6 +389,7 @@ public class Song {
                 }
                 if (people.get(i).getHobby() == HobbyEnum.MUSIC) {
                     tempMatrix[0][3] += 1;
+                    //System.out.println("music+ likes" + index);
                 }
                 if (people.get(i).getMajor() == MajorEnum.COMPSCI) {
                     tempMatrix[1][0] += 1;
