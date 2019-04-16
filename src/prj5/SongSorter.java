@@ -47,7 +47,7 @@ public class SongSorter<T> {
      * insertion sort
      */
     public void insertionSort() {
-        if (songList.size() > 1) {
+        if (songList.size() >= 1) {
             assert head != null;
         }
         Node<Song> unsortedPart = head.next();

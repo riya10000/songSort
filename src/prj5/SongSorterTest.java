@@ -49,7 +49,10 @@ public class SongSorterTest extends student.TestCase {
     private Song song4;
 
     private SongSorter<String> sort;
+    private SongSorter<String> sort2;
+
     private LList<Song> songs;
+    private LList<Song> songs2;
 
 
     /**
@@ -119,12 +122,28 @@ public class SongSorterTest extends student.TestCase {
 
         sort = new SongSorter<String>(songs, 3);
 
+        songs2 = new LList<Song>();
+        sort2 = new SongSorter<String>(songs2, 2);
+        songs2.add(song);
+
     }
 
 
     public void testInsertionSort() {
         sort.insertionSort();
-        assertEquals("", sort.toString());
+
+        assertEquals(songs, sort.getSongList());
+
+        AssertionError e = null;
+        try {
+            sort2.insertionSort();
+
+            sort2.getSongList();
+        }
+        catch (AssertionError error) {
+            e = error;
+        }
+        assertTrue(e instanceof AssertionError);
 
     }
 
