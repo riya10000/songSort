@@ -17,7 +17,6 @@ public class GUIGlyph {
     private Song song;
     private int sortBy;
     private int num;
-    private double[][] standin;
 
     private Shape heard1;
     private Shape heard2;

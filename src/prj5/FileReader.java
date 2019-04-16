@@ -11,7 +11,6 @@ package prj5;
 
 import java.io.File;
 import java.io.FileNotFoundException;
-import bsh.ParseException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -38,8 +37,7 @@ public class FileReader {
      * 
      */
     public FileReader(String applicantFile, String songFile)
-        throws FileNotFoundException,
-        ParseException {
+        throws FileNotFoundException {
         this.peopleList = readSurveyFile(applicantFile, songFile);
         this.songs = readMusicFile(songFile);
         this.songSort = new SongSorter<>(songs);
@@ -65,8 +63,7 @@ public class FileReader {
      *             if file is not found
      */
     public LList<Song> readMusicFile(String fileName)
-        throws FileNotFoundException,
-        ParseException {
+        throws FileNotFoundException {
         Scanner scan = new Scanner(new File(fileName));
 
         LList<Song> songs = new LList<Song>();
@@ -100,8 +97,7 @@ public class FileReader {
      *             if file is not found
      */
     public ArrayList<People> readSurveyFile(String names, String songFile)
-        throws FileNotFoundException,
-        ParseException {
+        throws FileNotFoundException {
 
         Scanner scan = new Scanner(new File(names));
         ArrayList<People> people = new ArrayList<People>();
@@ -199,8 +195,7 @@ public class FileReader {
      *             if file not found
      */
     private int songFileLength(String fileName)
-        throws FileNotFoundException,
-        ParseException {
+        throws FileNotFoundException {
         Scanner scan = new Scanner(new File(fileName));
         int songNum = 0;
         scan.nextLine();
