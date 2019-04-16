@@ -5,6 +5,19 @@ import CS2114.Shape;
 import CS2114.TextShape;
 import CS2114.Window;
 
+
+/**
+ * class for physical representations of Glyphs
+ * collection of shapes for song data representation
+ * 
+ * @author Alisa Khuu alisak22
+ * @author Kara Probasco karap17
+ * @author Riya Dani riyadn99
+ * @author Marcus Tran Tmarcus
+ * 
+ * @version 04/16/2019
+ *
+ */
 public class GUIGlyph {
     private Song song;
     private int sortBy;
@@ -36,7 +49,18 @@ public class GUIGlyph {
     private Color three;
     private Color four;
 
-
+    
+    /**
+     * Constructor for GUIGlyph class 
+     * Initializes shapes and variables
+     * 
+     * @param song
+     *          song that Glyph represents
+     * @param sort
+     *          int that designates the index for sort
+     * @param num
+     *         int that decides placement of glyph on screen
+     */
     public GUIGlyph(Song song, int sort, int num) {
         this.song = song;
         this.sortBy = sort;
@@ -85,34 +109,52 @@ public class GUIGlyph {
         four = new Color(255, 195, 77);
 
     }
+    
+    /**
+     * sets GUIGlyph song variable
+     * 
+     * @param song
+     *      new song to be set to
+     */
+    public void setSong(Song song) {
+        this.song = song;
+    }
 
 
-
+    /**
+     * helper method
+     * calculates changes in bar length based off 
+     * window size and song data
+     */
     private void calculate() {
         middle = new Shape(width*3/4 + width*(num%4) + buffer*(num%4),
                             height*(num/4)*2 + height  , 
                             width/20, height, 
                             Color.BLACK );
         
-        heard1 = new Shape(width*3/4 + width*(num%4) - song.heardPercent()[sortBy][0]*width/200 + buffer*(num%4),
+        heard1 = new Shape(width*3/4 + width*(num%4) - song.heardPercent()
+                            [sortBy][0]*width/200 + buffer*(num%4),
                             height*(num/4)*2 + height, 
                             song.heardPercent()[sortBy][0]*width/200, 
                             height/4, 
                             one);
         
-        heard2 = new Shape(width*3/4 + width*(num%4) - song.heardPercent()[sortBy][1]*width/200  + buffer*(num%4),
+        heard2 = new Shape(width*3/4 + width*(num%4) - song.heardPercent()
+                            [sortBy][1]*width/200  + buffer*(num%4),
                             height*(num/4)*2 + height + height/4, 
                             song.heardPercent()[sortBy][1]*width/200, 
                             height/4, 
                             two);
         
-        heard3 = new Shape(width*3/4 + width*(num%4) - song.heardPercent()[sortBy][2]*width/200  + buffer*(num%4),
+        heard3 = new Shape(width*3/4 + width*(num%4) - song.heardPercent()
+                            [sortBy][2]*width/200  + buffer*(num%4),
                             height*(num/4)*2 + height + height/2, 
                             song.heardPercent()[sortBy][2]*width/200, 
                             height/4, 
                             three);
         
-        heard4 = new Shape(width*3/4 + width*(num%4) - song.heardPercent()[sortBy][3]*width/200  + buffer*(num%4), 
+        heard4 = new Shape(width*3/4 + width*(num%4) - song.heardPercent()
+                            [sortBy][3]*width/200  + buffer*(num%4), 
                             height*(num/4)*2 + height + height*3/4, 
                             song.heardPercent()[sortBy][3]*width/200, 
                             height/4, 
@@ -153,7 +195,13 @@ public class GUIGlyph {
 
     }
 
-
+    /**
+     * helper method
+     * removes all objects from window
+     * 
+     * @param window
+     *          window objects are removed from
+     */
     private void remove(Window window) {
         window.removeShape(heard1);
         window.removeShape(heard2);
@@ -168,7 +216,13 @@ public class GUIGlyph {
 
     }
 
-
+    /**
+     * helper method
+     * adds all shapes to window
+     * 
+     * @param window
+     *          window shapes are added to
+     */
     private void add(Window window) {
         window.addShape(middle);
         window.addShape(songText);
@@ -183,7 +237,12 @@ public class GUIGlyph {
 
     }
 
-
+    /**
+     * renders GUIGlyph object
+     * 
+     * @param window
+     *         window objects are rendered to
+     */
     public void render(Window window) {
         width = window.getGraphPanelWidth()/5;
         height = window.getGraphPanelHeight()/5;

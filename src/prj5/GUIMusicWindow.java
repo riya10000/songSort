@@ -5,7 +5,24 @@ import CS2114.Button;
 import CS2114.Window;
 import CS2114.WindowSide;
 
+
+/**
+ * Responsible for graphical representation of data
+ * creates windows and renders buttons and graphics
+ * 
+ * @author Alisa Khuu alisak22
+ * @author Kara Probasco karap17
+ * @author Riya Dani riyadn99
+ * @author Marcus Tran Tmarcus
+ * 
+ * @version 04/16/2019
+ *
+ */
 public class GUIMusicWindow {
+    
+    /**
+     * private variables that are added to window
+     */
     private Window window;
     private Button sortByArtistName;
     private Button sortBySongTitle;
@@ -25,7 +42,9 @@ public class GUIMusicWindow {
     
     
     
-    
+    /**
+     * test variables for creating test Glyphs
+     */
     private ArrayList<People> peopleArList;
     private People person1;
     private People person2;
@@ -47,12 +66,18 @@ public class GUIMusicWindow {
     
     
 
-
+    /**
+     * Constructor for GUIMusicWindow
+     * @param sorter
+     */
     public GUIMusicWindow(SongSorter sorter) {
         this.sorter = sorter;
     }
 
-
+    /**
+     * test constructor for GUIMusicWindow
+     * Will be replaced when back is attached to front end
+     */
     public GUIMusicWindow() {
         window = new Window();
         window.setSize(window.getGraphPanelWidth() * 4/3, window.getGraphPanelHeight() * 4/3);
@@ -162,66 +187,113 @@ public class GUIMusicWindow {
 
     }
 
-
+    /**
+     * button function to sort by aritst
+     * 
+     * @param sortByArtistName
+     *          button clicked to initialize sort
+     */
     public void clickedSortByArtistName(Button sortByArtistName) {
-
+        //to do
     }
 
-
+    /**
+     * function to sort by title
+     * 
+     * @param sortBySongTitle
+     *          button pushed
+     */
     public void clickedSortBySongTitle(Button sortBySongTitle) {
-
+      //to do
     }
 
-
+    /**
+     * function to sort by date
+     * 
+     * @param sortByReleaseTitle
+     *          button pushed
+     */
     public void clickedSortByReleaseTitle(Button sortByReleaseTitle) {
-
+      //to do
     }
 
-
+    /**
+     * function to sort by genre
+     * 
+     * @param sortByGenre
+     *          button pushed
+     */
     public void clickedSortByGenre(Button sortByGenre) {
-
+      //to do
     }
 
-
-    public void clickedSortByNext(Button sortByNext) {
-
-    }
-
-
+    /**
+     * function to represent data by hobby
+     * 
+     * @param representHobby
+     *          button pushed
+     */
     public void clickedRepresentHobby(Button representHobby) {
-
+      //to do
     }
 
-
+    /**
+     * function to represent data by major
+     * 
+     * @param representMajor
+     *          button pushed
+     */
     public void clickedRepresentMajor(Button representMajor) {
-
+      //to do
     }
 
-
+    /**
+     * function to represent data by region
+     * 
+     * @param representRegion
+     *          button pushed
+     */
     public void clickedRepresentRegion(Button representRegion) {
-
+      //to do
     }
 
-
+    /**
+     * function to quit screen
+     * 
+     * @param quit
+     *          button pushed
+     */
     public void clickedQuit(Button quit) {
 
         System.exit(0);
 
     }
 
-
+    /**
+     * function to page to previous screen
+     * 
+     * @param previous
+     *          button pushed
+     */
     public void clickedPrevious(Button previous) {
-
+      //to do
     }
 
-
+    /**
+     * function to page to next screen
+     * 
+     * @param next
+     *          button pushed
+     */
     public void clickedNext(Button next) {
-
+      //to do
     }
 
-
+    /**
+     * redraw screen at changes
+     */
     public void redraw() {
-
+      //to do
     }
 
 }
