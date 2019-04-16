@@ -19,6 +19,9 @@ import prj5.LList.Node;
  * @author Marcus Tran (Tmarcus)
  * 
  * @version 4/16/2019
+ * 
+ * @param <T>
+ *            generic type for sorter
  */
 public class SongSorter<T> {
 
@@ -106,25 +109,13 @@ public class SongSorter<T> {
     private boolean compare(Node<Song> currentNode, Song item, int comparator) {
         switch (comparator) {
             case 1:
-                if (item.compareArtist(currentNode.getData()) > 0) {
-                    return true;
-                }
-                return false;
+                return item.compareArtist(currentNode.getData()) > 0;
             case 2:
-                if (item.compareDate(currentNode.getData()) > 0) {
-                    return true;
-                }
-                return false;
+                return item.compareDate(currentNode.getData()) > 0;
             case 3:
-                if (item.compareTitle(currentNode.getData()) > 0) {
-                    return true;
-                }
-                return false;
+                return item.compareTitle(currentNode.getData()) > 0;
             case 4:
-                if (item.compareGenre(currentNode.getData()) > 0) {
-                    return true;
-                }
-                return false;
+                return item.compareGenre(currentNode.getData()) > 0;
             default:
                 return false;
         }

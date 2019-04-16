@@ -209,6 +209,8 @@ public class Song {
      *            person ArrayList
      * @param index
      *            index of song
+     * 
+     * @return int matrix of feedback
      */
     public int[][] calculateHFeedback(ArrayList<People> people, int index) {
         int[][] tempMatrix = new int[3][4];

@@ -22,15 +22,11 @@ import java.util.ArrayList;
  */
 public class SongTest extends student.TestCase {
 
-    private ArrayList<People> peopleArList;
     private People person1;
     private People person2;
     private People person3;
     private People person4;
     private People person5;
-    private String[] stringAr;
-    private String[] stringAr2;
-    private String[] stringAr3;
     private Song song;
     private Song song2;
     private Song song3;
@@ -41,7 +37,7 @@ public class SongTest extends student.TestCase {
      * sets up for tests
      */
     public void setUp() {
-        stringAr = new String[8];
+        String[] stringAr = new String[8];
         stringAr[0] = "Yes";
         stringAr[1] = "Yes";
         stringAr[2] = "Yes";
@@ -53,7 +49,7 @@ public class SongTest extends student.TestCase {
         person1 = new People(HobbyEnum.ART, MajorEnum.COMPSCI,
             RegionEnum.OTHER_US, stringAr);
 
-        stringAr2 = new String[8];
+        String[] stringAr2 = new String[8];
         stringAr2[0] = "Yes";
         stringAr2[1] = "Yes";
         stringAr2[2] = "Yes";
@@ -69,7 +65,7 @@ public class SongTest extends student.TestCase {
         person4 = new People(HobbyEnum.SPORTS, MajorEnum.MATHCMDA,
             RegionEnum.OUTSIDE_US, stringAr2);
 
-        stringAr3 = new String[8];
+        String[] stringAr3 = new String[8];
         stringAr3[0] = "";
         stringAr3[1] = "";
         stringAr3[2] = "no";
@@ -82,7 +78,7 @@ public class SongTest extends student.TestCase {
         person5 = new People(HobbyEnum.SPORTS, MajorEnum.MATHCMDA,
             RegionEnum.OUTSIDE_US, stringAr3);
 
-        peopleArList = new ArrayList<>();
+        ArrayList<People> peopleArList = new ArrayList<>();
         peopleArList.add(person1);
         peopleArList.add(person2);
         peopleArList.add(person3);
