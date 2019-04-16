@@ -194,7 +194,9 @@ public class Glyph {
                             height/4, 
                             four);
         
-        songText = new TextShape(width*1/4 + width*(num%4) + buffer*(num%4), height*(num/4)*2 + height - buffer, song.getTitle() + " by " + song.getArtist());
+        songText = new TextShape(width*1/4 + width*(num%4) + buffer*(num%4), 
+                                height*(num/4)*2 + height - buffer, 
+                                song.getTitle() + " by " + song.getArtist());
 
     }
 
@@ -230,14 +232,9 @@ public class Glyph {
 
 
     public void render(Window window) {
-<<<<<<< HEAD
-        width = window.getGraphPanelWidth() / 4;
-        height = window.getGraphPanelHeight() / 5;
-=======
         width = window.getGraphPanelWidth()/5;
         height = window.getGraphPanelHeight()/5;
         buffer = window.getGraphPanelWidth()/20;
->>>>>>> 5a9faa0b988a1a6f5f8e5878cce8f926a8d99e58
         remove(window);
         calculate();
         add(window);
