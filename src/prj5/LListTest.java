@@ -6,6 +6,7 @@ package prj5;
 import java.util.Arrays;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
+import prj5.LList.Node;
 
 /**
  * @author Kara Probasco (karap17)
@@ -51,6 +52,16 @@ public class LListTest extends student.TestCase {
         }
 
         sup = null;
+    }
+
+
+    /**
+     * tests setHead()
+     */
+    public void testsetHead() {
+        Node<String> newNode = new Node<>("peanut");
+        list6.setHead(newNode);
+        assertEquals("peanut", list6.get(0));
     }
 
 
@@ -236,7 +247,6 @@ public class LListTest extends student.TestCase {
         assertEquals(2, list2.size());
         assertEquals("pizza", list2.get(1));
 
-        
         assertEquals("pizza", list2.remove(1));
         assertEquals(1, list2.size());
         assertEquals("pie", list2.get(0));

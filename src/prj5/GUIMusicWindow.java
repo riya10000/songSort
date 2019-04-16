@@ -18,7 +18,7 @@ public class GUIMusicWindow {
     private Button previous;
     private Button next;
     
-    private Glyph test;
+    private GUIGlyph test;
     
     private SongSorter sorter;
     
@@ -140,9 +140,9 @@ public class GUIMusicWindow {
         
         
         
-        test = new Glyph(song, 1, 0);
-        Glyph test2 = new Glyph(song, 1, 1);
-        Glyph test3 = new Glyph(song, 1, 6);
+        test = new GUIGlyph(song, 1, 0);
+        GUIGlyph test2 = new GUIGlyph(song, 1, 1);
+        GUIGlyph test3 = new GUIGlyph(song, 1, 6);
         //Glyph test4 = new Glyph(song, 1, 5);
         test2.render(window);
         test3.render(window);

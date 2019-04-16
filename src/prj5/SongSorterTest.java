@@ -115,51 +115,45 @@ public class SongSorterTest extends student.TestCase {
             3);
 
         songs = new LList<Song>();
-        songs.add(song); 
+        songs.add(song);
         songs.add(song2);
         songs.add(song3);
         songs.add(song4);
 
-        sort = new SongSorter<String>(songs, 3);
- 
+        sort = new SongSorter<String>(songs);
+
         songs2 = new LList<Song>();
-        sort2 = new SongSorter<String>(songs2, 2);
+        sort2 = new SongSorter<String>(songs);
         songs2.add(song);
 
     }
 
 
     public void testInsertionSort() {
-        sort.insertionSort();
+        sort.insertionSort(1);
+        sort.insertionSort(2);
+        sort.insertionSort(4);
+        sort.insertionSort(3);
 
         assertEquals(songs, sort.getSongList());
 
-        AssertionError e = null;
-        try { 
-            sort2.insertionSort();
-
-            sort2.getSongList();
-        }
-        catch (AssertionError error) {
-            e = error;
-        }
-        assertTrue(e instanceof AssertionError);
-
     }
+
 
     public void testCompare() {
         // Testing Case 1
-        SongSorter<Song> sort3 = new SongSorter<Song>(songs, 1);
-        sort3.insertionSort();
-        
+        SongSorter<Song> sort3 = new SongSorter<Song>(songs);
+        sort3.insertionSort(1);
+
         assertEquals(songs, sort.getSongList());
-        
+
         // Testing Default Case
-        SongSorter<Song> sortDefault = new SongSorter<Song>(songs, 10);
-        sortDefault.insertionSort();
-        
+        SongSorter<Song> sortDefault = new SongSorter<Song>(songs);
+        sortDefault.insertionSort(10);
+
         assertEquals(songs, sortDefault.getSongList());
     }
+
 
     public void testGetSongList() {
         assertNotNull(sort.getSongList());

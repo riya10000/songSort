@@ -49,6 +49,14 @@ public class LList<T> implements Iterable<T> {
         return head;
     }
 
+    /**
+     * returns head
+     * 
+     * @return head of list
+     */
+    public void setHead(Node<T> node) {
+        head = node;
+    }
 
     /**
      * Adds the object to the position in the list

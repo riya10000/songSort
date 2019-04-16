@@ -5,7 +5,7 @@ import CS2114.Shape;
 import CS2114.TextShape;
 import CS2114.Window;
 
-public class Glyph {
+public class GUIGlyph {
     private Song song;
     private int sortBy;
     private int num;
@@ -37,7 +37,7 @@ public class Glyph {
     private Color four;
 
 
-    public Glyph(Song song, int sort, int num) {
+    public GUIGlyph(Song song, int sort, int num) {
         this.song = song;
         this.sortBy = sort;
         this.num = num;
@@ -87,7 +87,7 @@ public class Glyph {
     }
 
 
-    public Glyph(double[][] thing, int sort, int num) {
+    public GUIGlyph(double[][] thing, int sort, int num) {
         // this.song = song;
         standin = thing;
         this.sortBy = sort;
