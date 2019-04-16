@@ -7,7 +7,6 @@ import CS2114.Window;
 
 public class GUILegend {
     private int num;
-    private Window window;
 
     private TextShape legend;
     private TextShape permSong;
@@ -59,10 +58,10 @@ public class GUILegend {
         permHeard.setBackgroundColor(Color.WHITE);
         permLikes.setBackgroundColor(Color.WHITE);
     
-        word1 = new TextShape(windowWidth - width/2, height*2,"", one);
-        word2 = new TextShape(windowWidth - width/2, height*2 + height/9,"", two);
-        word3 = new TextShape(windowWidth - width/2, height*2+ height*2/9,"", three);
-        word4 = new TextShape(windowWidth - width/2, height*2 + height*3/9,"", four);
+        word1 = new TextShape(windowWidth - width*3/4, height*2,"", one);
+        word2 = new TextShape(windowWidth - width*3/4, height*2 + height/9,"", two);
+        word3 = new TextShape(windowWidth - width*3/4, height*2+ height*2/9,"", three);
+        word4 = new TextShape(windowWidth - width*3/4, height*2 + height*3/9,"", four);
         
         
         word1.setBackgroundColor(Color.WHITE);
