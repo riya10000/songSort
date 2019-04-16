@@ -95,55 +95,6 @@ public class GUIGlyph {
     }
 
 
-    public GUIGlyph(double[][] thing, int sort, int num) {
-        // this.song = song;
-        standin = thing;
-        this.sortBy = sort;
-        this.num = num;
-        width = 0;
-        height = 0;
-
-
-        heard1 = new Shape(0, 0, 0);
-        heard2 = new Shape(0, 0, 0);
-        heard3 = new Shape(0, 0, 0);
-        heard4 = new Shape(0, 0, 0);
-
-        likes1 = new Shape(0, 0, 0);
-        likes2 = new Shape(0, 0, 0);
-        likes3 = new Shape(0, 0, 0);
-        likes4 = new Shape(0, 0, 0);
-
-        middle = new Shape(0, 0, 0);
-
-        songText = new TextShape(0, 0, "");
-
-
-        buffer = 0;
-        
-        
-        
-        heard1 = new Shape(0,0,0);
-        heard2 = new Shape(0,0,0);
-        heard3 = new Shape(0,0,0);
-        heard4 = new Shape(0,0,0);
-        
-        likes1 = new Shape(0,0,0);
-        likes2 = new Shape(0,0,0);
-        likes3 = new Shape(0,0,0);
-        likes4 = new Shape(0,0,0);
-        
-        middle = new Shape(0,0,0);
-        
-        songText = new TextShape(0,0,"");
-        
-        one = new Color(255, 80, 80);
-        two = new Color(0, 153, 255);
-        three = new Color(77, 255, 195);
-        four = new Color(255, 195, 77);
-
-    }
-
 
     private void calculate() {
         middle = new Shape(width*3/4 + width*(num%4) + buffer*(num%4),
@@ -205,6 +156,8 @@ public class GUIGlyph {
         songText = new TextShape(width*1/4 + width*(num%4) + buffer*(num%4), 
                                 height*(num/4)*2 + height - buffer, 
                                 song.getTitle() + " by " + song.getArtist());
+
+        songText.setBackgroundColor(Color.WHITE);
 
     }
 

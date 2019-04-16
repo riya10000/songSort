@@ -41,6 +41,7 @@ public class Input {
      *             if files are not found
      */
     public static void main(String[] args)
+<<<<<<< HEAD
         throws FileNotFoundException, ParseException {
         if (args.length == 2) { 
             @SuppressWarnings("unused")
@@ -52,6 +53,19 @@ public class Input {
                 "SongList.txt");
        }
         //GUIMusicWindow window = new GUIMusicWindow();
+=======
+        throws FileNotFoundException {
+//        if (args.length == 2) { 
+//            @SuppressWarnings("unused")
+//            FileReader files = new FileReader(args[0], args[1]);
+//        }
+//        else {
+//            @SuppressWarnings("unused")
+//            FileReader FileReader2 = new FileReader("MusicSurveyData2018.txt",
+//                "SongList.txt");
+//       }
+        GUIMusicWindow window = new GUIMusicWindow();
+>>>>>>> 97168940d35575cf470622ff9c4b7ccaa46d724b
 
     }
 }

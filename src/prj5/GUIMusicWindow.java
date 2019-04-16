@@ -19,6 +19,7 @@ public class GUIMusicWindow {
     private Button next;
     
     private GUIGlyph test;
+    private GUILegend legend;
     
     private SongSorter sorter;
     
@@ -103,7 +104,7 @@ public class GUIMusicWindow {
 
         stringAr2 = new String[2];
         stringAr2[0] = "Yes";
-        stringAr2[1] = "no";
+        stringAr2[1] = "No";
         
         
         person1 = new People(HobbyEnum.ART, MajorEnum.COMPSCI,
@@ -142,12 +143,22 @@ public class GUIMusicWindow {
         
         test = new GUIGlyph(song, 1, 0);
         GUIGlyph test2 = new GUIGlyph(song, 1, 1);
-        GUIGlyph test3 = new GUIGlyph(song, 1, 6);
+        GUIGlyph test3 = new GUIGlyph(song, 1, 2);
+        GUIGlyph test4 = new GUIGlyph(song, 1, 5);
+        GUIGlyph test5 = new GUIGlyph(song, 1, 4);
+        
+        GUIGlyph test6 = new GUIGlyph(song, 1, 6);
         //Glyph test4 = new Glyph(song, 1, 5);
         test2.render(window);
         test3.render(window);
         //test4.render(window);
         test.render(window);
+        test4.render(window);
+        test5.render(window);
+        test6.render(window);
+        
+        legend = new GUILegend(2, window);
+        legend.render(window);
 
     }
 
