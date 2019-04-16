@@ -5,7 +5,8 @@
  * and integrity at all times.
  * I will not lie, cheat, or steal, nor will I
  * accept the actions of those who do.
- * -- Riya Dani (riyadn99)
+ * -- Riya Dani (riyadn99), Kara Probasco (karap17), Alisa Khuu (alisak22),
+ * Marcus Tran (Tmarcus)
  */
 package prj5;
 
