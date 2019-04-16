@@ -49,7 +49,8 @@ public class SongSorterTest extends student.TestCase {
 
 
     /**
-     * 
+     * Constructor that initializes all of the variables needed for 
+     * the test cases.
      */
     public SongSorterTest() {
 
@@ -121,7 +122,11 @@ public class SongSorterTest extends student.TestCase {
 
     }
 
-
+    /**
+     * Tests the insertion sort by doing different types of insertion
+     * sort onto the songList inside the SongSorter object, and ensures
+     * that the method is sorting correctly
+     */
     public void testInsertionSort() {
         sort.insertionSort(1);
         sort.insertionSort(2);
@@ -137,7 +142,10 @@ public class SongSorterTest extends student.TestCase {
 
     }
 
-
+    /**
+     * Tests the compare method for different types of switch cases found
+     * within the class itself
+     */
     public void testCompare() {
         // Testing Case 1
         SongSorter<Song> sort3 = new SongSorter<Song>(songs);
@@ -151,8 +159,10 @@ public class SongSorterTest extends student.TestCase {
 
         assertEquals(songs, sortDefault.getSongList());
     }
-
-
+   
+    /**
+     * Tests the getter method to ensure it returns a file
+     */
     public void testGetSongList() {
         assertNotNull(sort.getSongList());
 
