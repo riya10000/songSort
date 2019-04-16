@@ -22,7 +22,7 @@ public class SongSorter<T> {
     private LList<T> songList;
     private Node<Song> head;
     private int comparatorMethod;
-    Node<Song> previousNode;
+    private Node<Song> previousNode;
 
 
     /**
@@ -113,11 +113,11 @@ public class SongSorter<T> {
             case 3:
                 if (item.compareTitle(currentNode.getData()) > 0) {
                     return true;
-                }
+                } 
                 return false;
             case 4:
                 if (item.compareGenre(currentNode.getData()) > 0) {
-                    return true;
+                    return true; 
                 }
                 return false;
             default:
