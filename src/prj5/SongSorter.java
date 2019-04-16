@@ -12,10 +12,12 @@ package prj5;
 import prj5.LList.Node;
 
 /**
- * Add the class description here.
- *
- * @author Riya Dani riyadn99
- * @version 04/13/2019
+ * @author Kara Probasco (karap17)
+ * @author Alisa Khuu (alisak22)
+ * @author Riya Dani (riyadn99)
+ * @author Marcus Tran (Tmarcus)
+ * 
+ * @version 4/16/2019
  */
 public class SongSorter<T> {
 
@@ -28,8 +30,7 @@ public class SongSorter<T> {
      * 
      * @param songs
      *            linked list of songs to sort
-     * @param compareMethod
-     *            int representing compare method to use
+     * 
      */
     @SuppressWarnings("unchecked")
     public SongSorter(LList<Song> songs) {
@@ -41,6 +42,9 @@ public class SongSorter<T> {
 
     /**
      * insertion sort
+     * 
+     * @param comparator
+     *            which compare method to use
      */
     public void insertionSort(int comparator) {
         if (songList.size() > 1) {
@@ -59,7 +63,7 @@ public class SongSorter<T> {
 
 
     /**
-     * insert in order
+     * insert in order method
      * 
      * @param nodeToInsert
      *            node to insert
@@ -70,7 +74,8 @@ public class SongSorter<T> {
         Node<Song> currentNode = (Node<Song>)songList.getHead();
         previousNode = null;
 
-        while ((currentNode != null) && compare(currentNode, item, comparator)) {
+        while ((currentNode != null) && compare(currentNode, item,
+            comparator)) {
             previousNode = currentNode;
             currentNode = currentNode.next();
         }
@@ -87,12 +92,14 @@ public class SongSorter<T> {
 
 
     /**
-     * compares values to sort
+     * compares values to sort, helper method
      * 
      * @param currentNode
      *            current place
      * @param item
      *            item to compare
+     * @param comparator
+     *            which compare method to use
      * @return true if there is still room to sort, false otherwise
      */
     private boolean compare(Node<Song> currentNode, Song item, int comparator) {

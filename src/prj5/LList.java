@@ -8,7 +8,12 @@ import java.util.NoSuchElementException;
 
 /**
  * @author Kara Probasco (karap17)
- * @version 4/10/2019
+ * @author Alisa Khuu (alisak22)
+ * @author Riya Dani (riyadn99)
+ * @author Marcus Tran (Tmarcus)
+ * 
+ * @version 4/16/2019
+ *
  * @param <T>
  *            generic type for linked listed
  */
@@ -49,6 +54,7 @@ public class LList<T> implements Iterable<T> {
         return head;
     }
 
+
     /**
      * returns head
      * 
@@ -57,6 +63,7 @@ public class LList<T> implements Iterable<T> {
     public void setHead(Node<T> node) {
         head = node;
     }
+
 
     /**
      * Adds the object to the position in the list
@@ -408,6 +415,16 @@ public class LList<T> implements Iterable<T> {
     }
 
 
+    /**
+     * Iterator class
+     * 
+     * @author Kara Probasco (karap17)
+     * @author Alisa Khuu (alisak22)
+     * @author Riya Dani (riyadn99)
+     * @author Marcus Tran (Tmarcus)
+     * 
+     * @version 4/16/2019
+     */
     private class LListIterator<P> implements Iterator<T> {
         private Node<T> next;
         private Node<T> previous;
@@ -482,9 +499,14 @@ public class LList<T> implements Iterable<T> {
 
 
     /**
-     * private node class for linked list
+     * Node class
      * 
-     * @author proba
+     * @author Kara Probasco (karap17)
+     * @author Alisa Khuu (alisak22)
+     * @author Riya Dani (riyadn99)
+     * @author Marcus Tran (Tmarcus)
+     * 
+     * @version 4/16/2019
      *
      * @param <A>
      *            generic

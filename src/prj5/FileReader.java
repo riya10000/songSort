@@ -11,14 +11,17 @@ package prj5;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import bsh.ParseException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
- * Add the class description here.
- *
- * @author Riya Dani riyadn99
- * @version 04/12/2019
+ * @author Kara Probasco (karap17)
+ * @author Alisa Khuu (alisak22)
+ * @author Riya Dani (riyadn99)
+ * @author Marcus Tran (Tmarcus)
+ * 
+ * @version 4/16/2019
  */
 public class FileReader {
     private LList<Song> songs;
@@ -31,10 +34,12 @@ public class FileReader {
      * 
      * @throws FileNotFoundException
      *             if files are not found
+     * @throws ParseException
      * 
      */
     public FileReader(String applicantFile, String songFile)
-        throws FileNotFoundException {
+        throws FileNotFoundException,
+        ParseException {
         this.peopleList = readSurveyFile(applicantFile, songFile);
         this.songs = readMusicFile(songFile);
         this.songSort = new SongSorter<>(songs);
@@ -50,7 +55,8 @@ public class FileReader {
 
 
     /**
-     * Reads in song file
+     * Reads in song file to create song objects for each song and creates
+     * linked list of songs
      * 
      * @param fileName
      *            song file
@@ -59,7 +65,8 @@ public class FileReader {
      *             if file is not found
      */
     public LList<Song> readMusicFile(String fileName)
-        throws FileNotFoundException {
+        throws FileNotFoundException,
+        ParseException {
         Scanner scan = new Scanner(new File(fileName));
 
         LList<Song> songs = new LList<Song>();
@@ -83,7 +90,8 @@ public class FileReader {
 
 
     /**
-     * reads in survey results
+     * reads in survey results to create people objects and creates arrayList of
+     * people objectsF
      * 
      * @param names
      *            file name
@@ -92,7 +100,8 @@ public class FileReader {
      *             if file is not found
      */
     public ArrayList<People> readSurveyFile(String names, String songFile)
-        throws FileNotFoundException {
+        throws FileNotFoundException,
+        ParseException {
 
         Scanner scan = new Scanner(new File(names));
         ArrayList<People> people = new ArrayList<People>();
@@ -189,7 +198,9 @@ public class FileReader {
      * @throws FileNotFoundException
      *             if file not found
      */
-    private int songFileLength(String fileName) throws FileNotFoundException {
+    private int songFileLength(String fileName)
+        throws FileNotFoundException,
+        ParseException {
         Scanner scan = new Scanner(new File(fileName));
         int songNum = 0;
         scan.nextLine();
@@ -203,6 +214,9 @@ public class FileReader {
     }
 
 
+    /**
+     * Prints out sorted data for testing and intermediate submission
+     */
     private void printer() {
         for (int i = 0; i < songs.size(); i++) {
             Song currentSong = songs.get(i);

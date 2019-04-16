@@ -6,8 +6,12 @@ package prj5;
 import java.util.ArrayList;
 
 /**
- * @author proba
- *
+ * @author Kara Probasco (karap17)
+ * @author Alisa Khuu (alisak22)
+ * @author Riya Dani (riyadn99)
+ * @author Marcus Tran (Tmarcus)
+ * 
+ * @version 4/16/2019
  */
 public class Song {
     private String title;
@@ -216,7 +220,6 @@ public class Song {
                 }
                 if (people.get(i).getHobby() == HobbyEnum.MUSIC) {
                     tempMatrix[0][3] += 1;
-                    //System.out.println("music+ heardfeed" + index);
                 }
                 if (people.get(i).getMajor() == MajorEnum.COMPSCI) {
                     tempMatrix[1][0] += 1;
@@ -273,8 +276,7 @@ public class Song {
                     tempMatrix[0][2] += 1;
                 }
                 if (people.get(i).getHobby() == HobbyEnum.MUSIC) {
-                    tempMatrix[0][3] += 1; 
-                    //System.out.println("music+ likesfeed" + index);
+                    tempMatrix[0][3] += 1;
                 }
                 if (people.get(i).getMajor() == MajorEnum.COMPSCI) {
                     tempMatrix[1][0] += 1;
@@ -332,7 +334,6 @@ public class Song {
                 }
                 if (people.get(i).getHobby() == HobbyEnum.MUSIC) {
                     tempMatrix[0][3] += 1;
-                    //System.out.println("music+ heard" + index);
                 }
                 if (people.get(i).getMajor() == MajorEnum.COMPSCI) {
                     tempMatrix[1][0] += 1;
@@ -389,7 +390,6 @@ public class Song {
                 }
                 if (people.get(i).getHobby() == HobbyEnum.MUSIC) {
                     tempMatrix[0][3] += 1;
-                    //System.out.println("music+ likes" + index);
                 }
                 if (people.get(i).getMajor() == MajorEnum.COMPSCI) {
                     tempMatrix[1][0] += 1;

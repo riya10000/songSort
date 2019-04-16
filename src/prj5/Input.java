@@ -13,10 +13,12 @@ import java.io.FileNotFoundException;
 import bsh.ParseException;
 
 /**
- * Add the class description here.
- *
- * @author Riya Dani riyadn99
- * @version 04/13/2019
+ * @author Kara Probasco (karap17)
+ * @author Alisa Khuu (alisak22)
+ * @author Riya Dani (riyadn99)
+ * @author Marcus Tran (Tmarcus)
+ * 
+ * @version 4/16/2019
  */
 public class Input {
 
@@ -39,8 +41,7 @@ public class Input {
      *             if files are not found
      */
     public static void main(String[] args)
-        throws ParseException,
-        FileNotFoundException {
+        throws FileNotFoundException, ParseException {
         if (args.length == 2) { 
             @SuppressWarnings("unused")
             FileReader files = new FileReader(args[0], args[1]);

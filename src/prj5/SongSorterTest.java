@@ -10,21 +10,13 @@
 package prj5;
 
 /**
- * Add the class description here.
- *
- * @author Riya Dani riyadn99
- * @version 04/15/2019
+ * @author Kara Probasco (karap17)
+ * @author Alisa Khuu (alisak22)
+ * @author Riya Dani (riyadn99)
+ * @author Marcus Tran (Tmarcus)
+ * 
+ * @version 4/16/2019
  */
-/*
- * Virginia Tech Honor Code Pledge:
- *
- * As a Hokie, I will conduct myself with honor
- * and integrity at all times.
- * I will not lie, cheat, or steal, nor will I
- * accept the actions of those who do.
- * -- Riya Dani (riyadn99)
- */
-
 import java.util.ArrayList;
 
 /**

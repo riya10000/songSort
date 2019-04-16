@@ -5,6 +5,14 @@ import CS2114.Shape;
 import CS2114.TextShape;
 import CS2114.Window;
 
+/**
+ * @author Kara Probasco (karap17)
+ * @author Alisa Khuu (alisak22)
+ * @author Riya Dani (riyadn99)
+ * @author Marcus Tran (Tmarcus)
+ * 
+ * @version 4/16/2019
+ */
 public class GUIGlyph {
     private Song song;
     private int sortBy;
