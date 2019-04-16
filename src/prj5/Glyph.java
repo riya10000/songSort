@@ -27,12 +27,10 @@ public class Glyph {
 
     private int width;
     private int height;
-<<<<<<< HEAD
 
-=======
     private int buffer;
     
->>>>>>> 5a9faa0b988a1a6f5f8e5878cce8f926a8d99e58
+
     private Color one;
     private Color two;
     private Color three;
@@ -45,7 +43,7 @@ public class Glyph {
         this.num = num;
         width = 0;
         height = 0;
-<<<<<<< HEAD
+
 
         heard1 = new Shape(0, 0, 0);
         heard2 = new Shape(0, 0, 0);
@@ -61,7 +59,7 @@ public class Glyph {
 
         songText = new TextShape(0, 0, "");
 
-=======
+
         buffer = 0;
         
         
@@ -80,7 +78,7 @@ public class Glyph {
         
         songText = new TextShape(0,0,"");
         
->>>>>>> 5a9faa0b988a1a6f5f8e5878cce8f926a8d99e58
+
         one = new Color(255, 80, 80);
         two = new Color(0, 153, 255);
         three = new Color(77, 255, 195);
@@ -96,7 +94,7 @@ public class Glyph {
         this.num = num;
         width = 0;
         height = 0;
-<<<<<<< HEAD
+
 
         heard1 = new Shape(0, 0, 0);
         heard2 = new Shape(0, 0, 0);
@@ -112,7 +110,7 @@ public class Glyph {
 
         songText = new TextShape(0, 0, "");
 
-=======
+
         buffer = 0;
         
         
@@ -131,7 +129,6 @@ public class Glyph {
         
         songText = new TextShape(0,0,"");
         
->>>>>>> 5a9faa0b988a1a6f5f8e5878cce8f926a8d99e58
         one = new Color(255, 80, 80);
         two = new Color(0, 153, 255);
         three = new Color(77, 255, 195);
@@ -141,43 +138,10 @@ public class Glyph {
 
 
     private void calculate() {
-<<<<<<< HEAD
-        middle = new Shape(width * 3 / 4 + width * (num % 3), height, width
-            / 20, height, Color.BLACK);
-
-        heard1 = new Shape(width * 3 / 4 + width * (num % 3) - song
-            .heardPercent()[sortBy][0] * width / 200, height * (num / 3)
-                + height, song.heardPercent()[sortBy][0] * width / 200, height
-                    / 4, one);
-        heard2 = new Shape(width * 3 / 4 + width * (num % 3) - song
-            .heardPercent()[sortBy][1] * width / 200, height * (num / 3)
-                + height + height / 4, song.heardPercent()[sortBy][1] * width
-                    / 200, height / 4, two);
-        heard3 = new Shape(width * 3 / 4 + width * (num % 3) - song
-            .heardPercent()[sortBy][2] * width / 200, height * (num / 3)
-                + height + height / 2, song.heardPercent()[sortBy][2] * width
-                    / 200, height / 4, three);
-        heard4 = new Shape(width * 3 / 4 + width * (num % 3) - song
-            .heardPercent()[sortBy][3] * width / 200, height * (num / 3)
-                + height + height * 3 / 4, song.heardPercent()[sortBy][3]
-                    * width / 200, height / 4, four);
-
-        likes1 = new Shape(width * 3 / 4 + width * (num % 3) + width / 20,
-            height * (num / 3) + height, song.likesPercent()[sortBy][0] * width
-                / 200, height / 4, one);
-        likes2 = new Shape(width * 3 / 4 + width * (num % 3) + width / 20,
-            height * (num / 3) + height + height / 4, song
-                .likesPercent()[sortBy][1] * width / 200, height / 4, two);
-        likes3 = new Shape(width * 3 / 4 + width * (num % 3) + width / 20,
-            height * (num / 3) + height + height / 2, song
-                .likesPercent()[sortBy][2] * width / 200, height / 4, three);
-        likes4 = new Shape(width * 3 / 4 + width * (num % 3) + width / 20,
-            height * (num / 3) + height + height * 3 / 4, song
-                .likesPercent()[sortBy][3] * width / 200, height / 4, four);
-
-        // songText = new TextShape();
-=======
-        middle = new Shape(width*3/4 + width*(num%4) + buffer*(num%4), height*(num/4)*2 + height  , width/20, height, Color.BLACK );
+        middle = new Shape(width*3/4 + width*(num%4) + buffer*(num%4),
+                            height*(num/4)*2 + height  , 
+                            width/20, height, 
+                            Color.BLACK );
         
         heard1 = new Shape(width*3/4 + width*(num%4) - song.heardPercent()[sortBy][0]*width/200 + buffer*(num%4),
                             height*(num/4)*2 + height, 
@@ -231,7 +195,7 @@ public class Glyph {
                             four);
         
         songText = new TextShape(width*1/4 + width*(num%4) + buffer*(num%4), height*(num/4)*2 + height - buffer, song.getTitle() + " by " + song.getArtist());
->>>>>>> 5a9faa0b988a1a6f5f8e5878cce8f926a8d99e58
+
     }
 
 
