@@ -25,6 +25,10 @@ import java.util.NoSuchElementException;
  * 
  * @version 4/16/2019
  *
+ * Class that implements the linked list data structure
+ * using a generic type for ease of use.  Used to store the 
+ * People and Song objects for sorting
+ *
  * @param <T>
  *            generic type for linked listed
  */

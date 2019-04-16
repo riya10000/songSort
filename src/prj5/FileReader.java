@@ -21,6 +21,12 @@ import java.util.Scanner;
  * @author Riya Dani (riyadn99)
  * @author Marcus Tran (Tmarcus)
  * 
+ * Class that reads from two given files, a applicantFile
+ * and a songFile. The class stores the data 
+ * received in the file which contains the survey data of each
+ * participant into a People object, and the data received from the songFile
+ * class is stored into a Song object
+ * 
  * @version 4/16/2019
  */
 public class FileReader {
