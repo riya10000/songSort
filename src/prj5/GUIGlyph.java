@@ -90,7 +90,7 @@ public class GUIGlyph {
     public GUIGlyph(double[][] thing, int sort, int num) {
         // this.song = song;
         standin = thing;
-        this.sortBy = sort;
+        this.sortBy = sort + 1;
         this.num = num;
         width = 0;
         height = 0;
@@ -197,6 +197,8 @@ public class GUIGlyph {
         songText = new TextShape(width*1/4 + width*(num%4) + buffer*(num%4), 
                                 height*(num/4)*2 + height - buffer, 
                                 song.getTitle() + " by " + song.getArtist());
+
+        songText.setBackgroundColor(Color.WHITE);
 
     }
 

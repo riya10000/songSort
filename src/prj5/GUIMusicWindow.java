@@ -19,6 +19,7 @@ public class GUIMusicWindow {
     private Button next;
     
     private GUIGlyph test;
+    private GUILegend legend;
     
     private SongSorter sorter;
     
@@ -148,6 +149,9 @@ public class GUIMusicWindow {
         test3.render(window);
         //test4.render(window);
         test.render(window);
+        
+        legend = new GUILegend(1, window);
+        legend.render(window);
 
     }
 
