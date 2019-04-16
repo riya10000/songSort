@@ -1,13 +1,24 @@
-/**
- * 
+/*
+ * Virginia Tech Honor Code Pledge:
+ *
+ * As a Hokie, I will conduct myself with honor
+ * and integrity at all times.
+ * I will not lie, cheat, or steal, nor will I
+ * accept the actions of those who do.
+ * -- Riya Dani (riyadn99), Kara Probasco (karap17), Alisa Khuu (alisak22),
+ * Marcus Tran (Tmarcus)
  */
 package prj5;
 
 import java.util.ArrayList;
 
 /**
- * @author proba
- *
+ * @author Kara Probasco (karap17)
+ * @author Alisa Khuu (alisak22)
+ * @author Riya Dani (riyadn99)
+ * @author Marcus Tran (Tmarcus)
+ * 
+ * @version 4/16/2019
  */
 public class SongTest extends student.TestCase {
 
@@ -134,7 +145,7 @@ public class SongTest extends student.TestCase {
                 assertEquals(matrix1[i][j], song.getHeardOf()[i][j]);
             }
         }
-        
+
     }
 
 
@@ -154,8 +165,7 @@ public class SongTest extends student.TestCase {
                 assertEquals(matrix1[i][j], song.getLikes()[i][j]);
             }
         }
-        
-        
+
     }
 
 
@@ -168,8 +178,7 @@ public class SongTest extends student.TestCase {
         ar.add(person2);
         ar.add(person3);
         ar.add(person4);
-        Song song5 = new Song("No More Dream", "BTS", 2013, "Hip-Hop", ar,
-            3);
+        Song song5 = new Song("No More Dream", "BTS", 2013, "Hip-Hop", ar, 3);
         int[][] matrix1 = new int[3][4];
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 4; j++) {
@@ -240,8 +249,8 @@ public class SongTest extends student.TestCase {
         assertTrue(song4.compareDate(song) < 0);
         assertTrue(song2.compareDate(song3) == 0);
     }
-    
-    
+
+
     /**
      * tests heardPercent
      */
@@ -258,11 +267,10 @@ public class SongTest extends student.TestCase {
                 assertEquals(matrix1[i][j], song.heardPercent()[i][j]);
             }
         }
-        
+
         ArrayList<People> ar = new ArrayList<>();
         ar.add(person5);
-        Song song5 = new Song("No More Dream", "BTS", 2013, "Hip-Hop", ar,
-            3);
+        Song song5 = new Song("No More Dream", "BTS", 2013, "Hip-Hop", ar, 3);
         int[][] matrix2 = new int[3][4];
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 4; j++) {
@@ -276,7 +284,8 @@ public class SongTest extends student.TestCase {
             }
         }
     }
-    
+
+
     /**
      * tests likes percent
      */
@@ -293,11 +302,10 @@ public class SongTest extends student.TestCase {
                 assertEquals(matrix1[i][j], song.likesPercent()[i][j]);
             }
         }
-        
+
         ArrayList<People> ar = new ArrayList<>();
         ar.add(person5);
-        Song song5 = new Song("No More Dream", "BTS", 2013, "Hip-Hop", ar,
-            3);
+        Song song5 = new Song("No More Dream", "BTS", 2013, "Hip-Hop", ar, 3);
         int[][] matrix2 = new int[3][4];
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 4; j++) {

@@ -1,3 +1,13 @@
+/*
+ * Virginia Tech Honor Code Pledge:
+ *
+ * As a Hokie, I will conduct myself with honor
+ * and integrity at all times.
+ * I will not lie, cheat, or steal, nor will I
+ * accept the actions of those who do.
+ * -- Riya Dani (riyadn99), Kara Probasco (karap17), Alisa Khuu (alisak22),
+ * Marcus Tran (Tmarcus)
+ */
 package prj5;
 
 import java.awt.Color;
@@ -17,12 +27,12 @@ import CS2114.Window;
  * 
  * @version 04/16/2019
  *
+
  */
 public class GUIGlyph {
     private Song song;
     private int sortBy;
     private int num;
-    private double[][] standin;
 
     private Shape heard1;
     private Shape heard2;
@@ -42,7 +52,6 @@ public class GUIGlyph {
     private int height;
 
     private int buffer;
-    
 
     private Color one;
     private Color two;
@@ -68,7 +77,6 @@ public class GUIGlyph {
         width = 0;
         height = 0;
 
-
         heard1 = new Shape(0, 0, 0);
         heard2 = new Shape(0, 0, 0);
         heard3 = new Shape(0, 0, 0);
@@ -83,25 +91,21 @@ public class GUIGlyph {
 
         songText = new TextShape(0, 0, "");
 
-
         buffer = 0;
-        
-        
-        
-        heard1 = new Shape(0,0,0);
-        heard2 = new Shape(0,0,0);
-        heard3 = new Shape(0,0,0);
-        heard4 = new Shape(0,0,0);
-        
-        likes1 = new Shape(0,0,0);
-        likes2 = new Shape(0,0,0);
-        likes3 = new Shape(0,0,0);
-        likes4 = new Shape(0,0,0);
-        
-        middle = new Shape(0,0,0);
-        
-        songText = new TextShape(0,0,"");
-        
+
+        heard1 = new Shape(0, 0, 0);
+        heard2 = new Shape(0, 0, 0);
+        heard3 = new Shape(0, 0, 0);
+        heard4 = new Shape(0, 0, 0);
+
+        likes1 = new Shape(0, 0, 0);
+        likes2 = new Shape(0, 0, 0);
+        likes3 = new Shape(0, 0, 0);
+        likes4 = new Shape(0, 0, 0);
+
+        middle = new Shape(0, 0, 0);
+
+        songText = new TextShape(0, 0, "");
 
         one = new Color(255, 80, 80);
         two = new Color(0, 153, 255);
@@ -244,9 +248,9 @@ public class GUIGlyph {
      *         window objects are rendered to
      */
     public void render(Window window) {
-        width = window.getGraphPanelWidth()/5;
-        height = window.getGraphPanelHeight()/5;
-        buffer = window.getGraphPanelWidth()/20;
+        width = window.getGraphPanelWidth() / 5;
+        height = window.getGraphPanelHeight() / 5;
+        buffer = window.getGraphPanelWidth() / 20;
         remove(window);
         calculate();
         add(window);

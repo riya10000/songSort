@@ -5,7 +5,8 @@
  * and integrity at all times.
  * I will not lie, cheat, or steal, nor will I
  * accept the actions of those who do.
- * -- Riya Dani (riyadn99)
+ * -- Riya Dani (riyadn99), Kara Probasco (karap17), Alisa Khuu (alisak22),
+ * Marcus Tran (Tmarcus)
  */
 package prj5;
 
@@ -15,10 +16,18 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
- * Add the class description here.
- *
- * @author Riya Dani riyadn99
- * @version 04/12/2019
+ * @author Kara Probasco (karap17)
+ * @author Alisa Khuu (alisak22)
+ * @author Riya Dani (riyadn99)
+ * @author Marcus Tran (Tmarcus)
+ * 
+ * Class that reads from two given files, a applicantFile
+ * and a songFile. The class stores the data 
+ * received in the file which contains the survey data of each
+ * participant into a People object, and the data received from the songFile
+ * class is stored into a Song object
+ * 
+ * @version 4/16/2019
  */
 public class FileReader {
     private LList<Song> songs;
@@ -31,6 +40,7 @@ public class FileReader {
      * 
      * @throws FileNotFoundException
      *             if files are not found
+     * @throws ParseException
      * 
      */
     public FileReader(String applicantFile, String songFile)
@@ -50,7 +60,8 @@ public class FileReader {
 
 
     /**
-     * Reads in song file
+     * Reads in song file to create song objects for each song and creates
+     * linked list of songs
      * 
      * @param fileName
      *            song file
@@ -83,7 +94,8 @@ public class FileReader {
 
 
     /**
-     * reads in survey results
+     * reads in survey results to create people objects and creates arrayList of
+     * people objectsF
      * 
      * @param names
      *            file name
@@ -189,7 +201,8 @@ public class FileReader {
      * @throws FileNotFoundException
      *             if file not found
      */
-    private int songFileLength(String fileName) throws FileNotFoundException {
+    private int songFileLength(String fileName)
+        throws FileNotFoundException {
         Scanner scan = new Scanner(new File(fileName));
         int songNum = 0;
         scan.nextLine();
@@ -203,6 +216,9 @@ public class FileReader {
     }
 
 
+    /**
+     * Prints out sorted data for testing and intermediate submission
+     */
     private void printer() {
         for (int i = 0; i < songs.size(); i++) {
             Song currentSong = songs.get(i);

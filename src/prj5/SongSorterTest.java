@@ -5,26 +5,19 @@
  * and integrity at all times.
  * I will not lie, cheat, or steal, nor will I
  * accept the actions of those who do.
- * -- Riya Dani (riyadn99)
+ * -- Riya Dani (riyadn99), Kara Probasco (karap17), Alisa Khuu (alisak22),
+ * Marcus Tran (Tmarcus)
  */
 package prj5;
 
 /**
- * Add the class description here.
- *
- * @author Riya Dani riyadn99
- * @version 04/15/2019
+ * @author Kara Probasco (karap17)
+ * @author Alisa Khuu (alisak22)
+ * @author Riya Dani (riyadn99)
+ * @author Marcus Tran (Tmarcus)
+ * 
+ * @version 4/16/2019
  */
-/*
- * Virginia Tech Honor Code Pledge:
- *
- * As a Hokie, I will conduct myself with honor
- * and integrity at all times.
- * I will not lie, cheat, or steal, nor will I
- * accept the actions of those who do.
- * -- Riya Dani (riyadn99)
- */
-
 import java.util.ArrayList;
 
 /**
@@ -56,7 +49,8 @@ public class SongSorterTest extends student.TestCase {
 
 
     /**
-     * 
+     * Constructor that initializes all of the variables needed for 
+     * the test cases.
      */
     public SongSorterTest() {
 
@@ -128,7 +122,11 @@ public class SongSorterTest extends student.TestCase {
 
     }
 
-
+    /**
+     * Tests the insertion sort by doing different types of insertion
+     * sort onto the songList inside the SongSorter object, and ensures
+     * that the method is sorting correctly
+     */
     public void testInsertionSort() {
         sort.insertionSort(1);
         sort.insertionSort(2);
@@ -137,9 +135,17 @@ public class SongSorterTest extends student.TestCase {
 
         assertEquals(songs, sort.getSongList());
 
+        LList<Song> song5 = new LList<Song>();
+
+        SongSorter<String> sort3 = new SongSorter<String>(song5);
+        sort3.insertionSort(1);
+
     }
 
-
+    /**
+     * Tests the compare method for different types of switch cases found
+     * within the class itself
+     */
     public void testCompare() {
         // Testing Case 1
         SongSorter<Song> sort3 = new SongSorter<Song>(songs);
@@ -153,8 +159,10 @@ public class SongSorterTest extends student.TestCase {
 
         assertEquals(songs, sortDefault.getSongList());
     }
-
-
+   
+    /**
+     * Tests the getter method to ensure it returns a file
+     */
     public void testGetSongList() {
         assertNotNull(sort.getSongList());
 

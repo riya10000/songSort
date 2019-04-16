@@ -1,4 +1,15 @@
 package prj5;
+
+/*
+ * Virginia Tech Honor Code Pledge:
+ *
+ * As a Hokie, I will conduct myself with honor
+ * and integrity at all times.
+ * I will not lie, cheat, or steal, nor will I
+ * accept the actions of those who do.
+ * -- Riya Dani (riyadn99), Kara Probasco (karap17), Alisa Khuu (alisak22),
+ * Marcus Tran (Tmarcus)
+ */
 /**
  * changes from first UML: iterator has no remove(), singly linked list
  */
@@ -8,7 +19,16 @@ import java.util.NoSuchElementException;
 
 /**
  * @author Kara Probasco (karap17)
- * @version 4/10/2019
+ * @author Alisa Khuu (alisak22)
+ * @author Riya Dani (riyadn99)
+ * @author Marcus Tran (Tmarcus)
+ * 
+ * @version 4/16/2019
+ *
+ * Class that implements the linked list data structure
+ * using a generic type for ease of use.  Used to store the 
+ * People and Song objects for sorting
+ *
  * @param <T>
  *            generic type for linked listed
  */
@@ -49,6 +69,7 @@ public class LList<T> implements Iterable<T> {
         return head;
     }
 
+
     /**
      * returns head
      * 
@@ -57,6 +78,7 @@ public class LList<T> implements Iterable<T> {
     public void setHead(Node<T> node) {
         head = node;
     }
+
 
     /**
      * Adds the object to the position in the list
@@ -408,6 +430,16 @@ public class LList<T> implements Iterable<T> {
     }
 
 
+    /**
+     * Iterator class
+     * 
+     * @author Kara Probasco (karap17)
+     * @author Alisa Khuu (alisak22)
+     * @author Riya Dani (riyadn99)
+     * @author Marcus Tran (Tmarcus)
+     * 
+     * @version 4/16/2019
+     */
     private class LListIterator<P> implements Iterator<T> {
         private Node<T> next;
         private Node<T> previous;
@@ -482,9 +514,14 @@ public class LList<T> implements Iterable<T> {
 
 
     /**
-     * private node class for linked list
+     * Node class
      * 
-     * @author proba
+     * @author Kara Probasco (karap17)
+     * @author Alisa Khuu (alisak22)
+     * @author Riya Dani (riyadn99)
+     * @author Marcus Tran (Tmarcus)
+     * 
+     * @version 4/16/2019
      *
      * @param <A>
      *            generic

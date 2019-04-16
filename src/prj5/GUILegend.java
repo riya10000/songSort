@@ -1,3 +1,13 @@
+/*
+ * Virginia Tech Honor Code Pledge:
+ *
+ * As a Hokie, I will conduct myself with honor
+ * and integrity at all times.
+ * I will not lie, cheat, or steal, nor will I
+ * accept the actions of those who do.
+ * -- Riya Dani (riyadn99), Kara Probasco (karap17), Alisa Khuu (alisak22),
+ * Marcus Tran (Tmarcus)
+ */
 package prj5;
 
 import java.awt.Color;
@@ -61,11 +71,12 @@ public class GUILegend {
         height = window.getGraphPanelHeight() / 3;
         windowWidth = window.getGraphPanelWidth();
         windowHeight = window.getGraphPanelHeight();
-        
+
         this.num = num;
 
-        legend = new TextShape(windowWidth - width*3/4, height, "");
+        legend = new TextShape(windowWidth - width * 3 / 4, height, "");
         legend.setBackgroundColor(Color.WHITE);
+        
         permSong = new TextShape(windowWidth - width*3/5, 
                                 height + height/6, "Song Title");
         permSong.setBackgroundColor(Color.WHITE);
@@ -91,17 +102,17 @@ public class GUILegend {
                               height*2 + height*3/9,"", four);
         
         
+
         word1.setBackgroundColor(Color.WHITE);
         word2.setBackgroundColor(Color.WHITE);
         word3.setBackgroundColor(Color.WHITE);
         word4.setBackgroundColor(Color.WHITE);
-        
+
         window.addShape(permSong);
         window.addShape(bar);
         window.addShape(permHeard);
         window.addShape(permLikes);
-        
-        
+
     }
 
     /**
@@ -115,6 +126,8 @@ public class GUILegend {
         this.num = num;
     }
 
+    
+    
     /**
      * helper method 
      * sets text based off of num
@@ -142,6 +155,7 @@ public class GUILegend {
             word4.setText("Outside Us");
         }
     }
+
     
     /**
      * removes all shapes from window
@@ -156,6 +170,7 @@ public class GUILegend {
         window.removeShape(word3);
         window.removeShape(word4);
     }
+
     
     /**
      * adds all shapes to window
@@ -170,6 +185,7 @@ public class GUILegend {
         window.addShape(word3);
         window.addShape(word4);
     }
+
     
     /**
      * renders objects to window

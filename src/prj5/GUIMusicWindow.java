@@ -1,3 +1,13 @@
+/*
+ * Virginia Tech Honor Code Pledge:
+ *
+ * As a Hokie, I will conduct myself with honor
+ * and integrity at all times.
+ * I will not lie, cheat, or steal, nor will I
+ * accept the actions of those who do.
+ * -- Riya Dani (riyadn99), Kara Probasco (karap17), Alisa Khuu (alisak22),
+ * Marcus Tran (Tmarcus)
+ */
 package prj5;
 
 import java.util.ArrayList;
@@ -34,11 +44,12 @@ public class GUIMusicWindow {
     private Button quit;
     private Button previous;
     private Button next;
-    
+
     private GUIGlyph test;
     private GUILegend legend;
-    
+
     private SongSorter sorter;
+
     
     
     
@@ -61,10 +72,6 @@ public class GUIMusicWindow {
     private Song song2;
     private Song song3;
     private Song song4;
-    
-    
-    
-    
 
     /**
      * Constructor for GUIMusicWindow
@@ -80,7 +87,8 @@ public class GUIMusicWindow {
      */
     public GUIMusicWindow() {
         window = new Window();
-        window.setSize(window.getGraphPanelWidth() * 4/3, window.getGraphPanelHeight() * 4/3);
+        window.setSize(window.getGraphPanelWidth() * 4 / 3, window
+            .getGraphPanelHeight() * 4 / 3);
         Button sortByArtistName = new Button("Sort by Artist");
         Button sortBySongTitle = new Button("Sort by Song Title");
         Button sortByReleaseYear = new Button("Sort by Release Date");
@@ -114,39 +122,30 @@ public class GUIMusicWindow {
         window.addButton(representMajor, WindowSide.SOUTH);
         window.addButton(representRegion, WindowSide.SOUTH);
         window.addButton(next, WindowSide.SOUTH);
-        
-        
-        
-        
-        
-        
-        
+
         stringAr = new String[2];
         stringAr[0] = "Yes";
         stringAr[1] = "Yes";
-        
-        
 
         stringAr2 = new String[2];
         stringAr2[0] = "Yes";
         stringAr2[1] = "No";
-        
-        
-        person1 = new People(HobbyEnum.ART, MajorEnum.COMPSCI,
-            RegionEnum.NE_US, stringAr);
-        person2 = new People(HobbyEnum.ART, MajorEnum.COMPSCI,
-            RegionEnum.NE_US, stringAr2);
-        
-        person3 = new People(HobbyEnum.SPORTS, MajorEnum.MATHCMDA, RegionEnum.OTHER_US,
-            new String[] {"no", "Yes"});
+
+        person1 = new People(HobbyEnum.ART, MajorEnum.COMPSCI, RegionEnum.NE_US,
+            stringAr);
+        person2 = new People(HobbyEnum.ART, MajorEnum.COMPSCI, RegionEnum.NE_US,
+            stringAr2);
+
+        person3 = new People(HobbyEnum.SPORTS, MajorEnum.MATHCMDA,
+            RegionEnum.OTHER_US, new String[] { "no", "Yes" });
         person4 = new People(HobbyEnum.SPORTS, MajorEnum.MATHCMDA,
             RegionEnum.OTHER_US, stringAr);
-        
+
         person5 = new People(HobbyEnum.READ, MajorEnum.OTHER,
             RegionEnum.OUTSIDE_US, stringAr2);
         person6 = new People(HobbyEnum.READ, MajorEnum.OTHER,
             RegionEnum.OUTSIDE_US, stringAr);
-        
+
         person7 = new People(HobbyEnum.MUSIC, MajorEnum.OTHERENG,
             RegionEnum.SE_US, stringAr);
         person8 = new People(HobbyEnum.MUSIC, MajorEnum.OTHERENG,
@@ -163,25 +162,23 @@ public class GUIMusicWindow {
         peopleArList.add(person8);
 
         song = new Song("Boy With Luv", "BTS", 2019, "Pop", peopleArList, 0);
-        
-        
-        
+
         test = new GUIGlyph(song, 1, 0);
         GUIGlyph test2 = new GUIGlyph(song, 1, 1);
         GUIGlyph test3 = new GUIGlyph(song, 1, 2);
         GUIGlyph test4 = new GUIGlyph(song, 1, 5);
         GUIGlyph test5 = new GUIGlyph(song, 1, 4);
-        
+
         GUIGlyph test6 = new GUIGlyph(song, 1, 6);
-        //Glyph test4 = new Glyph(song, 1, 5);
+        // Glyph test4 = new Glyph(song, 1, 5);
         test2.render(window);
         test3.render(window);
-        //test4.render(window);
+        // test4.render(window);
         test.render(window);
         test4.render(window);
         test5.render(window);
         test6.render(window);
-        
+
         legend = new GUILegend(2, window);
         legend.render(window);
 
