@@ -127,6 +127,7 @@ public class Song {
         return heardFeedback;
     }
 
+
     /**
      * gets like feedback
      * 
@@ -135,6 +136,7 @@ public class Song {
     public int[][] getLFeedback() {
         return likeFeedback;
     }
+
 
     /**
      * gets index of song
@@ -201,7 +203,7 @@ public class Song {
         int[][] tempMatrix = new int[3][4];
 
         for (int i = 0; i < people.size(); i++) {
-            if (!people.get(i).getFeedback()[index].equals("")) {
+            if (people.get(i).getFeedback()[index].equals("Yes") || people.get(i).getFeedback()[index].equals("No")) {
                 if (people.get(i).getHobby() == HobbyEnum.READ) {
                     tempMatrix[0][0] += 1;
                 }
@@ -242,20 +244,22 @@ public class Song {
         }
         return tempMatrix;
     }
-    
+
+
     /**
-     * calculates the total feedback for the people
+     * calculates the likes feedback for the people
      * 
      * @param people
      *            person ArrayList
      * @param index
      *            index of song
+     *  @return int[][] of feedback          
      */
     public int[][] calculateLFeedback(ArrayList<People> people, int index) {
         int[][] tempMatrix = new int[3][4];
 
         for (int i = 0; i < people.size(); i++) {
-            if (!people.get(i).getFeedback()[index + 1].equals("")) {
+            if (people.get(i).getFeedback()[index + 1].equals("Yes") || people.get(i).getFeedback()[index + 1].equals("No")) {
                 if (people.get(i).getHobby() == HobbyEnum.READ) {
                     tempMatrix[0][0] += 1;
                 }

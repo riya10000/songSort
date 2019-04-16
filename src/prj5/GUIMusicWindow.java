@@ -25,8 +25,6 @@ public class GUIMusicWindow {
     
     
     
-    
-    
     private ArrayList<People> peopleArList;
     private People person1;
     private People person2;
@@ -56,6 +54,7 @@ public class GUIMusicWindow {
 
     public GUIMusicWindow() {
         window = new Window();
+        window.setSize(window.getGraphPanelWidth() * 4/3, window.getGraphPanelHeight() * 4/3);
         Button sortByArtistName = new Button("Sort by Artist");
         Button sortBySongTitle = new Button("Sort by Song Title");
         Button sortByReleaseYear = new Button("Sort by Release Date");
@@ -111,14 +110,17 @@ public class GUIMusicWindow {
             RegionEnum.NE_US, stringAr);
         person2 = new People(HobbyEnum.ART, MajorEnum.COMPSCI,
             RegionEnum.NE_US, stringAr2);
-        person3 = new People(HobbyEnum.SPORTS, MajorEnum.OTHER, RegionEnum.OTHER_US,
-            stringAr);
+        
+        person3 = new People(HobbyEnum.SPORTS, MajorEnum.MATHCMDA, RegionEnum.OTHER_US,
+            new String[] {"no", "Yes"});
         person4 = new People(HobbyEnum.SPORTS, MajorEnum.MATHCMDA,
             RegionEnum.OTHER_US, stringAr);
-        person5 = new People(HobbyEnum.READ, MajorEnum.MATHCMDA,
+        
+        person5 = new People(HobbyEnum.READ, MajorEnum.OTHER,
             RegionEnum.OUTSIDE_US, stringAr2);
         person6 = new People(HobbyEnum.READ, MajorEnum.OTHER,
             RegionEnum.OUTSIDE_US, stringAr);
+        
         person7 = new People(HobbyEnum.MUSIC, MajorEnum.OTHERENG,
             RegionEnum.SE_US, stringAr);
         person8 = new People(HobbyEnum.MUSIC, MajorEnum.OTHERENG,
@@ -139,6 +141,12 @@ public class GUIMusicWindow {
         
         
         test = new Glyph(song, 1, 0);
+        Glyph test2 = new Glyph(song, 1, 1);
+        Glyph test3 = new Glyph(song, 1, 6);
+        //Glyph test4 = new Glyph(song, 1, 5);
+        test2.render(window);
+        test3.render(window);
+        //test4.render(window);
         test.render(window);
 
     }

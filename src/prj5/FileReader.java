@@ -45,7 +45,7 @@ public class FileReader {
         songSort.insertionSort();
         songs = songSort.getSongList();
         printer();
-        //new GUIMusicWindow(songs, peopleList);
+        // new GUIMusicWindow(songs, peopleList);
     }
 
 
@@ -99,73 +99,80 @@ public class FileReader {
         scan.nextLine();
         while (scan.hasNextLine()) {
             String line = scan.nextLine();
+            if (line != null && !line.equals("") && line.split(
+                ",").length > 4) {
+                String[] blockSplit = line.split(", *", -1);
+                String[] resp = new String[songFileLength(songFile) * 2];
 
-            String[] blockSplit = line.split(", *", -1);
-            String[] resp = new String[songFileLength(songFile) * 2];
+                int count = 0;
+                boolean make = true;
+                MajorEnum majoring = null;
+                RegionEnum reg = null;
+                HobbyEnum hobby = null;
 
-            int count = 0;
-            MajorEnum majoring = null;
-            RegionEnum reg = null;
-            HobbyEnum hobby = null;
+                switch (blockSplit[2]) {
+                    case "Math or CMDA":
+                        majoring = MajorEnum.MATHCMDA;
+                        break;
+                    case "Computer Science":
+                        majoring = MajorEnum.COMPSCI;
+                        break;
+                    case "Other Engineering":
+                        majoring = MajorEnum.OTHERENG;
+                        break;
+                    case "Other":
+                        majoring = MajorEnum.OTHER;
+                        break;
+                    default:
+                        make = false;
+                        break;
+                }
+                switch (blockSplit[3]) {
+                    case "Southeast":
+                        reg = RegionEnum.SE_US;
+                        break;
+                    case "Northeast":
+                        reg = RegionEnum.NE_US;
+                        break;
+                    case "United States (other than Southeast or Northwest)":
+                        reg = RegionEnum.OTHER_US;
+                        break;
+                    case "Outside of United States":
+                        reg = RegionEnum.OUTSIDE_US;
+                        break;
+                    default:
+                        make = false;
+                        break;
+                }
 
-            switch (blockSplit[2]) {
-                case "Math or CMDA":
-                    majoring = MajorEnum.MATHCMDA;
-                    break;
-                case "Computer Science":
-                    majoring = MajorEnum.COMPSCI;
-                    break;
-                case "Other Engineering":
-                    majoring = MajorEnum.OTHERENG;
-                    break;
-                case "Other":
-                    majoring = MajorEnum.OTHER;
-                    break;
-                default:
-                    break;
+                switch (blockSplit[4]) {
+                    case "sports":
+                        hobby = HobbyEnum.SPORTS;
+                        break;
+                    case "music":
+                        hobby = HobbyEnum.MUSIC;
+                        break;
+                    case "reading":
+                        hobby = HobbyEnum.READ;
+                        break;
+                    case "art":
+                        hobby = HobbyEnum.ART;
+                        break;
+                    default:
+                        make = false;
+                        break;
+                }
+                if (make) {
+                    for (int i = 5; i < blockSplit.length; i++) {
+                        resp[count] = blockSplit[i];
+                        count++;
+                    }
+
+                    People p = new People(hobby, majoring, reg, resp);
+                    people.add(p);
+                }
+
             }
-            switch (blockSplit[3]) {
-                case "Southeast":
-                    reg = RegionEnum.SE_US;
-                    break;
-                case "Northeast":
-                    reg = RegionEnum.NE_US;
-                    break;
-                case "United States (other than Southeast or Northwest)":
-                    reg = RegionEnum.OTHER_US;
-                    break;
-                case "Outside of United States":
-                    reg = RegionEnum.OUTSIDE_US;
-                    break;
-                default:
-                    break;
-            }
-
-            switch (blockSplit[4]) {
-                case "sports":
-                    hobby = HobbyEnum.SPORTS;
-                    break;
-                case "music":
-                    hobby = HobbyEnum.MUSIC;
-                    break;
-                case "reading":
-                    hobby = HobbyEnum.READ;
-                    break;
-                case "art":
-                    hobby = HobbyEnum.ART;
-                    break;
-                default:
-                    break;
-            }
-
-            for (int i = 5; i < blockSplit.length; i++) {
-                resp[count] = blockSplit[i];
-                count++;
-            }
-
-            People p = new People(hobby, majoring, reg, resp);
-            people.add(p);
-
         }
         scan.close();
 
