@@ -39,8 +39,7 @@ public class Input {
      *             if files are not found
      */
     public static void main(String[] args)
-        throws ParseException,
-        FileNotFoundException {
+        throws FileNotFoundException {
         if (args.length == 2) { 
             @SuppressWarnings("unused")
             FileReader files = new FileReader(args[0], args[1]);
