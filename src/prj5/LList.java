@@ -72,6 +72,9 @@ public class LList<T> implements Iterable<T> {
 
     /**
      * sets head
+     * 
+     * @param node
+     *            node to be head
      */
     public void setHead(Node<T> node) {
         head = node;

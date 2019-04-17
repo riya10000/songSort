@@ -33,7 +33,7 @@ public class SongSorterTest extends student.TestCase {
 
 
     /**
-     * Constructor that initializes all of the variables needed for 
+     * Constructor that initializes all of the variables needed for
      * the test cases.
      */
     public SongSorterTest() {
@@ -60,8 +60,8 @@ public class SongSorterTest extends student.TestCase {
         stringAr2[7] = "Yes";
         People person2 = new People(HobbyEnum.READ, MajorEnum.OTHERENG,
             RegionEnum.SE_US, stringAr2);
-        People person3 = new People(HobbyEnum.MUSIC, MajorEnum.OTHER, RegionEnum.NE_US,
-            stringAr);
+        People person3 = new People(HobbyEnum.MUSIC, MajorEnum.OTHER,
+            RegionEnum.NE_US, stringAr);
         People person4 = new People(HobbyEnum.SPORTS, MajorEnum.MATHCMDA,
             RegionEnum.OUTSIDE_US, stringAr2);
 
@@ -85,11 +85,12 @@ public class SongSorterTest extends student.TestCase {
         peopleArList.add(person4);
         peopleArList.add(person5);
 
-        Song song = new Song("Boy With Luv", "BTS", 2019, "Pop", peopleArList, 0);
+        Song song = new Song("Boy With Luv", "BTS", 2019, "Pop", peopleArList,
+            0);
         Song song2 = new Song("Idol", "bts", 2018, "pop", peopleArList, 1);
         Song song3 = new Song("Noir", "Sunmi", 2018, "kPop", peopleArList, 2);
-        Song song4 = new Song("No More Dream", "BTS", 2013, "Hip-Hop", peopleArList,
-            3);
+        Song song4 = new Song("No More Dream", "BTS", 2013, "Hip-Hop",
+            peopleArList, 3);
 
         songs = new LList<Song>();
         songs.add(song);
@@ -99,8 +100,8 @@ public class SongSorterTest extends student.TestCase {
 
         sort = new SongSorter<String>(songs);
 
-
     }
+
 
     /**
      * Tests the insertion sort by doing different types of insertion
@@ -122,6 +123,7 @@ public class SongSorterTest extends student.TestCase {
 
     }
 
+
     /**
      * Tests the compare method for different types of switch cases found
      * within the class itself
@@ -139,7 +141,8 @@ public class SongSorterTest extends student.TestCase {
 
         assertEquals(songs, sortDefault.getSongList());
     }
-   
+
+
     /**
      * Tests the getter method to ensure it returns a file
      */

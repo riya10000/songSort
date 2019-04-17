@@ -68,12 +68,12 @@ public class SongTest extends student.TestCase {
         String[] stringAr3 = new String[8];
         stringAr3[0] = "";
         stringAr3[1] = "";
-        stringAr3[2] = "no";
-        stringAr3[3] = "no";
+        stringAr3[2] = "No";
+        stringAr3[3] = "No";
         stringAr3[4] = "";
         stringAr3[5] = "";
-        stringAr3[6] = "no";
-        stringAr3[7] = "no";
+        stringAr3[6] = "No";
+        stringAr3[7] = "No";
 
         person5 = new People(HobbyEnum.SPORTS, MajorEnum.MATHCMDA,
             RegionEnum.OUTSIDE_US, stringAr3);
@@ -213,7 +213,7 @@ public class SongTest extends student.TestCase {
     public void testcompareTitle() {
         assertTrue(song4.compareTitle(song) > 1);
         assertTrue(song.compareTitle(song3) < -1);
-        assertTrue(song.compareTitle(song) == 0);
+        assertEquals(0, song.compareTitle(song));
     }
 
 
@@ -223,7 +223,7 @@ public class SongTest extends student.TestCase {
     public void testcompareArtist() {
         assertTrue(song3.compareArtist(song) > 1);
         assertTrue(song.compareArtist(song3) < -1);
-        assertTrue(song4.compareArtist(song2) == 0);
+        assertEquals(0, song4.compareArtist(song2));
     }
 
 
@@ -233,7 +233,7 @@ public class SongTest extends student.TestCase {
     public void testcompareGenre() {
         assertTrue(song2.compareGenre(song) > 1);
         assertTrue(song.compareGenre(song3) < -1);
-        assertTrue(song.compareGenre(song) == 0);
+        assertEquals(0, song.compareGenre(song));
     }
 
 
@@ -243,7 +243,7 @@ public class SongTest extends student.TestCase {
     public void testCompareDate() {
         assertTrue(song.compareDate(song2) > 0);
         assertTrue(song4.compareDate(song) < 0);
-        assertTrue(song2.compareDate(song3) == 0);
+        assertEquals(0, song2.compareDate(song3));
     }
 
 
