@@ -123,7 +123,11 @@ public class GUIGlyph {
     public void setSong(Song song) {
         this.song = song;
     }
-
+    
+    public void setSort(int sort) {
+        this.sortBy = sort;
+    }
+    
 
     /**
      * helper method

@@ -55,7 +55,7 @@ public class FileReader {
         songSort.insertionSort(3);
         songs = songSort.getSongList();
         printer();
-        // new GUIMusicWindow(songs, peopleList);
+        new GUIMusicWindow(songSort);
     }
 
 
