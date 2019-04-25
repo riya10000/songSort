@@ -48,13 +48,13 @@ public class FileReader {
         this.peopleList = readSurveyFile(applicantFile, songFile);
         this.songs = readMusicFile(songFile);
         this.songSort = new SongSorter<>(songs);
-        songSort.insertionSort(4);
-        songs = songSort.getSongList();
-        printer();
-        this.songSort = new SongSorter<>(songs);
-        songSort.insertionSort(3);
-        songs = songSort.getSongList();
-        printer();
+        //songSort.insertionSort(4);
+        //songs = songSort.getSongList();
+        //printer();
+        //this.songSort = new SongSorter<>(songs);
+        //songSort.insertionSort(3);
+        //songs = songSort.getSongList();
+        //printer();
         new GUIMusicWindow(songSort);
     }
 
@@ -113,7 +113,7 @@ public class FileReader {
             String line = scan.nextLine();
             if (line != null && !line.equals("") && line.split(
                 ",").length > 4) {
-                String[] blockSplit = line.split(", *");
+                String[] blockSplit = line.split(",*");
                 String[] resp = new String[songFileLength(songFile) * 2];
 
                 int count = 0;

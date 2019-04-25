@@ -333,6 +333,7 @@ public class Song {
 
         for (int i = 0; i < people.size(); i++) {
             if (people.get(i).getFeedback()[index].equals("Yes")) {
+                System.out.println(i);
                 if (people.get(i).getHobby() == HobbyEnum.READ) {
                     tempMatrix[0][0] += 1;
                 }
