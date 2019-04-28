@@ -81,6 +81,7 @@ public class GUIMusicWindow {
     public GUIMusicWindow(SongSorter<Song> sorter) {
         this.sorter = sorter;
         window = new Window();
+        glyphs = new GUIGlyph[sorter.getSongList().size()];
         window.setSize(window.getGraphPanelWidth() * 4 / 3, window
             .getGraphPanelHeight() * 4 / 3);
         Button sortByArtistName = new Button("Sort by Artist");
@@ -116,7 +117,7 @@ public class GUIMusicWindow {
         window.addButton(representMajor, WindowSide.SOUTH);
         window.addButton(representRegion, WindowSide.SOUTH);
         window.addButton(next, WindowSide.SOUTH);
-
+        /*
         stringAr = new String[2];
         stringAr[0] = "Yes";
         stringAr[1] = "Yes";
@@ -154,9 +155,8 @@ public class GUIMusicWindow {
         peopleArList.add(person6);
         peopleArList.add(person7);
         peopleArList.add(person8);
-
-        song = new Song("Boy With Luv", "BTS", 2019, "Pop", peopleArList, 0);
-
+    */
+        //song = new Song("Boy With Luv", "BTS", 2019, "Pop", peopleArList, 0);
         for (int i = 0; i < 3; i++) {
             glyphs[i] = new GUIGlyph(sorter.getSongList().get(i), 0, i);
             glyphs[i].render(window);
@@ -297,8 +297,7 @@ public class GUIMusicWindow {
      */
     public void clickedSortByArtistName(Button sortByArtistName) {
         index = 0;
-        //NEEDS NUMBER
-        sorter.insertionSort();
+        sorter.insertionSort(1);
         for(int i =0; i < 6; i++) {
             glyphs[i].setSong((Song)sorter.getSongList().get(i));
             glyphs[i].render(window);
@@ -315,7 +314,7 @@ public class GUIMusicWindow {
     public void clickedSortBySongTitle(Button sortBySongTitle) {
         index = 0;
         //NEEDS NUMBER
-        sorter.insertionSort();
+        sorter.insertionSort(3);
         for(int i =0; i < 6; i++) {
             glyphs[i].setSong((Song)sorter.getSongList().get(i));
             glyphs[i].render(window);
@@ -331,7 +330,7 @@ public class GUIMusicWindow {
     public void clickedSortByReleaseTitle(Button sortByReleaseTitle) {
         index = 0;
         //NEEDS NUMBER
-        sorter.insertionSort();
+        sorter.insertionSort(2);
         for(int i =0; i < 6; i++) {
             glyphs[i].setSong((Song)sorter.getSongList().get(i));
             glyphs[i].render(window);
@@ -347,7 +346,7 @@ public class GUIMusicWindow {
     public void clickedSortByGenre(Button sortByGenre) {
         index = 0;
         //NEEDS NUMBER
-        sorter.insertionSort();
+        sorter.insertionSort(4);
         for(int i =0; i < 6; i++) {
             glyphs[i].setSong((Song)sorter.getSongList().get(i));
             glyphs[i].render(window);
@@ -365,10 +364,10 @@ public class GUIMusicWindow {
         //INSERT NUMBER
         for(int i = 0; i < 6; i++) {
             //INSERT NUMBER
-            glyphs[i].setSort();
+            glyphs[i].setSort(0);
             glyphs[i].render(window);
         }
-        legend.setLegend();
+        legend.setLegend(0);
         legend.render(window);
     }
 
@@ -382,10 +381,10 @@ public class GUIMusicWindow {
       //INSERT NUMBER
         for(int i = 0; i < 6; i++) {
             //INSERT NUMBER
-            glyphs[i].setSort();
+            glyphs[i].setSort(1);
             glyphs[i].render(window);
         }
-        legend.setLegend();
+        legend.setLegend(1);
         legend.render(window);
     }
 
@@ -399,10 +398,10 @@ public class GUIMusicWindow {
       //INSERT NUMBER
         for(int i = 0; i < 6; i++) {
             //INSERT NUMBER
-            glyphs[i].setSort();
+            glyphs[i].setSort(2);
             glyphs[i].render(window);
         }
-        legend.setLegend();
+        legend.setLegend(2);
         legend.render(window);
     }
 
