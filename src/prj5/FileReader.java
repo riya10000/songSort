@@ -113,7 +113,7 @@ public class FileReader {
             String line = scan.nextLine();
             if (line != null && !line.equals("") && line.split(
                 ",").length > 4) {
-                String[] blockSplit = line.split(",*");
+                String[] blockSplit = line.split(",", -1);
                 String[] resp = new String[songFileLength(songFile) * 2];
 
                 int count = 0;

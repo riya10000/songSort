@@ -135,63 +135,63 @@ public class GUIGlyph {
      * window size and song data
      */
     private void calculate() {
+        int[][] heardPercent = song.heardPercent();
+        int[][] likesPercent = song.likesPercent();
+        
         middle = new Shape(width*3/4 + width*(num%4) + buffer*(num%4),
                             height*(num/4)*2 + height  , 
                             width/20, height, 
                             Color.BLACK );
         
-        heard1 = new Shape(width*3/4 + width*(num%4) - song.heardPercent()
+        heard1 = new Shape(width*3/4 + width*(num%4) - heardPercent
                             [sortBy][0]*width/200 + buffer*(num%4),
                             height*(num/4)*2 + height, 
-                            song.heardPercent()[sortBy][0]*width/200, 
+                            heardPercent[sortBy][0]*width/200, 
                             height/4, 
                             one);
         
-        heard2 = new Shape(width*3/4 + width*(num%4) - song.heardPercent()
+        heard2 = new Shape(width*3/4 + width*(num%4) - heardPercent
                             [sortBy][1]*width/200  + buffer*(num%4),
                             height*(num/4)*2 + height + height/4, 
-                            song.heardPercent()[sortBy][1]*width/200, 
+                            heardPercent[sortBy][1]*width/200, 
                             height/4, 
                             two);
         
-        heard3 = new Shape(width*3/4 + width*(num%4) - song.heardPercent()
+        heard3 = new Shape(width*3/4 + width*(num%4) - heardPercent
                             [sortBy][2]*width/200  + buffer*(num%4),
                             height*(num/4)*2 + height + height/2, 
-                            song.heardPercent()[sortBy][2]*width/200, 
+                            heardPercent[sortBy][2]*width/200, 
                             height/4, 
                             three);
         
-        heard4 = new Shape(width*3/4 + width*(num%4) - song.heardPercent()
+        heard4 = new Shape(width*3/4 + width*(num%4) - heardPercent
                             [sortBy][3]*width/200  + buffer*(num%4), 
                             height*(num/4)*2 + height + height*3/4, 
-                            song.heardPercent()[sortBy][3]*width/200, 
+                            heardPercent[sortBy][3]*width/200, 
                             height/4, 
                             four);
         
-        
-        
-        
-        likes1 = new Shape(width*3/4 + width*(num%4) + width/20  + buffer*(num%4),
+        likes1 = new Shape(width*3/4 + width*(num%4) + width/20 + buffer*(num%4),
                             height*(num/4)*2 + height, 
-                            song.likesPercent()[sortBy][0]*width/200, 
+                            likesPercent[sortBy][0]*width/200, 
                             height/4, 
                             one);
         
         likes2 = new Shape(width*3/4 + width*(num%4) + width/20  + buffer*(num%4),
                             height*(num/4)*2 + height + height/4, 
-                            song.likesPercent()[sortBy][1]*width/200, 
+                            likesPercent[sortBy][1]*width/200, 
                             height/4, 
                             two);
         
         likes3 = new Shape(width*3/4 + width*(num%4) + width/20  + buffer*(num%4), 
                             height*(num/4)*2 + height + height/2, 
-                            song.likesPercent()[sortBy][2]*width/200, 
+                            likesPercent[sortBy][2]*width/200, 
                             height/4, 
                             three);
         
         likes4 = new Shape(width*3/4 + width*(num%4) + width/20  + buffer*(num%4),
                             height*(num/4)*2 + height + height*3/4, 
-                            song.likesPercent()[sortBy][3]*width/200, 
+                            likesPercent[sortBy][3]*width/200, 
                             height/4, 
                             four);
         

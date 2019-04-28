@@ -133,21 +133,21 @@ public class GUILegend {
      * sets text based off of num
      */
     private void setText() {
-        if (num == 1) {
+        if (num == 0) {
             legend.setText("Hobby Legend");
             word1.setText("Read");
             word2.setText("Art");
             word3.setText("Sports");
             word4.setText("Music");
         }
-        else if (num == 2) {
+        else if (num == 1) {
             legend.setText("Major Legend");
             word1.setText("Comp Sci");
             word2.setText("Other Eng");
             word3.setText("Math/CMDA");
             word4.setText("Other");
         }
-        else if (num == 3) {
+        else if (num == 2) {
             legend.setText("Region Legend");
             word1.setText("Northeast US");
             word2.setText("Souteast US");
