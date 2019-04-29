@@ -50,8 +50,8 @@ public class Input {
         }
         else {
             @SuppressWarnings("unused")
-            FileReader FileReader2 = new FileReader("MusicSurveyData.csv",
-                "SongList.csv");
+            FileReader FileReader2 = new FileReader("MusicSurveyData2018.csv",
+                "SongList2018.csv");
        }
 
         //GUIMusicWindow window = new GUIMusicWindow();

@@ -47,6 +47,7 @@ public class GUIGlyph {
     private Shape middle;
 
     private TextShape songText;
+    private TextShape artistText;
 
     private int width;
     private int height;
@@ -90,6 +91,7 @@ public class GUIGlyph {
         middle = new Shape(0, 0, 0);
 
         songText = new TextShape(0, 0, "");
+        artistText = new TextShape(0, 0, "");
 
         buffer = 0;
 
@@ -195,11 +197,17 @@ public class GUIGlyph {
                             height/4, 
                             four);
         
-        songText = new TextShape(width*1/4 + width*(num%4) + buffer*(num%4), 
-                                height*(num/4)*2 + height - buffer, 
-                                song.getTitle() + " by " + song.getArtist());
+        songText = new TextShape(width*1/3 + width*(num%4) + buffer*(num%4), 
+                                height*(num/4)*2 + height - buffer/2, 
+                                song.getTitle());
 
         songText.setBackgroundColor(Color.WHITE);
+        
+        artistText = new TextShape(width*1/3 + width*(num%4) + buffer*(num%4), 
+            height*(num/4)*2 + height - buffer/4, 
+            " by " + song.getArtist());
+
+        artistText.setBackgroundColor(Color.WHITE);
 
     }
 
@@ -210,7 +218,7 @@ public class GUIGlyph {
      * @param window
      *          window objects are removed from
      */
-    private void remove(Window window) {
+    public void remove(Window window) {
         window.removeShape(heard1);
         window.removeShape(heard2);
         window.removeShape(heard3);
@@ -221,6 +229,7 @@ public class GUIGlyph {
         window.removeShape(likes4);
         window.removeShape(middle);
         window.removeShape(songText);
+        window.removeShape(artistText);
 
     }
 
@@ -234,6 +243,7 @@ public class GUIGlyph {
     private void add(Window window) {
         window.addShape(middle);
         window.addShape(songText);
+        window.addShape(artistText);
         window.addShape(heard1);
         window.addShape(heard2);
         window.addShape(heard3);
@@ -253,8 +263,8 @@ public class GUIGlyph {
      */
     public void render(Window window) {
         width = window.getGraphPanelWidth() / 5;
-        height = window.getGraphPanelHeight() / 5;
-        buffer = window.getGraphPanelWidth() / 20;
+        height = window.getGraphPanelHeight() / 7;
+        buffer = window.getGraphPanelWidth() / 15;
         remove(window);
         calculate();
         add(window);
