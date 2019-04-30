@@ -59,7 +59,8 @@ public class GUIMusicWindow {
     public GUIMusicWindow(SongSorter<Song> sorter) {
         this.sorter = sorter;
         window = new Window();
-        window.setSize(window.getGraphPanelWidth()*3/2, window.getGraphPanelHeight()*7/4);
+        window.setSize(window.getGraphPanelWidth() * 3 / 2, window
+            .getGraphPanelHeight() * 7 / 4);
         glyphs = new GUIGlyph[9];
 
         window.setSize(window.getGraphPanelWidth() * 4 / 3, window
@@ -99,15 +100,24 @@ public class GUIMusicWindow {
         window.addButton(next, WindowSide.SOUTH);
 
         for (int i = 0; i < 3; i++) {
+            if (index + i >= sorter.getSongList().size()) {
+                break;
+            }
             glyphs[i] = new GUIGlyph(sorter.getSongList().get(i), 0, i);
             glyphs[i].render(window);
 
         }
         for (int i = 4; i <= 6; i++) {
+            if (index + i - 1 >= sorter.getSongList().size()) {
+                break;
+            }
             glyphs[i - 1] = new GUIGlyph(sorter.getSongList().get(i - 1), 0, i);
             glyphs[i - 1].render(window);
         }
         for (int i = 8; i <= 10; i++) {
+            if (index + i - 2 >= sorter.getSongList().size()) {
+                break;
+            }
             glyphs[i - 2] = new GUIGlyph(sorter.getSongList().get(i - 2), 0, i);
             glyphs[i - 2].render(window);
         }
@@ -190,6 +200,12 @@ public class GUIMusicWindow {
      */
     public void clickedRepresentHobby(Button representHobby) {
         for (int i = 0; i < 9; i++) {
+            glyphs[i].remove(window);
+        }
+        for (int i = 0; i < 9; i++) {
+            if (index + i >= sorter.getSongList().size()) {
+                break;
+            }
             glyphs[i].setSort(0);
             glyphs[i].render(window);
         }
@@ -206,6 +222,12 @@ public class GUIMusicWindow {
      */
     public void clickedRepresentMajor(Button representMajor) {
         for (int i = 0; i < 9; i++) {
+            glyphs[i].remove(window);
+        }
+        for (int i = 0; i < 9; i++) {
+            if (index + i >= sorter.getSongList().size()) {
+                break;
+            }
             glyphs[i].setSort(1);
             glyphs[i].render(window);
         }
@@ -221,10 +243,18 @@ public class GUIMusicWindow {
      *            button pushed
      */
     public void clickedRepresentRegion(Button representRegion) {
+
         for (int i = 0; i < 9; i++) {
+            glyphs[i].remove(window);
+        }
+        for (int i = 0; i < 9; i++) {
+            if (index + i >= sorter.getSongList().size()) {
+                break;
+            }
             glyphs[i].setSort(2);
             glyphs[i].render(window);
         }
+
         legend.setLegend(2);
         legend.render(window);
     }
@@ -266,14 +296,13 @@ public class GUIMusicWindow {
      *            button pushed
      */
     public void clickedNext(Button next) {
-        
         if (index + 9 < sorter.getSongList().size()) {
             for (int i = 0; i < 9; i++) {
                 glyphs[i].remove(window);
             }
             index = index + 9;
             for (int i = 0; i < 9; i++) {
-                if(index + i >= sorter.getSongList().size()) {
+                if (index + i >= sorter.getSongList().size()) {
                     break;
                 }
                 glyphs[i].setSong((Song)sorter.getSongList().get(index + i));

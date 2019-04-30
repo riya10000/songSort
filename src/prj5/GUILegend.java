@@ -74,13 +74,13 @@ public class GUILegend {
 
         this.num = num;
 
-        legend = new TextShape(windowWidth - width * 3 / 4, height, "");
+        legend = new TextShape(windowWidth - width * 3 / 4 + width/15, height, "");
         legend.setBackgroundColor(Color.WHITE);
         
         permSong = new TextShape(windowWidth - width*3/5, 
                                 height + height/6, "Song Title");
         permSong.setBackgroundColor(Color.WHITE);
-        bar = new Shape(windowWidth - width*2/5,
+        bar = new Shape(windowWidth - width*3/7,
                         height + height/3, 
                         width/20, height/2, 
                         Color.BLACK );
@@ -92,14 +92,14 @@ public class GUILegend {
         permHeard.setBackgroundColor(Color.WHITE);
         permLikes.setBackgroundColor(Color.WHITE);
     
-        word1 = new TextShape(windowWidth - width*3/4, 
-                              height*2,"", one);
-        word2 = new TextShape(windowWidth - width*3/4,
-                               height*2 + height/9,"", two);
-        word3 = new TextShape(windowWidth - width*3/4, 
-                              height*2+ height*2/9,"", three);
-        word4 = new TextShape(windowWidth - width*3/4, 
-                              height*2 + height*3/9,"", four);
+        word1 = new TextShape(windowWidth - width*3/5, 
+                              height*2 - height/10,"", one);
+        word2 = new TextShape(windowWidth - width*3/5,
+                               height*2 - height/10 + height/9,"", two);
+        word3 = new TextShape(windowWidth - width*3/5, 
+                              height*2 - height/10 + height*2/9,"", three);
+        word4 = new TextShape(windowWidth - width*3/5, 
+                              height*2 -height/10 + height*3/9,"", four);
         
         
 

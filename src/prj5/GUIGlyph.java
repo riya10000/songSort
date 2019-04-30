@@ -212,7 +212,6 @@ public class GUIGlyph {
     }
 
     /**
-     * helper method
      * removes all objects from window
      * 
      * @param window

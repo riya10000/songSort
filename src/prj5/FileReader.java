@@ -21,11 +21,12 @@ import java.util.Scanner;
  * @author Riya Dani (riyadn99)
  * @author Marcus Tran (Tmarcus)
  * 
- * Class that reads from two given files, a applicantFile
- * and a songFile. The class stores the data 
- * received in the file which contains the survey data of each
- * participant into a People object, and the data received from the songFile
- * class is stored into a Song object
+ *         Class that reads from two given files, a applicantFile
+ *         and a songFile. The class stores the data
+ *         received in the file which contains the survey data of each
+ *         participant into a People object, and the data received from the
+ *         songFile
+ *         class is stored into a Song object
  * 
  * @version 4/16/2019
  */
@@ -48,13 +49,13 @@ public class FileReader {
         this.peopleList = readSurveyFile(applicantFile, songFile);
         this.songs = readMusicFile(songFile);
         this.songSort = new SongSorter<>(songs);
-        //songSort.insertionSort(4);
-        //songs = songSort.getSongList();
-        //printer();
-        //this.songSort = new SongSorter<>(songs);
-        //songSort.insertionSort(3);
-        //songs = songSort.getSongList();
-        //printer();
+        // songSort.insertionSort(4);
+        // songs = songSort.getSongList();
+        // printer();
+        // this.songSort = new SongSorter<>(songs);
+        // songSort.insertionSort(3);
+        // songs = songSort.getSongList();
+        // printer();
         new GUIMusicWindow(songSort);
     }
 
@@ -201,8 +202,7 @@ public class FileReader {
      * @throws FileNotFoundException
      *             if file not found
      */
-    private int songFileLength(String fileName)
-        throws FileNotFoundException {
+    private int songFileLength(String fileName) throws FileNotFoundException {
         Scanner scan = new Scanner(new File(fileName));
         int songNum = 0;
         scan.nextLine();
